@@ -67,20 +67,25 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org96e6a1d">Support Vector Machine (SVM)</a>
+<li><a href="#orga6f5740">Support Vector Machine (SVM)</a>
 <ul>
-<li><a href="#orgbe5d0f2">Dealing with outliers: The Slack term</a></li>
-<li><a href="#org32202b7">Dealing with non-linear speration boundires: Kernel Trick</a></li>
+<li><a href="#orgc1671b5">Dealing with outliers: The Slack term</a></li>
+<li><a href="#org918e415">Dealing with non-linear speration boundires: Kernel Trick</a></li>
 </ul>
 </li>
-<li><a href="#org3d6ee2a">Naive Bayes</a>
+<li><a href="#orgfe65795">Naive Bayes</a>
 <ul>
-<li><a href="#orgbbfeb46">Limitations</a></li>
+<li><a href="#orgd12c9c4">Limitations</a></li>
 </ul>
 </li>
-<li><a href="#org5ec2bdd">Ensemble Learning</a>
+<li><a href="#orgec58506">Ensemble Learning</a>
 <ul>
-<li><a href="#org70a4f91">Random Forest</a></li>
+<li><a href="#org3444199">Random Forest</a></li>
+</ul>
+</li>
+<li><a href="#org57c5ec7">Optimization techniques</a>
+<ul>
+<li><a href="#orgf3ebfb6">Simulated annealing: A technique to find approximate global optimum in hightly rugged energy landscape</a></li>
 </ul>
 </li>
 </ul>
@@ -112,9 +117,9 @@ production.<br>
 </p>
 
 
-<section id="outline-container-org96e6a1d" class="outline-2">
-<h2 id="org96e6a1d">Support Vector Machine (SVM)</h2>
-<div class="outline-text-2" id="text-org96e6a1d">
+<section id="outline-container-orga6f5740" class="outline-2">
+<h2 id="orga6f5740">Support Vector Machine (SVM)</h2>
+<div class="outline-text-2" id="text-orga6f5740">
 <p>
 Central to the SVM is the concept of maximizing the margin between classes,<br>
 achieved by finding the hyperplane that separates the data points of different<br>
@@ -178,9 +183,9 @@ as follows:<br>
 </p>
 </div>
 
-<div id="outline-container-orgbe5d0f2" class="outline-3">
-<h3 id="orgbe5d0f2">Dealing with outliers: The Slack term</h3>
-<div class="outline-text-3" id="text-orgbe5d0f2">
+<div id="outline-container-orgc1671b5" class="outline-3">
+<h3 id="orgc1671b5">Dealing with outliers: The Slack term</h3>
+<div class="outline-text-3" id="text-orgc1671b5">
 <p>
 Slack refers to the allowance of misclassification or errors in the SVM<br>
 optimization process. Introducing slack enables SVM to handle linearly/non-linearly<br>
@@ -191,9 +196,9 @@ better to complex datasets, although too much slack can lead to overfitting.<br>
 </div>
 </div>
 
-<div id="outline-container-org32202b7" class="outline-3">
-<h3 id="org32202b7">Dealing with non-linear speration boundires: Kernel Trick</h3>
-<div class="outline-text-3" id="text-org32202b7">
+<div id="outline-container-org918e415" class="outline-3">
+<h3 id="org918e415">Dealing with non-linear speration boundires: Kernel Trick</h3>
+<div class="outline-text-3" id="text-org918e415">
 <p>
 Thee kernel trick is a method used to extend SVMs for non-linear decision<br>
 boundaries without explicitly mapping the input data into a higher-dimensional<br>
@@ -214,9 +219,9 @@ applications.<br>
 </section>
 
 
-<section id="outline-container-org3d6ee2a" class="outline-2">
-<h2 id="org3d6ee2a">Naive Bayes</h2>
-<div class="outline-text-2" id="text-org3d6ee2a">
+<section id="outline-container-orgfe65795" class="outline-2">
+<h2 id="orgfe65795">Naive Bayes</h2>
+<div class="outline-text-2" id="text-orgfe65795">
 <p>
 Naive Bayes is a probabilistic algorithm commonly used for classification<br>
 tasks. Its simplicity, speed, and effectiveness make it a popular choice for<br>
@@ -282,9 +287,9 @@ Output: Predicted class labels for the test set.
 </pre>
 </div>
 
-<div id="outline-container-orgbbfeb46" class="outline-3">
-<h3 id="orgbbfeb46">Limitations</h3>
-<div class="outline-text-3" id="text-orgbbfeb46">
+<div id="outline-container-orgd12c9c4" class="outline-3">
+<h3 id="orgd12c9c4">Limitations</h3>
+<div class="outline-text-3" id="text-orgd12c9c4">
 <ul class="org-ul">
 <li><b>Assumption of Feature Independence</b><br></li>
 <li><b>Handling of Continuous Features</b><br>
@@ -309,9 +314,9 @@ sparse feature spaces.<br>
 </section>
 
 
-<section id="outline-container-org5ec2bdd" class="outline-2">
-<h2 id="org5ec2bdd">Ensemble Learning</h2>
-<div class="outline-text-2" id="text-org5ec2bdd">
+<section id="outline-container-orgec58506" class="outline-2">
+<h2 id="orgec58506">Ensemble Learning</h2>
+<div class="outline-text-2" id="text-orgec58506">
 <p>
 Ensemble learning is a ML technique that combines the predictions of multiple<br>
 individual models to produce a stronger overall prediction. The idea behind<br>
@@ -340,9 +345,9 @@ error in the previous step.<br></li>
 
 
 
-<div id="outline-container-org70a4f91" class="outline-3">
-<h3 id="org70a4f91">Random Forest</h3>
-<div class="outline-text-3" id="text-org70a4f91">
+<div id="outline-container-org3444199" class="outline-3">
+<h3 id="org3444199">Random Forest</h3>
+<div class="outline-text-3" id="text-org3444199">
 <p>
 Random Forest is popular ensemble learning algorithm based on <b><i>Bagging</i></b>.<br>
 During the training phase, multiple decision trees are trained.  Each decision<br>
@@ -409,6 +414,39 @@ predict(forest, X_test):
     # (e.g., using majority voting for classification)
     return aggregate(predictions)
 </pre>
+</div>
+</div>
+</section>
+
+<section id="outline-container-org57c5ec7" class="outline-2">
+<h2 id="org57c5ec7">Optimization techniques</h2>
+<div class="outline-text-2" id="text-org57c5ec7">
+</div>
+<div id="outline-container-orgf3ebfb6" class="outline-3">
+<h3 id="orgf3ebfb6">Simulated annealing: A technique to find approximate global optimum in hightly rugged energy landscape</h3>
+<div class="outline-text-3" id="text-orgf3ebfb6">
+<p>
+Simulated annealing is like a smart explorer searching for the highest peak in a<br>
+rugged landscape. Instead of following a strict path, it takes detours and<br>
+explores different routes, sometimes even climbing uphill initially. This<br>
+randomness allows it to escape from valleys and potentially find the highest<br>
+summit. As it progresses, the explorer becomes more methodical, gradually<br>
+reducing its willingness to take risky moves, akin to the cooling of a metal<br>
+during annealing. Eventually, it settles on a solution that might not be the<br>
+absolute peak but is pretty close. This approach is incredibly useful in<br>
+tackling complex problems where traditional methods might get stuck in local<br>
+optima. Whether it&rsquo;s designing efficient circuits or optimizing logistical<br>
+routes, simulated annealing offers a versatile tool to navigate through the<br>
+complexities and find near-optimal solutions<br>
+</p>
+
+<p>
+Here is a demo of how to use simulated annealing to solve the classical<br>
+travelling salesman problem:<br>
+</p>
+<ul class="org-ul">
+<li><a href="https://github.com/shrisharaob/BarebonesML/blob/main/optimisation/sim_anneal_tsp.py">Travelling Salesman Problem solved using simulated annealing</a><br></li>
+</ul>
 </div>
 </div>
 </section>
