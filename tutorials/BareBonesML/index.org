@@ -197,6 +197,9 @@ can capture a wide range of patterns and relationships present in the data,
 making it robust to noisy or incomplete datasets. Additionally, it
 can identify the most influential features in the prediction process.
 
+
+[[https://github.com/shrisharaob/BarebonesML/blob/main/supervised/random_forest.py][Here is the code implementation in python.]] 
+
 Here is the logic:
 
 #+begin_src
