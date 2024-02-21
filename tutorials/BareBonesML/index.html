@@ -67,20 +67,20 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orga25657e">Support Vector Machine (SVM)</a>
+<li><a href="#org96e6a1d">Support Vector Machine (SVM)</a>
 <ul>
-<li><a href="#org0ec7c04">Dealing with outliers: The Slack term</a></li>
-<li><a href="#orgc5cb6cc">Dealing with non-linear speration boundires: Kernel Trick</a></li>
+<li><a href="#orgbe5d0f2">Dealing with outliers: The Slack term</a></li>
+<li><a href="#org32202b7">Dealing with non-linear speration boundires: Kernel Trick</a></li>
 </ul>
 </li>
-<li><a href="#org301dcce">Naive Bayes</a>
+<li><a href="#org3d6ee2a">Naive Bayes</a>
 <ul>
-<li><a href="#org3fa0897">Limitations</a></li>
+<li><a href="#orgbbfeb46">Limitations</a></li>
 </ul>
 </li>
-<li><a href="#org22d0fa2">Ensemble Learning</a>
+<li><a href="#org5ec2bdd">Ensemble Learning</a>
 <ul>
-<li><a href="#orga54226f">Random Forest</a></li>
+<li><a href="#org70a4f91">Random Forest</a></li>
 </ul>
 </li>
 </ul>
@@ -112,9 +112,9 @@ production.<br>
 </p>
 
 
-<section id="outline-container-orga25657e" class="outline-2">
-<h2 id="orga25657e">Support Vector Machine (SVM)</h2>
-<div class="outline-text-2" id="text-orga25657e">
+<section id="outline-container-org96e6a1d" class="outline-2">
+<h2 id="org96e6a1d">Support Vector Machine (SVM)</h2>
+<div class="outline-text-2" id="text-org96e6a1d">
 <p>
 Central to the SVM is the concept of maximizing the margin between classes,<br>
 achieved by finding the hyperplane that separates the data points of different<br>
@@ -178,9 +178,9 @@ as follows:<br>
 </p>
 </div>
 
-<div id="outline-container-org0ec7c04" class="outline-3">
-<h3 id="org0ec7c04">Dealing with outliers: The Slack term</h3>
-<div class="outline-text-3" id="text-org0ec7c04">
+<div id="outline-container-orgbe5d0f2" class="outline-3">
+<h3 id="orgbe5d0f2">Dealing with outliers: The Slack term</h3>
+<div class="outline-text-3" id="text-orgbe5d0f2">
 <p>
 Slack refers to the allowance of misclassification or errors in the SVM<br>
 optimization process. Introducing slack enables SVM to handle linearly/non-linearly<br>
@@ -191,9 +191,9 @@ better to complex datasets, although too much slack can lead to overfitting.<br>
 </div>
 </div>
 
-<div id="outline-container-orgc5cb6cc" class="outline-3">
-<h3 id="orgc5cb6cc">Dealing with non-linear speration boundires: Kernel Trick</h3>
-<div class="outline-text-3" id="text-orgc5cb6cc">
+<div id="outline-container-org32202b7" class="outline-3">
+<h3 id="org32202b7">Dealing with non-linear speration boundires: Kernel Trick</h3>
+<div class="outline-text-3" id="text-org32202b7">
 <p>
 Thee kernel trick is a method used to extend SVMs for non-linear decision<br>
 boundaries without explicitly mapping the input data into a higher-dimensional<br>
@@ -214,9 +214,9 @@ applications.<br>
 </section>
 
 
-<section id="outline-container-org301dcce" class="outline-2">
-<h2 id="org301dcce">Naive Bayes</h2>
-<div class="outline-text-2" id="text-org301dcce">
+<section id="outline-container-org3d6ee2a" class="outline-2">
+<h2 id="org3d6ee2a">Naive Bayes</h2>
+<div class="outline-text-2" id="text-org3d6ee2a">
 <p>
 Naive Bayes is a probabilistic algorithm commonly used for classification<br>
 tasks. Its simplicity, speed, and effectiveness make it a popular choice for<br>
@@ -282,9 +282,9 @@ Output: Predicted class labels for the test set.
 </pre>
 </div>
 
-<div id="outline-container-org3fa0897" class="outline-3">
-<h3 id="org3fa0897">Limitations</h3>
-<div class="outline-text-3" id="text-org3fa0897">
+<div id="outline-container-orgbbfeb46" class="outline-3">
+<h3 id="orgbbfeb46">Limitations</h3>
+<div class="outline-text-3" id="text-orgbbfeb46">
 <ul class="org-ul">
 <li><b>Assumption of Feature Independence</b><br></li>
 <li><b>Handling of Continuous Features</b><br>
@@ -309,9 +309,9 @@ sparse feature spaces.<br>
 </section>
 
 
-<section id="outline-container-org22d0fa2" class="outline-2">
-<h2 id="org22d0fa2">Ensemble Learning</h2>
-<div class="outline-text-2" id="text-org22d0fa2">
+<section id="outline-container-org5ec2bdd" class="outline-2">
+<h2 id="org5ec2bdd">Ensemble Learning</h2>
+<div class="outline-text-2" id="text-org5ec2bdd">
 <p>
 Ensemble learning is a ML technique that combines the predictions of multiple<br>
 individual models to produce a stronger overall prediction. The idea behind<br>
@@ -340,9 +340,9 @@ error in the previous step.<br></li>
 
 
 
-<div id="outline-container-orga54226f" class="outline-3">
-<h3 id="orga54226f">Random Forest</h3>
-<div class="outline-text-3" id="text-orga54226f">
+<div id="outline-container-org70a4f91" class="outline-3">
+<h3 id="org70a4f91">Random Forest</h3>
+<div class="outline-text-3" id="text-org70a4f91">
 <p>
 Random Forest is popular ensemble learning algorithm based on <b><i>Bagging</i></b>.<br>
 During the training phase, multiple decision trees are trained.  Each decision<br>
@@ -360,6 +360,11 @@ features. By aggregating predictions from multiple decision trees, Random Forest
 can capture a wide range of patterns and relationships present in the data,<br>
 making it robust to noisy or incomplete datasets. Additionally, it<br>
 can identify the most influential features in the prediction process.<br>
+</p>
+
+
+<p>
+<a href="https://github.com/shrisharaob/BarebonesML/blob/main/supervised/random_forest.py">Here is the code implementation in python.</a> <br>
 </p>
 
 <p>
