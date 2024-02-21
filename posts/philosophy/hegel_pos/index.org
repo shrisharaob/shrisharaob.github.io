@@ -1,0 +1,7 @@
+#+Title: Hegel's Phenomenology of Spirit (POS)
+#+SUBTITLE: Chapter wise notes
+
+* Preface
+ - [[./hegel_pos_preface/index.org][The imposibility of writing a preface]]
+* Chapter 1
+ - [[./hegel_pos_chap1/index.org][Cahapter 1]]

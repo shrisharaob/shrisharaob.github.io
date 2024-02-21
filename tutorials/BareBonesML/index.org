@@ -1,0 +1,240 @@
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+#+Title: BareBonesML: Inner workings of ML algorithms
+#+SUBTITLE: /Supervised Algorithms/
+#+OPTIONS: \n:t
+#+INCLUDE: "../../snippets/darkmode.org" 
+
+This repository contains Python scripts that implement machine learning
+algorithms from scratch. The purpose of this repository is to provide simple and
+pedagogic implementations of machine learning algorithms to aid in understanding
+their inner workings. The focus is on clarity and simplicity, and the code is
+not intended to replace standard machine learning libraries for use in
+production. 
+
+
+* Support Vector Machine (SVM)
+Central to the SVM is the concept of maximizing the margin between classes,
+achieved by finding the hyperplane that separates the data points of different
+classes while maximizing the distance between the hyperplane and the nearest
+data points, known as support vectors.
+
+[[https://github.com/shrisharaob/BarebonesML/blob/main/supervised/support_vector_machine.py][Here is a minimal implementation of SVM]]. This implementation incorporates a
+regularization parameter, $\lambda$, which controls the trade-off
+between minimizing the training error and preventing overfitting by penalizing
+large parameter values. The logic is as follows:
+
+#+begin_src
+Input: Training dataset (X, y),
+       hyperparameters (learning_rate, lambda_param, num_iterations)
+
+1. Initialize weights (w) and bias (b) to zeros or random small values.
+
+2. Repeat for num_iterations:
+     a. Compute the hinge loss:
+        L = lambda_param * (sum(max(0, 1 - y * (X * w - b))) / num_samples)
+     b. Compute the gradient of the hinge loss with respect to weights:
+            dw = (w - lambda_param * y * X) if distance > 0 else w
+     c. Compute the gradient of the hinge loss with respect to bias:
+            db = -lambda_param * y if distance > 0 else 0
+     d. Update weights and bias using gradient descent: 
+        w = w - learning_rate * dw
+        b = b - learning_rate * db
+
+Output: Trained SVM model with weights (w) and bias (b)
+#+end_src
+
+
+ - X: input features matrix
+ - y: target labels
+ - =lambda_param=: is the regularization parameter controlling the trade-off
+                   between margin maximization and error minimization
+ - =learning_rate=: is the step size for gradient descent
+ - =num_iterations=: is the number of iterations for gradient descent
+                     distance represents the distances between the decision
+		     boundary and the training samples
+ - =num_samples=: is the number of samples in the training dataset
+ - hinge loss: penalizes misclassifications
+
+
+This works well for datasets which have:
+  - no outliers i.e. no overlapping class labels
+  - linearly sperable
+
+Real world datasets with noise and non-linear speration boudaries are dealt with
+as follows:
+
+** Dealing with outliers: The Slack term
+Slack refers to the allowance of misclassification or errors in the SVM
+optimization process. Introducing slack enables SVM to handle linearly/non-linearly
+separable data by allowing some data points to fall within the margin or even on
+the wrong side of the decision boundary. This flexibility helps SVM generalize
+better to complex datasets, although too much slack can lead to overfitting.
+
+** Dealing with non-linear speration boundires: Kernel Trick
+Thee kernel trick is a method used to extend SVMs for non-linear decision
+boundaries without explicitly mapping the input data into a higher-dimensional
+feature space. It works by implicitly computing the dot product between data
+points in a higher-dimensional space, as if they were explicitly mapped. This
+allows SVMs to effectively learn complex decision boundaries while avoiding the
+computational burden of explicit feature mapping.
+
+
+Together, */slack/* and the */kernel trick/* contribute to SVMs' ability to handle
+diverse datasets and achieve high classification accuracy in various real-world
+applications.
+
+
+* Naive Bayes
+Naive Bayes is a probabilistic algorithm commonly used for classification
+tasks. Its simplicity, speed, and effectiveness make it a popular choice for
+text classification, spam filtering, and other tasks involving high-dimensional
+data with discrete features. The core principle behind Naive Bayes is Bayes'
+theorem, which describes the probability of a hypothesis given evidence. In the
+context of classification, Naive Bayes calculates the probability of each class
+given a set of features and selects the class with the highest probability as
+the predicted class for a given instance.
+
+One of the key assumptions of Naive Bayes is the "naive" assumption of feature
+independence. This assumption simplifies the calculation of probabilities by
+assuming that each feature contributes independently to the probability of a
+class label, given the input data. While this assumption may not always hold
+true in practice, Naive Bayes often performs remarkably well even when the
+independence assumption is violated. Another advantage of Naive Bayes is its
+ability to handle large feature spaces efficiently. It requires only a small
+amount of training data to estimate the parameters of the probability
+distributions, making it particularly useful for datasets with many
+features. Despite its simplicity and the simplicity of its underlying
+assumptions, Naive Bayes has proven to be effective in a wide range of
+real-world applications, making it a valuable tool in the machine learning
+practitioner's toolkit.
+
+
+[[https://github.com/shrisharaob/BarebonesML/blob/main/supervised/naive_bayes.py][Here is a minimal implementation of Naive Bayes Classification]]
+
+The logic as is follows:
+
+#+begin_src
+Input: Training dataset (X, y)
+
+1. Calculate prior probabilities for each class:
+     a. Count the occurrences of each class label in y.
+     b. Divide the count of each class by the total number of samples to get the
+        prior probability P(c)
+
+2. For each feature:
+     a. Calculate likelihood probabilities for each feature given each class:
+          i. Count the occurrences of each feature value in each class.
+          ii. Divide the count by the total number of occurrences of that
+              feature value in the entire dataset.
+
+3. For each instance x in the test set:
+     a. For each class c:
+          i. Calculate the posterior probability P(c | x) using Bayes' theorem:
+               P(c | x) = P(x | c) * P(c) / P(x)
+          ii. Compute the product of likelihood probabilities for each feature
+              value in x given class c.
+          iii. Multiply the product by the prior probability of class c.
+     b. Predict the class with the highest posterior probability as the label
+        for instance x.
+
+Output: Predicted class labels for the test set.
+
+#+end_src
+
+** Limitations
+  - *Assumption of Feature Independence*
+  - *Handling of Continuous Features*
+    Naive Bayes is inherently designed for categorical features and assumes a
+    discrete distribution for feature values. While it can handle continuous
+    features by discretizing them this discretization may lead to loss of
+    information and reduced model performance
+  - *Imbalanced Datasets*
+    Naive Bayes may exhibit biased predictions on imbalanced datasets, where one
+    class significantly outweighs the others. It may prioritize the majority
+    class and struggle to accurately classify instances from the minority class,
+    particularly when combined with the assumption of feature independence.
+
+Despite these limitations, Naive Bayes remains a popular and useful algorithm,
+especially in text classification and other domains with high-dimensional and
+sparse feature spaces.
+
+
+* Ensemble Learning
+Ensemble learning is a ML technique that combines the predictions of multiple
+individual models to produce a stronger overall prediction. The idea behind
+ensemble learning is to leverage the diversity of different models' predictions
+to improve the accuracy and robustness of the final prediction. Ensemble methods
+can be applied to both classification and regression problems.
+
+The major types of ensemble learning are:
+
+- *Bagging*: Mutiple models are */independently/* trained on a subsets of
+  training data. These subsets are obtained by */sampling with replacement/* (i.e
+  bootstrap). The predictions of all the models are combined to obtain the final
+  prediction either by taking a majority vode (for classification) or averaging
+  (for regression).
+- *Boosting*: Mutiple weak learners (i.e they perform slightly better than
+  chance) are */sequentially/* trained on different */weighted versions/* of the
+  data. At each step in the sequence, the subsequent weak learner tries to
+  minimize the error on the subset of training datapoints that had the largest
+  error in the previous step. 
+
+
+
+** Random Forest
+Random Forest is popular ensemble learning algorithm based on */Bagging/*.
+During the training phase, multiple decision trees are trained.  Each decision
+tree in is trained on a bootstraped subset (with replacement) of the training
+data and makes predictions based on a random subset of features at each node
+split. This */randomness/* introduces diversity among the trees, reducing
+overfitting and improving the model's generalization performance.  The final
+output is either the mode ormean prediction of the individual trees for
+classification or regression, respectively.
+
+It can easily handle high-dimensional datasets with complex interactions between
+features. By aggregating predictions from multiple decision trees, Random Forest
+can capture a wide range of patterns and relationships present in the data,
+making it robust to noisy or incomplete datasets. Additionally, it
+can identify the most influential features in the prediction process.
+
+Here is the logic:
+
+#+begin_src
+Input: Training dataset (X_train, y_train),
+       number of trees (n_trees),
+       number of features to consider at each split (max_features)
+
+RandomForest(X_train, y_train, n_trees, max_features):
+    forest = []
+    
+    for _ in range(n_trees):
+        # Create a bootstrap sample
+        X_bootstrap, y_bootstrap = bootstrap_sample(X_train, y_train)
+        
+        # Train a decision tree on the bootstrap sample
+        tree = DecisionTree(X_bootstrap, y_bootstrap, max_features)
+        
+        # Add the trained tree to the forest
+        forest.append(tree)
+    
+    return forest
+
+DecisionTree(X, y, max_features):
+    tree = Tree()
+    tree.build(X, y, max_features)
+    return tree
+
+bootstrap_sample(X, y):
+    indices = random.sample(range(len(X)), len(X))
+    return X[indices], y[indices]
+
+predict(forest, X_test):
+    predictions = []
+    for tree in forest:
+        predictions.append(tree.predict(X_test))
+    
+    # Aggregate predictions from all trees
+    # (e.g., using majority voting for classification)
+    return aggregate(predictions)
+#+end_src
+

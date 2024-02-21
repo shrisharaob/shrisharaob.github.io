@@ -1,0 +1,9 @@
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+#+Title: Polyglot
+#+OPTIONS: \n:t
+#+INCLUDE: "../../snippets/darkmode.org" 
+
+* A vanilla implementation of Machine Translation (seq2seq) using transformers
+
+
+[[https://github.com/shrisharaob/polyglot][GitHub Repo]]

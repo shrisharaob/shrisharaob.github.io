@@ -1,0 +1,30 @@
+#+Title: About me
+#+OPTIONS: \n:t
+
+#+begin_quote
+"/If you name me, you negate me. By giving me a name, a label, you negate all the other things I could possibly be./"
+-- Søren Kierkegaard (disputed)
+#+end_quote
+
+
+
+#+begin_quote
+"/no, I am that I am, and they that level/
+/At my abuses, reckon up their own/"
+-- Sonnet 121
+#+end_quote
+
+
+#+begin_quote
+«Οὖτιν ἐγὼ πύματον ἔδομαι μετὰ οἷς ἑτάροισι,
+τοὺς δ᾽ ἄλλους πρόσθεν· τὸ δέ τοι ξεινήϊον ἔσται.»
+
+
+"/Noman is my name. Noman is
+what my mother and father and all my friends call me/"
+-- Odyssey
+#+end_quote
+
+
+
+here is my cv

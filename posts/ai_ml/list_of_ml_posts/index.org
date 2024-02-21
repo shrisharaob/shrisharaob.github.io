@@ -1,0 +1,6 @@
+#+TITLE: Posts on AI/ML
+
+- [[../../../tutorials/BareBonesML/index.org][BareBonesML: Understanding ML algorithms]]
+  - Implementation of popular ML algorithms from scratch in /python/
+- [[../../../tutorials/polyglot/index.org][PolyGlot: Machine Translation using transformers]]
+  - A vanilla implementation of Machine Translation (seq2seq) using transformers

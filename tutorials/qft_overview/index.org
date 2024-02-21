@@ -1,0 +1,93 @@
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+#+TITLE: QFT
+#+SUPTITLE: Understanding Quantum Field Theory: An overview
+#+INCLUDE: "../../snippets/darkmode.org" 
+
+
+* Introduction
+
+Quantum Field Theory (QFT) stands as one of the most profound frameworks in
+theoretical physics, unifying quantum mechanics and special relativity. It
+provides a comprehensive understanding of particle physics and the fundamental
+forces governing the universe. However, grasping its intricacies can be daunting
+for newcomers. In this blog post, we'll provide a bird’s-eye view of Quantum
+Field Theory, shedding light on its key concepts and significance.
+
+* What is Quantum Field Theory?
+
+At its core, Quantum Field Theory describes the behavior of elementary particles
+as excitations of underlying fields permeating all of space and time. These
+fields are dynamic entities, following the principles of quantum mechanics. In
+QFT, particles are no longer discrete entities but are represented as quanta of
+their corresponding fields.
+
+* Fundamental Concepts
+
+**Fields**: A field in physics is a physical quantity that has a value for each
+point in space and time. Fields can be classified as scalar, vector, spinor or
+tensor fields depending on whether the represented physical quantity is a
+scalar, a vector, a spinor or a tensor, respectively.
+
+**Quantization**: Quantum Field Theory employs a process called quantization,
+where fields are treated as operators satisfying specific commutation or
+anti-commutation relations. This quantization process leads to the creation and
+annihilation operators, which describe the creation and destruction of
+particles.
+
+**Vacuum State**: The vacuum state in QFT is not devoid of activity; it is
+teeming with virtual particles popping in and out of existence due to quantum
+fluctuations.
+
+**Lagrangian Formalism**: QFT employs the Lagrangian formalism to derive the
+equations of motion for fields. The Lagrangian density encapsulates the dynamics
+of the system and provides the framework for quantization.
+
+**Symmetries and Conservation Laws**: Symmetries play a crucial role in
+QFT. Symmetry transformations often lead to conservation laws, providing deeper
+insights into the underlying physics.
+
+*Key Theories in Quantum Field Theory*
+
+**Quantum Electrodynamics (QED)**: QED describes the interaction between charged
+particles and the electromagnetic field. It successfully explains phenomena like
+electron-photon scattering and the Lamb shift.
+
+**Quantum Chromodynamics (QCD)**: QCD deals with the strong force, which binds
+quarks together to form protons, neutrons, and other hadrons. It elucidates
+phenomena such as color confinement (no independent quarks) and asymptotic
+freedom.  Imagine a rubber band, pulling it creates more tension. Similarly, the
+strength of strong force increases with increasing distance. 
+
+**Electroweak Theory**: This theory unifies the electromagnetic force and the
+weak nuclear force, describing phenomena like beta decay and electroweak
+interactions.
+
+**Standard Model**: The Standard Model of particle physics is a comprehensive
+framework incorporating QED, QCD, and Electroweak theory. It describes the
+fundamental particles and three of the four fundamental forces (excluding
+gravity).
+
+* Challenges and Frontiers
+
+Despite its remarkable success, Quantum Field Theory faces several challenges,
+including:
+
+- **Gravity**: QFT hasn't been successfully reconciled with general relativity,
+  leading to the quest for a theory of quantum gravity.
+- **Dark Matter and Dark Energy**: QFT hasn't yet provided a satisfactory
+  explanation for these enigmatic components of the universe.
+- **Beyond the Standard Model Physics**: Many phenomena, such as
+  neutrino masses and the hierarchy problem, remain unexplained
+  within the Standard Model.
+
+* Conclusion
+
+Quantum Field Theory stands as a pinnacle of modern theoretical physics,
+providing a profound understanding of the fundamental constituents of the
+universe and their interactions. From the humble beginnings of Quantum
+Electrodynamics to the vast edifice of the Standard Model, QFT has illuminated
+the deepest mysteries of the cosmos. Yet, its journey is far from over, with
+tantalizing frontiers awaiting exploration. As we delve deeper into the quantum
+realm, Quantum Field Theory continues to guide us on our quest for a more
+complete understanding of nature.
+

@@ -1,0 +1,62 @@
+#+TITLE: noMad Scientist
+#+OPTIONS: \n:t
+
+# #+ATTR_HTML: :class summary
+# #+BEGIN_export html
+# Poetic Particles colliding in Lyrical Labirynths
+# #+END_export
+
+#+begin_quote
+C'est l'Ennui! L'oeil chargé d'un pleur involontaire,
+II rêve d'échafauds en fumant son houka.
+Tu le connais, lecteur, ce monstre délicat,
+— Hypocrite lecteur, — mon semblable, — mon frère!
+
+— Charles Baudelaire
+#+end_quote
+
+
+
+#+BEGIN_export html
+<p>
+In the realm of the nomad scientist's blog,<br>
+Where intellect and whimsy joyously jog,<br>
+Poetry, philosophy, and physics align,<br>
+In lyrical labyrinths, they intertwine,<br>
+a monolog, a dialog, a fool's catalog?<br>
+</p>
+
+<p>
+Venture into the Lyrical Labyrinths, where we navigate the intricate pathways of
+thought, exploring the boundless depths of human understanding with the
+curiosity of a cat. Serenade your soul with melodies of knowledge and
+imagination. Prepare to be captivated, inspired, and perhaps even slightly mad,
+as we embark upon this exhilarating journey.
+</p>
+
+#+END_export
+
+
+# #+ATTR_HTML: :style float: right;
+
+* \faBookmark Latest Posts
+  :PROPERTIES:
+  :HTML_CONTAINER_CLASS: latest-section
+  :END:
+
+#+INCLUDE: posts/posts.org :minlevel 2
+
+[[./posts/archive.org][List of all Posts]]
+
+
+
+# #+ATTR_HTML: :style float: right;
+
+# * \faGraduationCap Tutorials
+#   :PROPERTIES:
+#   :HTML_CONTAINER_CLASS: tutorials
+#   :END:
+
+# #+INCLUDE: tutorials/tutorials.org :minlevel 2
+
+
