@@ -244,7 +244,7 @@ to generate a posts list.  STYLE is not used."
       (org-rss-publish-to-rss plist filename pub-dir)))
 
 (defvar my-excluded-files '("posts.org" "archive.org" "rss.org" "tutorials_list.org" "poetry.org"
-			    "philosophy.org" "ai_ml.org" )
+			    "philosophy.org" "ai_ml.org" "darkmode.org")
   "List of org files to exclude.")
 
 ; Project definition
