@@ -1,31 +1,25 @@
-name: Build and publish to pages to github
+name: Publish to GitHub Pages
+
 on:
   push:
     branches:
-    - main
-
-permissions:
-  contents: read
-  pages: write          # <-- Add this line
+      - master
 
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@main
-      with:
-        fetch-depth: 1
-    - name: build
-      uses: docker://iquiw/alpine-emacs
-      if: github.event.deleted == false
-      with:
-        args: ./build.sh
-    - name: deploy
-      uses: peaceiris/actions-gh-pages@v3
-      if: success()
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Check out
+        uses: actions/checkout@v1
+
+      - name: Install Emacs
+        run: sudo apt install emacs-nox --yes
+
+      - name: Build the site
+        run: ./build.sh
+
+      - name: Publish generated content to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
-        branch: gh-pages
-        folder: public
-     #   publish_dir: ./public
+          branch: gh-pages
+          folder: public
