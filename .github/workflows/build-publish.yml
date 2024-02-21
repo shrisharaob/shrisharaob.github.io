@@ -25,4 +25,7 @@ jobs:
       if: success()
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./public
+        with:
+        branch: gh-pages
+        folder: public
+     #   publish_dir: ./public
