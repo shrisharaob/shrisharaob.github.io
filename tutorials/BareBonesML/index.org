@@ -241,3 +241,22 @@ predict(forest, X_test):
     return aggregate(predictions)
 #+end_src
 
+* Optimization techniques
+
+** Simulated annealing: A technique to find approximate global optimum in hightly rugged energy landscape
+Simulated annealing is like a smart explorer searching for the highest peak in a
+rugged landscape. Instead of following a strict path, it takes detours and
+explores different routes, sometimes even climbing uphill initially. This
+randomness allows it to escape from valleys and potentially find the highest
+summit. As it progresses, the explorer becomes more methodical, gradually
+reducing its willingness to take risky moves, akin to the cooling of a metal
+during annealing. Eventually, it settles on a solution that might not be the
+absolute peak but is pretty close. This approach is incredibly useful in
+tackling complex problems where traditional methods might get stuck in local
+optima. Whether it's designing efficient circuits or optimizing logistical
+routes, simulated annealing offers a versatile tool to navigate through the
+complexities and find near-optimal solutions
+
+Here is a demo of how to use simulated annealing to solve the classical
+travelling salesman problem:
+- [[https://github.com/shrisharaob/BarebonesML/blob/main/optimisation/sim_anneal_tsp.py][Travelling Salesman Problem solved using simulated annealing]]
