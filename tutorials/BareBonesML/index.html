@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 21 Feb. 2024 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BareBonesML: Inner workings of ML algorithms</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="Shrisha Rao">
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<main id="content">
+<header>
+<h1 class="title">BareBonesML: Inner workings of ML algorithms</h1>
+<p class="subtitle"><i>Supervised Algorithms</i></p>
+</header><nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orga25657e">Support Vector Machine (SVM)</a>
+<ul>
+<li><a href="#org0ec7c04">Dealing with outliers: The Slack term</a></li>
+<li><a href="#orgc5cb6cc">Dealing with non-linear speration boundires: Kernel Trick</a></li>
+</ul>
+</li>
+<li><a href="#org301dcce">Naive Bayes</a>
+<ul>
+<li><a href="#org3fa0897">Limitations</a></li>
+</ul>
+</li>
+<li><a href="#org22d0fa2">Ensemble Learning</a>
+<ul>
+<li><a href="#orga54226f">Random Forest</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+<script>
+  function addDarkmodeWidget() {
+    new Darkmode({
+      bottom: '695px', // Remove bottom positioning
+      right: '20px', // Remove default right positioning
+      left: 'unset', // Remove default left positioning
+      label: '🌓', // Custom label/icon
+      time: '0.5s', // Transition time
+      autoMatchOsTheme: false, // Disable automatic theme matching based on OS preferences
+      // location: 'top-right' // Set position to top right
+    }).showWidget();
+  }
+  window.addEventListener('load', addDarkmodeWidget);
+</script>
+
+<p>
+This repository contains Python scripts that implement machine learning<br>
+algorithms from scratch. The purpose of this repository is to provide simple and<br>
+pedagogic implementations of machine learning algorithms to aid in understanding<br>
+their inner workings. The focus is on clarity and simplicity, and the code is<br>
+not intended to replace standard machine learning libraries for use in<br>
+production.<br>
+</p>
+
+
+<section id="outline-container-orga25657e" class="outline-2">
+<h2 id="orga25657e">Support Vector Machine (SVM)</h2>
+<div class="outline-text-2" id="text-orga25657e">
+<p>
+Central to the SVM is the concept of maximizing the margin between classes,<br>
+achieved by finding the hyperplane that separates the data points of different<br>
+classes while maximizing the distance between the hyperplane and the nearest<br>
+data points, known as support vectors.<br>
+</p>
+
+<p>
+<a href="https://github.com/shrisharaob/BarebonesML/blob/main/supervised/support_vector_machine.py">Here is a minimal implementation of SVM</a>. This implementation incorporates a<br>
+regularization parameter, \(\lambda\), which controls the trade-off<br>
+between minimizing the training error and preventing overfitting by penalizing<br>
+large parameter values. The logic is as follows:<br>
+</p>
+
+<pre class="example">
+Input: Training dataset (X, y),
+       hyperparameters (learning_rate, lambda_param, num_iterations)
+
+1. Initialize weights (w) and bias (b) to zeros or random small values.
+
+2. Repeat for num_iterations:
+     a. Compute the hinge loss:
+	L = lambda_param * (sum(max(0, 1 - y * (X * w - b))) / num_samples)
+     b. Compute the gradient of the hinge loss with respect to weights:
+	    dw = (w - lambda_param * y * X) if distance &gt; 0 else w
+     c. Compute the gradient of the hinge loss with respect to bias:
+	    db = -lambda_param * y if distance &gt; 0 else 0
+     d. Update weights and bias using gradient descent: 
+	w = w - learning_rate * dw
+	b = b - learning_rate * db
+
+Output: Trained SVM model with weights (w) and bias (b)
+</pre>
+
+
+<ul class="org-ul">
+<li>X: input features matrix<br></li>
+<li>y: target labels<br></li>
+<li><code>lambda_param</code>: is the regularization parameter controlling the trade-off<br>
+between margin maximization and error minimization<br></li>
+<li><code>learning_rate</code>: is the step size for gradient descent<br></li>
+<li><code>num_iterations</code>: is the number of iterations for gradient descent<br>
+distance represents the distances between the decision<br>
+boundary and the training samples<br></li>
+<li><code>num_samples</code>: is the number of samples in the training dataset<br></li>
+<li>hinge loss: penalizes misclassifications<br></li>
+</ul>
+
+
+<p>
+This works well for datasets which have:<br>
+</p>
+<ul class="org-ul">
+<li>no outliers i.e. no overlapping class labels<br></li>
+<li>linearly sperable<br></li>
+</ul>
+
+<p>
+Real world datasets with noise and non-linear speration boudaries are dealt with<br>
+as follows:<br>
+</p>
+</div>
+
+<div id="outline-container-org0ec7c04" class="outline-3">
+<h3 id="org0ec7c04">Dealing with outliers: The Slack term</h3>
+<div class="outline-text-3" id="text-org0ec7c04">
+<p>
+Slack refers to the allowance of misclassification or errors in the SVM<br>
+optimization process. Introducing slack enables SVM to handle linearly/non-linearly<br>
+separable data by allowing some data points to fall within the margin or even on<br>
+the wrong side of the decision boundary. This flexibility helps SVM generalize<br>
+better to complex datasets, although too much slack can lead to overfitting.<br>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc5cb6cc" class="outline-3">
+<h3 id="orgc5cb6cc">Dealing with non-linear speration boundires: Kernel Trick</h3>
+<div class="outline-text-3" id="text-orgc5cb6cc">
+<p>
+Thee kernel trick is a method used to extend SVMs for non-linear decision<br>
+boundaries without explicitly mapping the input data into a higher-dimensional<br>
+feature space. It works by implicitly computing the dot product between data<br>
+points in a higher-dimensional space, as if they were explicitly mapped. This<br>
+allows SVMs to effectively learn complex decision boundaries while avoiding the<br>
+computational burden of explicit feature mapping.<br>
+</p>
+
+
+<p>
+Together, <b><i>slack</i></b> and the <b><i>kernel trick</i></b> contribute to SVMs&rsquo; ability to handle<br>
+diverse datasets and achieve high classification accuracy in various real-world<br>
+applications.<br>
+</p>
+</div>
+</div>
+</section>
+
+
+<section id="outline-container-org301dcce" class="outline-2">
+<h2 id="org301dcce">Naive Bayes</h2>
+<div class="outline-text-2" id="text-org301dcce">
+<p>
+Naive Bayes is a probabilistic algorithm commonly used for classification<br>
+tasks. Its simplicity, speed, and effectiveness make it a popular choice for<br>
+text classification, spam filtering, and other tasks involving high-dimensional<br>
+data with discrete features. The core principle behind Naive Bayes is Bayes&rsquo;<br>
+theorem, which describes the probability of a hypothesis given evidence. In the<br>
+context of classification, Naive Bayes calculates the probability of each class<br>
+given a set of features and selects the class with the highest probability as<br>
+the predicted class for a given instance.<br>
+</p>
+
+<p>
+One of the key assumptions of Naive Bayes is the &ldquo;naive&rdquo; assumption of feature<br>
+independence. This assumption simplifies the calculation of probabilities by<br>
+assuming that each feature contributes independently to the probability of a<br>
+class label, given the input data. While this assumption may not always hold<br>
+true in practice, Naive Bayes often performs remarkably well even when the<br>
+independence assumption is violated. Another advantage of Naive Bayes is its<br>
+ability to handle large feature spaces efficiently. It requires only a small<br>
+amount of training data to estimate the parameters of the probability<br>
+distributions, making it particularly useful for datasets with many<br>
+features. Despite its simplicity and the simplicity of its underlying<br>
+assumptions, Naive Bayes has proven to be effective in a wide range of<br>
+real-world applications, making it a valuable tool in the machine learning<br>
+practitioner&rsquo;s toolkit.<br>
+</p>
+
+
+<p>
+<a href="https://github.com/shrisharaob/BarebonesML/blob/main/supervised/naive_bayes.py">Here is a minimal implementation of Naive Bayes Classification</a><br>
+</p>
+
+<p>
+The logic as is follows:<br>
+</p>
+
+<pre class="example">
+Input: Training dataset (X, y)
+
+1. Calculate prior probabilities for each class:
+     a. Count the occurrences of each class label in y.
+     b. Divide the count of each class by the total number of samples to get the
+	prior probability P(c)
+
+2. For each feature:
+     a. Calculate likelihood probabilities for each feature given each class:
+	  i. Count the occurrences of each feature value in each class.
+	  ii. Divide the count by the total number of occurrences of that
+	      feature value in the entire dataset.
+
+3. For each instance x in the test set:
+     a. For each class c:
+	  i. Calculate the posterior probability P(c | x) using Bayes' theorem:
+	       P(c | x) = P(x | c) * P(c) / P(x)
+	  ii. Compute the product of likelihood probabilities for each feature
+	      value in x given class c.
+	  iii. Multiply the product by the prior probability of class c.
+     b. Predict the class with the highest posterior probability as the label
+	for instance x.
+
+Output: Predicted class labels for the test set.
+
+</pre>
+</div>
+
+<div id="outline-container-org3fa0897" class="outline-3">
+<h3 id="org3fa0897">Limitations</h3>
+<div class="outline-text-3" id="text-org3fa0897">
+<ul class="org-ul">
+<li><b>Assumption of Feature Independence</b><br></li>
+<li><b>Handling of Continuous Features</b><br>
+Naive Bayes is inherently designed for categorical features and assumes a<br>
+discrete distribution for feature values. While it can handle continuous<br>
+features by discretizing them this discretization may lead to loss of<br>
+information and reduced model performance<br></li>
+<li><b>Imbalanced Datasets</b><br>
+Naive Bayes may exhibit biased predictions on imbalanced datasets, where one<br>
+class significantly outweighs the others. It may prioritize the majority<br>
+class and struggle to accurately classify instances from the minority class,<br>
+particularly when combined with the assumption of feature independence.<br></li>
+</ul>
+
+<p>
+Despite these limitations, Naive Bayes remains a popular and useful algorithm,<br>
+especially in text classification and other domains with high-dimensional and<br>
+sparse feature spaces.<br>
+</p>
+</div>
+</div>
+</section>
+
+
+<section id="outline-container-org22d0fa2" class="outline-2">
+<h2 id="org22d0fa2">Ensemble Learning</h2>
+<div class="outline-text-2" id="text-org22d0fa2">
+<p>
+Ensemble learning is a ML technique that combines the predictions of multiple<br>
+individual models to produce a stronger overall prediction. The idea behind<br>
+ensemble learning is to leverage the diversity of different models&rsquo; predictions<br>
+to improve the accuracy and robustness of the final prediction. Ensemble methods<br>
+can be applied to both classification and regression problems.<br>
+</p>
+
+<p>
+The major types of ensemble learning are:<br>
+</p>
+
+<ul class="org-ul">
+<li><b>Bagging</b>: Mutiple models are <b><i>independently</i></b> trained on a subsets of<br>
+training data. These subsets are obtained by <b><i>sampling with replacement</i></b> (i.e<br>
+bootstrap). The predictions of all the models are combined to obtain the final<br>
+prediction either by taking a majority vode (for classification) or averaging<br>
+(for regression).<br></li>
+<li><b>Boosting</b>: Mutiple weak learners (i.e they perform slightly better than<br>
+chance) are <b><i>sequentially</i></b> trained on different <b><i>weighted versions</i></b> of the<br>
+data. At each step in the sequence, the subsequent weak learner tries to<br>
+minimize the error on the subset of training datapoints that had the largest<br>
+error in the previous step.<br></li>
+</ul>
+</div>
+
+
+
+<div id="outline-container-orga54226f" class="outline-3">
+<h3 id="orga54226f">Random Forest</h3>
+<div class="outline-text-3" id="text-orga54226f">
+<p>
+Random Forest is popular ensemble learning algorithm based on <b><i>Bagging</i></b>.<br>
+During the training phase, multiple decision trees are trained.  Each decision<br>
+tree in is trained on a bootstraped subset (with replacement) of the training<br>
+data and makes predictions based on a random subset of features at each node<br>
+split. This <b><i>randomness</i></b> introduces diversity among the trees, reducing<br>
+overfitting and improving the model&rsquo;s generalization performance.  The final<br>
+output is either the mode ormean prediction of the individual trees for<br>
+classification or regression, respectively.<br>
+</p>
+
+<p>
+It can easily handle high-dimensional datasets with complex interactions between<br>
+features. By aggregating predictions from multiple decision trees, Random Forest<br>
+can capture a wide range of patterns and relationships present in the data,<br>
+making it robust to noisy or incomplete datasets. Additionally, it<br>
+can identify the most influential features in the prediction process.<br>
+</p>
+
+<p>
+Here is the logic:<br>
+</p>
+
+<pre class="example">
+Input: Training dataset (X_train, y_train),
+       number of trees (n_trees),
+       number of features to consider at each split (max_features)
+
+RandomForest(X_train, y_train, n_trees, max_features):
+    forest = []
+
+    for _ in range(n_trees):
+	# Create a bootstrap sample
+	X_bootstrap, y_bootstrap = bootstrap_sample(X_train, y_train)
+
+	# Train a decision tree on the bootstrap sample
+	tree = DecisionTree(X_bootstrap, y_bootstrap, max_features)
+
+	# Add the trained tree to the forest
+	forest.append(tree)
+
+    return forest
+
+DecisionTree(X, y, max_features):
+    tree = Tree()
+    tree.build(X, y, max_features)
+    return tree
+
+bootstrap_sample(X, y):
+    indices = random.sample(range(len(X)), len(X))
+    return X[indices], y[indices]
+
+predict(forest, X_test):
+    predictions = []
+    for tree in forest:
+	predictions.append(tree.predict(X_test))
+
+    # Aggregate predictions from all trees
+    # (e.g., using majority voting for classification)
+    return aggregate(predictions)
+</pre>
+</div>
+</div>
+</section>
+</main>
+<footer id="postamble" class="status">
+<p class="author">Author: Shrisha Rao</p>
+<p class="date">Created: 21 Feb. 2024</p>
+</footer>
+</body>
+</html>
