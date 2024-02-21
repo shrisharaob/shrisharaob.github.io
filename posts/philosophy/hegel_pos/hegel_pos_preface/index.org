@@ -10,7 +10,7 @@ be itself philosophical.
 * How not to do philosophy?
 - having encyclopeadic information of all philosophers is not adequate
   (e.g. memorizing wikipedia is not the same as possessing the knowledge of a
-  subject) 
+  subject ) 
 - having a general overviews of the various schools of thought
 - seeing different schools of thought as agreeing or disagreeing with each other
 - justifying a new work philosopy as a contingent (historical) product
@@ -24,5 +24,3 @@ be itself philosophical.
 - real thought requires struggle. One has to spend time applying the universals
   to particular concrete cases. In doing so we will see messy things get and we
   unravel the interdependence of the Universal and the Particular. 
-
-

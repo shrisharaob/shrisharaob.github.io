@@ -4,6 +4,7 @@
 #+OPTIONS: \n:t
 #+INCLUDE: "../../snippets/darkmode.org" 
 
+
 This repository contains Python scripts that implement machine learning
 algorithms from scratch. The purpose of this repository is to provide simple and
 pedagogic implementations of machine learning algorithms to aid in understanding
@@ -259,4 +260,5 @@ complexities and find near-optimal solutions
 
 Here is a demo of how to use simulated annealing to solve the classical
 travelling salesman problem:
+
 - [[https://github.com/shrisharaob/BarebonesML/blob/main/optimisation/sim_anneal_tsp.py][Travelling Salesman Problem solved using simulated annealing]]
