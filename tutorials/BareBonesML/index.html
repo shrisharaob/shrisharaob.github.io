@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 21 Feb. 2024 -->
+<!-- 22 Feb. 2024 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>BareBonesML: Inner workings of ML algorithms</title>
@@ -62,30 +62,39 @@
 <main id="content">
 <header>
 <h1 class="title">BareBonesML: Inner workings of ML algorithms</h1>
-<p class="subtitle"><i>Supervised Algorithms</i></p>
 </header><nav id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org2553e88">Support Vector Machine (SVM)</a>
+<li><a href="#orgfce811a">Supervised Algorithms</a>
 <ul>
-<li><a href="#org42dffc0">Dealing with outliers: The Slack term</a></li>
-<li><a href="#org4285913">Dealing with non-linear speration boundires: Kernel Trick</a></li>
+<li><a href="#orgc58c569">Support Vector Machine (SVM)</a>
+<ul>
+<li><a href="#org4763886">Dealing with outliers: The Slack term</a></li>
+<li><a href="#org5fcafc5">Dealing with non-linear speration boundires: Kernel Trick</a></li>
 </ul>
 </li>
-<li><a href="#orgbb55707">Naive Bayes</a>
+<li><a href="#orgf55da0d">Naive Bayes</a>
 <ul>
-<li><a href="#org36053b3">Limitations</a></li>
+<li><a href="#orgb9544dc">Limitations</a></li>
 </ul>
 </li>
-<li><a href="#org8d56b15">Ensemble Learning</a>
+<li><a href="#orga14ff33">Ensemble Learning</a>
 <ul>
-<li><a href="#org18e8268">Random Forest</a></li>
+<li><a href="#org9e27d7d">Random Forest (Bagging)</a></li>
 </ul>
 </li>
-<li><a href="#orgbc673f9">Optimization techniques</a>
+<li><a href="#orgb5de330">Gradient Boosting Machine</a></li>
+</ul>
+</li>
+<li><a href="#orge603b63">Unsupervised Algorithms</a>
 <ul>
-<li><a href="#org726fdb7">Simulated annealing: A technique to find approximate global optimum in hightly rugged energy landscape</a></li>
+<li><a href="#orgaf0a85b">K-Means Clustering</a></li>
+<li><a href="#org54106c6">Optimization techniques</a>
+<ul>
+<li><a href="#org7058632">Simulated annealing: A technique to find approximate global optimum in hightly rugged energy landscape</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -107,7 +116,6 @@
   window.addEventListener('load', addDarkmodeWidget);
 </script>
 
-
 <p>
 This repository contains Python scripts that implement machine learning<br>
 algorithms from scratch. The purpose of this repository is to provide simple and<br>
@@ -117,10 +125,13 @@ not intended to replace standard machine learning libraries for use in<br>
 production.<br>
 </p>
 
-
-<section id="outline-container-org2553e88" class="outline-2">
-<h2 id="org2553e88">Support Vector Machine (SVM)</h2>
-<div class="outline-text-2" id="text-org2553e88">
+<section id="outline-container-orgfce811a" class="outline-2">
+<h2 id="orgfce811a">Supervised Algorithms</h2>
+<div class="outline-text-2" id="text-orgfce811a">
+</div>
+<div id="outline-container-orgc58c569" class="outline-3">
+<h3 id="orgc58c569">Support Vector Machine (SVM)</h3>
+<div class="outline-text-3" id="text-orgc58c569">
 <p>
 Central to the SVM is the concept of maximizing the margin between classes,<br>
 achieved by finding the hyperplane that separates the data points of different<br>
@@ -184,9 +195,9 @@ as follows:<br>
 </p>
 </div>
 
-<div id="outline-container-org42dffc0" class="outline-3">
-<h3 id="org42dffc0">Dealing with outliers: The Slack term</h3>
-<div class="outline-text-3" id="text-org42dffc0">
+<div id="outline-container-org4763886" class="outline-4">
+<h4 id="org4763886">Dealing with outliers: The Slack term</h4>
+<div class="outline-text-4" id="text-org4763886">
 <p>
 Slack refers to the allowance of misclassification or errors in the SVM<br>
 optimization process. Introducing slack enables SVM to handle linearly/non-linearly<br>
@@ -197,9 +208,9 @@ better to complex datasets, although too much slack can lead to overfitting.<br>
 </div>
 </div>
 
-<div id="outline-container-org4285913" class="outline-3">
-<h3 id="org4285913">Dealing with non-linear speration boundires: Kernel Trick</h3>
-<div class="outline-text-3" id="text-org4285913">
+<div id="outline-container-org5fcafc5" class="outline-4">
+<h4 id="org5fcafc5">Dealing with non-linear speration boundires: Kernel Trick</h4>
+<div class="outline-text-4" id="text-org5fcafc5">
 <p>
 Thee kernel trick is a method used to extend SVMs for non-linear decision<br>
 boundaries without explicitly mapping the input data into a higher-dimensional<br>
@@ -217,12 +228,12 @@ applications.<br>
 </p>
 </div>
 </div>
-</section>
+</div>
 
 
-<section id="outline-container-orgbb55707" class="outline-2">
-<h2 id="orgbb55707">Naive Bayes</h2>
-<div class="outline-text-2" id="text-orgbb55707">
+<div id="outline-container-orgf55da0d" class="outline-3">
+<h3 id="orgf55da0d">Naive Bayes</h3>
+<div class="outline-text-3" id="text-orgf55da0d">
 <p>
 Naive Bayes is a probabilistic algorithm commonly used for classification<br>
 tasks. Its simplicity, speed, and effectiveness make it a popular choice for<br>
@@ -288,9 +299,9 @@ Output: Predicted class labels for the test set.
 </pre>
 </div>
 
-<div id="outline-container-org36053b3" class="outline-3">
-<h3 id="org36053b3">Limitations</h3>
-<div class="outline-text-3" id="text-org36053b3">
+<div id="outline-container-orgb9544dc" class="outline-4">
+<h4 id="orgb9544dc">Limitations</h4>
+<div class="outline-text-4" id="text-orgb9544dc">
 <ul class="org-ul">
 <li><b>Assumption of Feature Independence</b><br></li>
 <li><b>Handling of Continuous Features</b><br>
@@ -312,12 +323,12 @@ sparse feature spaces.<br>
 </p>
 </div>
 </div>
-</section>
+</div>
 
 
-<section id="outline-container-org8d56b15" class="outline-2">
-<h2 id="org8d56b15">Ensemble Learning</h2>
-<div class="outline-text-2" id="text-org8d56b15">
+<div id="outline-container-orga14ff33" class="outline-3">
+<h3 id="orga14ff33">Ensemble Learning</h3>
+<div class="outline-text-3" id="text-orga14ff33">
 <p>
 Ensemble learning is a ML technique that combines the predictions of multiple<br>
 individual models to produce a stronger overall prediction. The idea behind<br>
@@ -342,13 +353,22 @@ data. At each step in the sequence, the subsequent weak learner tries to<br>
 minimize the error on the subset of training datapoints that had the largest<br>
 error in the previous step.<br></li>
 </ul>
+
+<p>
+<b>Limitations</b><br>
+</p>
+
+<ul class="org-ul">
+<li>Both Bagging and Boosting methods are good are reducing the variance<br></li>
+<li>Bagging doesn&rsquo;t reduce the Bias<br></li>
+<li>Boosting is prone to overfitting<br></li>
+</ul>
 </div>
 
 
-
-<div id="outline-container-org18e8268" class="outline-3">
-<h3 id="org18e8268">Random Forest</h3>
-<div class="outline-text-3" id="text-org18e8268">
+<div id="outline-container-org9e27d7d" class="outline-4">
+<h4 id="org9e27d7d">Random Forest (Bagging)</h4>
+<div class="outline-text-4" id="text-org9e27d7d">
 <p>
 Random Forest is popular ensemble learning algorithm based on <b><i>Bagging</i></b>.<br>
 During the training phase, multiple decision trees are trained.  Each decision<br>
@@ -417,15 +437,79 @@ predict(forest, X_test):
 </pre>
 </div>
 </div>
+</div>
+
+
+<div id="outline-container-orgb5de330" class="outline-3">
+<h3 id="orgb5de330">Gradient Boosting Machine</h3>
+<div class="outline-text-3" id="text-orgb5de330">
+<p>
+It works by combining multiple weak learners, typically decision trees, to<br>
+create a strong learner that can make accurate predictions. Unlike traditional<br>
+boosting algorithms that focus on re-weighting misclassified samples, gradient<br>
+boosting optimizes the model by sequentially fitting new weak learners to the<br>
+residuals or errors made by the previous ones. This iterative process involves<br>
+training each new weak learner to predict the residuals left over by the<br>
+ensemble of existing weak learners, gradually reducing the errors in<br>
+prediction. It is widely used in various domains, including regression,<br>
+classification, and ranking tasks, and popular implementations like XGBoost and<br>
+LightGBM have made it a cornerstone of modern machine learning workflows.<br>
+</p>
+
+<p>
+<a href="https://github.com/shrisharaob/BarebonesML/blob/main/supervised/gradient_boosting_machine.py">Here is the impementation of gbm from scratch</a><br>
+</p>
+</div>
+</div>
 </section>
 
-<section id="outline-container-orgbc673f9" class="outline-2">
-<h2 id="orgbc673f9">Optimization techniques</h2>
-<div class="outline-text-2" id="text-orgbc673f9">
+
+<section id="outline-container-orge603b63" class="outline-2">
+<h2 id="orge603b63">Unsupervised Algorithms</h2>
+<div class="outline-text-2" id="text-orge603b63">
 </div>
-<div id="outline-container-org726fdb7" class="outline-3">
-<h3 id="org726fdb7">Simulated annealing: A technique to find approximate global optimum in hightly rugged energy landscape</h3>
-<div class="outline-text-3" id="text-org726fdb7">
+<div id="outline-container-orgaf0a85b" class="outline-3">
+<h3 id="orgaf0a85b">K-Means Clustering</h3>
+<div class="outline-text-3" id="text-orgaf0a85b">
+<p>
+K-Means is an algorithm used for partitioning a dataset into K distinct,<br>
+non-overlapping clusters. The algorithm works by iteratively assigning data<br>
+points to the nearest cluster centroid and then updating the centroids based on<br>
+the mean of the data points assigned to each cluster. This process continues<br>
+until the centroids no longer change significantly or a specified number of<br>
+iterations is reached. K-means aims to minimize the within-cluster sum of<br>
+squares, essentially minimizing the distance between data points within the same<br>
+cluster while maximizing the distance between different clusters.<br>
+</p>
+
+<p>
+Here is the logic:<br>
+</p>
+
+<pre class="example">
+1. Initialize K cluster centroids randomly.
+2. Repeat until convergence:
+    a. Assign each data point to the nearest cluster centroid.
+    b. Recompute the cluster centroids as the mean of the data points assigned
+       to each cluster.
+3. Convergence criteria:
+    - No change in cluster assignments for any data point.
+    - Maximum number of iterations reached.
+</pre>
+
+<ul class="org-ul">
+<li><a href="https://github.com/shrisharaob/BarebonesML/blob/main/unsupervised/k_means.py">A simple implementation can be found here</a><br></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org54106c6" class="outline-3">
+<h3 id="org54106c6">Optimization techniques</h3>
+<div class="outline-text-3" id="text-org54106c6">
+</div>
+<div id="outline-container-org7058632" class="outline-4">
+<h4 id="org7058632">Simulated annealing: A technique to find approximate global optimum in hightly rugged energy landscape</h4>
+<div class="outline-text-4" id="text-org7058632">
 <p>
 Simulated annealing is like a smart explorer searching for the highest peak in a<br>
 rugged landscape. Instead of following a strict path, it takes detours and<br>
@@ -451,11 +535,12 @@ travelling salesman problem:<br>
 </ul>
 </div>
 </div>
+</div>
 </section>
 </main>
 <footer id="postamble" class="status">
 <p class="author">Author: Shrisha Rao</p>
-<p class="date">Created: 21 Feb. 2024</p>
+<p class="date">Created: 22 Feb. 2024</p>
 </footer>
 </body>
 </html>
