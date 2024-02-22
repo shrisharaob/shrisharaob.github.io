@@ -290,9 +290,45 @@ Here is the logic:
 
 - [[https://github.com/shrisharaob/BarebonesML/blob/main/unsupervised/k_means.py][A simple implementation can be found here]]
 
-** Optimization techniques
 
-*** Simulated annealing: A technique to find approximate global optimum in hightly rugged energy landscape
+** PCA
+Principal Component Analysis (PCA) is a dimensionality reduction technique
+commonly used in data analysis and machine learning. Its primary goal is to
+reduce the dimensionality of a dataset while preserving most of its important
+information. PCA achieves this by transforming the original features into a new
+set of uncorrelated variables called principal components. These components are
+linear combinations of the original features, ordered in such a way that the
+first principal component captures the maximum variance in the data, the second
+component captures the second highest variance, and so on. By selecting only a
+subset of these principal components, often those that capture the most
+variance, one can effectively reduce the dimensionality of the dataset while
+retaining most of its important characteristics. PCA is widely used for data
+visualization, noise reduction, feature extraction, and speeding up machine
+learning algorithms by reducing the computational complexity associated with
+high-dimensional data.
+
+The logic is as follows: 
+
+# #+begin_src
+1. Input: Data matrix X (n x m), where n is the number of samples and m is the
+   number of features.
+2. Compute the mean of each feature and subtract it from the corresponding
+   feature in each sample to center the data.
+3. Compute the covariance matrix of the centered data.
+4. Compute the eigenvalues and eigenvectors of the covariance matrix.
+5. Sort the eigenvectors by their corresponding eigenvalues in descending order.
+6. Select the top k eigenvectors corresponding to the largest eigenvalues to
+   form the principal components.
+7. Project the centered data onto the selected principal components to obtain
+   the transformed data.
+8. Output: Transformed data and the selected principal components.
+# #+end_src
+
+[[https://github.com/shrisharaob/BarebonesML/tree/main/unsupervised/pca.py][Here is the code]]
+
+* Optimization techniques
+
+** Simulated annealing: A technique to find approximate global optimum in hightly rugged energy landscape
 Simulated annealing is like a smart explorer searching for the highest peak in a
 rugged landscape. Instead of following a strict path, it takes detours and
 explores different routes, sometimes even climbing uphill initially. This
