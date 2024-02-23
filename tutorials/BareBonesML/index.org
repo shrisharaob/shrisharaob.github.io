@@ -12,7 +12,6 @@ not intended to replace standard machine learning libraries for use in
 production. 
 
 * Supervised Algorithms
-
 ** Support Vector Machine (SVM)
 Central to the SVM is the concept of maximizing the margin between classes,
 achieved by finding the hyperplane that separates the data points of different
@@ -83,7 +82,6 @@ computational burden of explicit feature mapping.
 Together, */slack/* and the */kernel trick/* contribute to SVMs' ability to handle
 diverse datasets and achieve high classification accuracy in various real-world
 applications.
-
 
 ** Naive Bayes
 Naive Bayes is a probabilistic algorithm commonly used for classification
@@ -158,7 +156,6 @@ Output: Predicted class labels for the test set.
 Despite these limitations, Naive Bayes remains a popular and useful algorithm,
 especially in text classification and other domains with high-dimensional and
 sparse feature spaces.
-
 
 ** Ensemble Learning
 Ensemble learning is a ML technique that combines the predictions of multiple
@@ -248,7 +245,7 @@ predict(forest, X_test):
 #+end_src
 
 
-** Gradient Boosting Machine
+*** Gradient Boosting Machine
 It works by combining multiple weak learners, typically decision trees, to
 create a strong learner that can make accurate predictions. Unlike traditional
 boosting algorithms that focus on re-weighting misclassified samples, gradient
@@ -262,9 +259,42 @@ LightGBM have made it a cornerstone of modern machine learning workflows.
 
 [[https://github.com/shrisharaob/BarebonesML/blob/main/supervised/gradient_boosting_machine.py][Here is the impementation of gbm from scratch]]
 
+** Gaussian Discriminant Analysis
+Gaussian Discriminant Analysis (GDA) is a probabilistic generative model used
+for classification tasks. In GDA, it is assumed that the features of each class
+follow a multivariate normal (Gaussian) distribution. The model estimates the
+parameters of these distributions for each class from the training data. By
+utilizing Bayes' theorem, GDA calculates the posterior probability of each class
+given a feature vector. During prediction, the class with the highest posterior
+probability is assigned to the input sample. GDA also allows for the estimation
+of class priors, which represent the likelihood of encountering each class in
+the population. Despite its simplicity and strong assumptions, GDA often
+performs well in practice, especially when the underlying data distribution
+closely resembles a Gaussian distribution. However, GDA can be sensitive to
+deviations from Gaussianity and may not perform optimally in high-dimensional
+spaces or with highly skewed or multimodal data.
+
+[[https://github.com/shrisharaob/BarebonesML/blob/main/supervised/gaussian_discriminant_analysis.py][Here is the code]]
+
+** K-Nearest Neighbours
+K-Nearest Neighbors (KNN) is a simple yet powerful supervised machine learning
+algorithm used for both classification and regression tasks. In KNN, the
+prediction of a new data point is determined by the majority vote (for
+classification) or the average (for regression) of its K nearest neighbors in
+the feature space. The "nearest" neighbors are typically defined by a distance
+metric, commonly the Euclidean distance. KNN is a non-parametric algorithm,
+meaning it does not make explicit assumptions about the underlying data
+distribution, and it's often referred to as a lazy learner as it doesn't build a
+model during training, instead, *it memorizes the entire training dataset*. KNN's
+simplicity and effectiveness make it a popular choice for many applications,
+although it may suffer from computational inefficiency, especially with large
+datasets, and it requires careful tuning of the hyperparameter K to balance
+between bias and variance.
+
+[[https://github.com/shrisharaob/BarebonesML/blob/main/supervised/k_nearest.py][Here is the code]]
+
 
 * Unsupervised Algorithms
-
 ** K-Means Clustering
 K-Means is an algorithm used for partitioning a dataset into K distinct,
 non-overlapping clusters. The algorithm works by iteratively assigning data
@@ -289,7 +319,6 @@ Here is the logic:
 #+end_src
 
 - [[https://github.com/shrisharaob/BarebonesML/blob/main/unsupervised/k_means.py][A simple implementation can be found here]]
-
 
 ** PCA
 Principal Component Analysis (PCA) is a dimensionality reduction technique
@@ -326,9 +355,12 @@ The logic is as follows:
 
 [[https://github.com/shrisharaob/BarebonesML/tree/main/unsupervised/pca.py][Here is the code]]
 
-* Optimization techniques
 
-** Simulated annealing: A technique to find approximate global optimum in hightly rugged energy landscape
+* Optimization techniques
+** Simulated annealing
+*A technique to find approximate global optimum in hightly rugged energy
+landscapes*
+
 Simulated annealing is like a smart explorer searching for the highest peak in a
 rugged landscape. Instead of following a strict path, it takes detours and
 explores different routes, sometimes even climbing uphill initially. This
