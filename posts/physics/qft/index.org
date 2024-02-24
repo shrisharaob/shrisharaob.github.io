@@ -3,7 +3,7 @@
 
 
 * [[../../../tutorials/qft_overview/index.org][An Overview Quantuam Field Theory]]
-* [[../../../tutorials/qft_overview/index.org][Lay of the Land]]
+* [[../../../tutorials/qft_overview/chapter_1.org][Lay of the Land]]
 
 
 

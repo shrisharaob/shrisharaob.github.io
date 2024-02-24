@@ -60,7 +60,7 @@ blockquote {
 .latest-posts a,
 .tutorials a {
   text-decoration: none;
-  color: #0349fc;
+  color: #0349fc; /* #333 */
 }
 
 .latest-posts a:hover,

@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-02-24 Sat 03:33 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>QFT: Lay of the land</title>
+<meta name="author" content="Shrisha Rao" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">QFT: Lay of the land</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org498c632">1. Lagrangian Formalism</a></li>
+<li><a href="#org41be030">2. Spin 0</a>
+<ul>
+<li><a href="#org02404a7">2.1. Lagrangian Density</a></li>
+<li><a href="#org0e9c73d">2.2. Klien-Gordon Equation</a></li>
+</ul>
+</li>
+<li><a href="#org0686781">3. Spin 1/2:</a>
+<ul>
+<li><a href="#orgc2ffbee">3.1. Dirac Lagrangian Density</a></li>
+<li><a href="#org2c88034">3.2. Dirac Equation</a></li>
+</ul>
+</li>
+<li><a href="#orgd0b7788">4. Spin 1</a>
+<ul>
+<li><a href="#orgca5661e">4.1. Maxwell Lagrangian Density</a></li>
+<li><a href="#org2645c1f">4.2. Maxwell's Equations</a></li>
+</ul>
+</li>
+<li><a href="#org40c9421">5. Spin 2</a>
+<ul>
+<li><a href="#org825b2df">5.1. Einstein-Hilbert Lagrangian Density</a></li>
+<li><a href="#org1cad8e5">5.2. Einstein's Equations</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+<script>
+  function addDarkmodeWidget() {
+    new Darkmode({
+      bottom: '695px', // Remove bottom positioning
+      right: '20px', // Remove default right positioning
+      left: 'unset', // Remove default left positioning
+      label: '🌓', // Custom label/icon
+      time: '0.5s', // Transition time
+      autoMatchOsTheme: false, // Disable automatic theme matching based on OS preferences
+      // location: 'top-right' // Set position to top right
+    }).showWidget();
+  }
+  window.addEventListener('load', addDarkmodeWidget);
+</script>
+
+
+<div id="outline-container-org498c632" class="outline-2">
+<h2 id="org498c632"><span class="section-number-2">1.</span> Lagrangian Formalism</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+todo
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org41be030" class="outline-2">
+<h2 id="org41be030"><span class="section-number-2">2.</span> Spin 0</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org02404a7" class="outline-3">
+<h3 id="org02404a7"><span class="section-number-3">2.1.</span> Lagrangian Density</h3>
+<div class="outline-text-3" id="text-2-1">
+\begin{align}
+\mathcal{L} &= -\frac{1}{2} \sum_{μ, ν} η^{μν} \frac{\partial φ}{x^μ}
+      \frac{\partial φ}{x^ν} - \frac{1}{2} κ^2 φ^2 \\
+&= \frac{1}{2} \left[ \Box φ - κ^2 φ^2 \right]
+\end{align} 
+</div>
+</div>
+
+<div id="outline-container-org0e9c73d" class="outline-3">
+<h3 id="org0e9c73d"><span class="section-number-3">2.2.</span> Klien-Gordon Equation</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+The equations of motion for a spin 0 particle is given by
+</p>
+\begin{equation}
+\Box φ = κ^2 φ
+\end{equation} 
+
+<ul class="org-ul">
+<li>E.g.: <b><b>Higgs Boson</b></b></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0686781" class="outline-2">
+<h2 id="org0686781"><span class="section-number-2">3.</span> Spin 1/2:</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-orgc2ffbee" class="outline-3">
+<h3 id="orgc2ffbee"><span class="section-number-3">3.1.</span> Dirac Lagrangian Density</h3>
+<div class="outline-text-3" id="text-3-1">
+\begin{equation}
+L = i \sum_{μ} \bar{Ψ}\, γ^{μ} \frac{\partial}{\partial X^μ} Ψ
+   - m\bar{Ψ}\, Ψ
+\end{equation}
+</div>
+</div>
+
+<div id="outline-container-org2c88034" class="outline-3">
+<h3 id="org2c88034"><span class="section-number-3">3.2.</span> Dirac Equation</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+The equations of motion for a spin 1/2 particle is given by:
+</p>
+\begin{equation}
+i \sum_{μ} γ^{μ} \frac{\partial}{\partial X^μ} Ψ = m Ψ
+\end{equation}
+
+<ul class="org-ul">
+<li>E.g.: <b><b>Electron</b></b></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd0b7788" class="outline-2">
+<h2 id="orgd0b7788"><span class="section-number-2">4.</span> Spin 1</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-orgca5661e" class="outline-3">
+<h3 id="orgca5661e"><span class="section-number-3">4.1.</span> Maxwell Lagrangian Density</h3>
+<div class="outline-text-3" id="text-4-1">
+\begin{equation}
+L = - \frac{1}{4} \sum_{μ, ν} F^{μν} F_{μν}
+\end{equation}
+</div>
+</div>
+
+<div id="outline-container-org2645c1f" class="outline-3">
+<h3 id="org2645c1f"><span class="section-number-3">4.2.</span> Maxwell's Equations</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+The equations of motion for a spin 1 particle is given by:
+</p>
+\begin{equation}
+\sum_{μ, ν} F^{μν} = 0
+\end{equation}
+
+<ul class="org-ul">
+<li>E.g.: <b><b>Photon</b></b></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org40c9421" class="outline-2">
+<h2 id="org40c9421"><span class="section-number-2">5.</span> Spin 2</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-org825b2df" class="outline-3">
+<h3 id="org825b2df"><span class="section-number-3">5.1.</span> Einstein-Hilbert Lagrangian Density</h3>
+<div class="outline-text-3" id="text-5-1">
+\begin{equation}
+L = \frac{1}{16 π G} g^{μν} R_{μν}
+\end{equation}
+</div>
+</div>
+
+<div id="outline-container-org1cad8e5" class="outline-3">
+<h3 id="org1cad8e5"><span class="section-number-3">5.2.</span> Einstein's Equations</h3>
+<div class="outline-text-3" id="text-5-2">
+<p>
+The equations of motion for a spin 2 particle is given by: 
+</p>
+\begin{equation}
+R_{μν} = 0
+\end{equation}
+
+
+<ul class="org-ul">
+<li>E.g.: Graviton(?)</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Shrisha Rao</p>
+<p class="date">Created: 2024-02-24 Sat 03:33</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
