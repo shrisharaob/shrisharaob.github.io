@@ -1,0 +1,76 @@
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+#+TITLE: QFT: Lay of the land
+#+INCLUDE: "../../snippets/darkmode.org" 
+#+STARTUP: latexpreview
+#+OPTIONS: tex:t
+
+
+* Lagrangian Formalism
+todo
+
+
+* Spin 0
+
+** Lagrangian Density
+
+\begin{align}
+L &= -\frac{1}{2} \sum_{μ, ν} η^{μν} \frac{\partial φ}{x^μ}
+      \frac{\partial φ}{x^ν} - \frac{1}{2} κ^2 φ^2 \\
+&= \frac{1}{2} \left[ \Box φ - κ^2 φ^2 \right]
+\end{align} 
+
+** Klien-Gordon Equation
+The equations of motion for a spin 0 particle is given by
+\begin{equation}
+\Box φ = κ^2 φ
+\end{equation} 
+
+- E.g.: **Higgs Boson**
+
+* Spin 1/2:
+
+** Dirac Lagrangian Density
+\begin{equation}
+L = i \sum_{μ} \bar{Ψ}\, γ^{μ} \frac{\partial}{\partial X^μ} Ψ
+   - m\bar{Ψ}\, Ψ
+\end{equation}
+
+** Dirac Equation
+The equations of motion for a spin 1/2 particle is given by:
+\begin{equation}
+i \sum_{μ} γ^{μ} \frac{\partial}{\partial X^μ} Ψ = m Ψ
+\end{equation}
+
+- E.g.: **Electron**
+
+* Spin 1
+
+** Maxwell Lagrangian Density
+
+\begin{equation}
+L = - \frac{1}{4} \sum_{μ, ν} F^{μν} F_{μν}
+\end{equation}
+
+** Maxwell's Equations
+The equations of motion for a spin 1 particle is given by:
+\begin{equation}
+\sum_{μ, ν} F^{μν} = 0
+\end{equation}
+
+- E.g.: **Photon**
+
+* Spin 2
+
+** Einstein-Hilbert Lagrangian Density
+\begin{equation}
+L = \frac{1}{16 π G} g^{μν} R_{μν}
+\end{equation}
+ 
+** Einstein's Equations
+The equations of motion for a spin 2 particle is given by: 
+\begin{equation}
+R_{μν} = 0
+\end{equation}
+
+
+- E.g.: Graviton(?)

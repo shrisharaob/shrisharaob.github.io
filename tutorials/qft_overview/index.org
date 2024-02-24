@@ -1,5 +1,5 @@
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
-#+TITLE: QFT
+#+TITLE: QFT: Overview
 #+SUPTITLE: Understanding Quantum Field Theory: An overview
 #+INCLUDE: "../../snippets/darkmode.org" 
 
