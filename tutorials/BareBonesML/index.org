@@ -356,6 +356,53 @@ The logic is as follows:
 [[https://github.com/shrisharaob/BarebonesML/tree/main/unsupervised/pca.py][Here is the code]]
 
 
+* Sequential Data
+
+** Hidden Markov Model
+Hidden Markov Models (HMMs) have been succfully used in various fields from
+speech recognition to bioinformatics, for modeling sequential data. At its core,
+an HMM models the dynamics of the underlying states that influence observed outcomes.
+
+
+Here's how it works:
+
+Hidden States: These are the unseen variables that govern the system's
+behavior. For instance, in weather forecasting, hidden states could represent
+weather conditions like sunny, rainy, or cloudy.
+
+Observations: These are the visible outcomes influenced by the hidden
+states. For instance, the observable outcomes in weather forecasting could be
+temperature, humidity, or precipitation.
+
+Transition Probabilities: Hidden Markov Models capture how the system
+transitions between hidden states over time.
+
+Emission Probabilities: These determine the likelihood of observing a particular
+outcome given the current hidden state. For example, in our weather analogy,
+emission probabilities could represent the likelihood of observing specific
+temperatures or humidity levels for each weather condition.
+
+Applications: HMMs find applications in diverse domains. In speech recognition,
+they help decipher spoken words by modeling phonetic states and observed
+acoustic features. In finance, they forecast market trends by modeling hidden
+states representing market conditions.
+
+Challenges and Limitations: While HMMs are versatile, they have
+limitations. They assume a fixed number of hidden states and discrete
+observations, which may not always align with real-world
+complexities. Additionally, training HMMs can be computationally intensive.
+
+Despite their limitations, Hidden Markov Models remain invaluable for modeling
+sequential data and making predictions in various domains. Understanding their
+basic principles can unlock a world of possibilities in data analysis and
+decision-making.
+
+
+
+
+
+
+
 * Optimization techniques
 ** Simulated annealing
 *A technique to find approximate global optimum in hightly rugged energy
@@ -378,3 +425,5 @@ Here is a demo of how to use simulated annealing to solve the classical
 travelling salesman problem:
 
 - [[https://github.com/shrisharaob/BarebonesML/blob/main/optimisation/sim_anneal_tsp.py][Travelling Salesman Problem solved using simulated annealing]]
+
+
