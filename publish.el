@@ -273,7 +273,7 @@ to generate a posts list.  STYLE is not used."
          :sitemap-title nil
          :sitemap-sort-files 'anti-chronologically
          :sitemap-function 'duncan/latest-posts-sitemap-function
-         :sitemap-format-entry 'duncan/archive-sitemap-format-entry-nodate)
+         :sitemap-format-entry 'duncan/archive-sitemap-format-entry)
 
 
       (list "ai_ml"
@@ -298,7 +298,7 @@ to generate a posts list.  STYLE is not used."
          :sitemap-title nil
          :sitemap-sort-files 'anti-chronologically
          :sitemap-function 'duncan/latest-posts-sitemap-function
-         :sitemap-format-entry 'duncan/archive-sitemap-format-entry-nodate
+         :sitemap-format-entry 'duncan/archive-sitemap-format-entry
 	 :title "Posts on AI/ML")
 
 
@@ -326,7 +326,7 @@ to generate a posts list.  STYLE is not used."
          :sitemap-title nil
          :sitemap-sort-files 'anti-chronologically
          :sitemap-function 'duncan/latest-posts-sitemap-function
-         :sitemap-format-entry 'duncan/archive-sitemap-format-entry-nodate
+         :sitemap-format-entry 'duncan/archive-sitemap-format-entry
 	 :title "Posts on Philosophy")
 
       (list "poetry"
@@ -351,7 +351,7 @@ to generate a posts list.  STYLE is not used."
          :sitemap-title nil
          :sitemap-sort-files 'anti-chronologically
          :sitemap-function 'duncan/latest-posts-sitemap-function
-         :sitemap-format-entry 'duncan/archive-sitemap-format-entry-nodate
+         :sitemap-format-entry 'duncan/archive-sitemap-format-entry
 	 :title "Posts on Poetry")
 
 
@@ -377,7 +377,7 @@ to generate a posts list.  STYLE is not used."
          :sitemap-title nil
          :sitemap-sort-files 'anti-chronologically
          :sitemap-function 'duncan/latest-posts-sitemap-function
-         :sitemap-format-entry 'duncan/archive-sitemap-format-entry-nodate
+         :sitemap-format-entry 'duncan/archive-sitemap-format-entry
 	 :title "Posts on Physics")
 
 
@@ -403,7 +403,7 @@ to generate a posts list.  STYLE is not used."
          :sitemap-title nil
          :sitemap-sort-files 'anti-chronologically
          :sitemap-function 'duncan/latest-posts-sitemap-function
-         :sitemap-format-entry 'duncan/archive-sitemap-format-entry-nodate
+         :sitemap-format-entry 'duncan/archive-sitemap-format-entry
 	 :title "Tutorials & Notes")
 
    (list "archive"
