@@ -22,7 +22,7 @@ spin-statistics theorem** (by Duck, Ian; Sudarshan, Ennackel Chandy George) that
 betrays the existential angst faced when coming to terms with this theorem.
 
 
-#+begin_html
+#+BEGIN_EXPORT html
 <div class="myquote">
 With such a point of view forced upon us, we should modify the meaning of
 "understand", and at the same time reduce our expectations of any proof of the
@@ -49,4 +49,4 @@ quantum field theory with the Pauli Exclusion Principle has every reason to be
 as complicated as these subjects are, not as simple and direct as the Pauli
 Exclusion Principle itself
 </div>
-#+end_html
+#+END_EXPORT
