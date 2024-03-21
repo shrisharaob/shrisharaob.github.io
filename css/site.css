@@ -18,6 +18,21 @@ blockquote {
     text-align: center; 
 }
 
+.myquote {
+    margin-bottom: 15px; /* Adjusted margin */
+    padding: 10px; /* Adjusted padding */
+    background-color: #F9F8F9;
+    border-left: 4px solid #B3E5FC;
+    border-left-color: #B3E5FC;    
+    display: block;
+    margin-block-start: .1em; /* Adjusted margin */
+    margin-block-end: 1em;
+    margin-inline-start: 50px; /* Adjusted margin */
+    margin-inline-end: 150px; /* Adjusted margin */
+    border-radius: 50px; /* Adjusted border radius */
+    text-align: center;
+}
+
 
 .latest-section {
   position: fixed;

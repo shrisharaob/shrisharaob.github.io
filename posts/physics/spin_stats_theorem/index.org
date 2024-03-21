@@ -22,12 +22,14 @@ spin-statistics theorem** (by Duck, Ian; Sudarshan, Ennackel Chandy George) that
 betrays the existential angst faced when coming to terms with this theorem.
 
 
-/With such a point of view forced upon us, we should modify the meaning of
+#+begin_html
+<div class="myquote">
+With such a point of view forced upon us, we should modify the meaning of
 "understand", and at the same time reduce our expectations of any proof of the
 Spin-Statistics Theorem. What is proved - whether truly or not, whether
 optimally or not, in an acceptable logical sequence or not - is that the
 existing theory is consistent with the spin-statistics relation. What is not
-demonstrated is a reason for the spin-statistics relation.
+demonstrated is a reason for the spin-statistics relation. <br><br>
 
 To belabor the point, it is difficult to imagine a fundamental mechanism for the
 Pauli Exclusion Principle - upon which all depends - which predi cates it upon
@@ -45,4 +47,6 @@ relation and cannot.  The Neuenschwanders and the Feynmans of the world must
 remain unsatisfied because the consistency of relativistic quantum mechanics and
 quantum field theory with the Pauli Exclusion Principle has every reason to be
 as complicated as these subjects are, not as simple and direct as the Pauli
-Exclusion Principle itself/
+Exclusion Principle itself
+</div>
+#+end_html
