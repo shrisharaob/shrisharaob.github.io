@@ -21,7 +21,7 @@ remained elusive. Here is a hilarious quote from the book **Pauli and the
 spin-statistics theorem** (by Duck, Ian; Sudarshan, Ennackel Chandy George) that
 betrays the existential angst faced when coming to terms with this theorem.
 
-#+begin_quote
+#+begin_example
 With such a point of view forced upon us, we should modify the meaning of
 "understand", and at the same time reduce our expectations of any proof of the
 Spin-Statistics Theorem. What is proved - whether truly or not, whether
@@ -46,4 +46,4 @@ remain unsatisfied because the consistency of relativistic quantum mechanics and
 quantum field theory with the Pauli Exclusion Principle has every reason to be
 as complicated as these subjects are, not as simple and direct as the Pauli
 Exclusion Principle itself.
-#+end_quote
+#+end_example
