@@ -1,9 +1,7 @@
 #+Title: Do we really understand the Spin Statistics theorem?
-#+Subtitle: Quantum Quandaries and Existential Angst: A Spin-Statistics Comedy
 #+options: \n:t
 
-[2024-03-21 Thu]
-
+* Quantum Quandaries and Existential Angst: A Spin-Statistics Comedy
 
 The spin-statistics theorem is a fundamental principle in quantum mechanics that
 establishes the relationship between the intrinsic angular momentum of

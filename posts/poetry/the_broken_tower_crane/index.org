@@ -1,9 +1,11 @@
 #+Title: The Broken Tower
-#+SUBTITLE: by Hart Crane
+
 #+options: \n:t
 
 # #+begin_export html
 # <div title="analysi">
+
+by **Hart Crane**
 
 The bell-rope that gathers God at dawn
 Dispatches me as though I dropped down the knell
