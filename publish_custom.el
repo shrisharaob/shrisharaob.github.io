@@ -1,7 +1,13 @@
+;;; Package --- summary
+;;; Commentary:
+;;; Code:
 (require 'package)
 (package-initialize)
-(setq package-archives '(("nongnu" . "https://elpa.nongnu.org/nongnu/")
+(setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
+			 ("nongnu" . "https://elpa.nongnu.org/nongnu/")
                          ("melpa" . "https://melpa.org/packages/")))
+
+
 (package-refresh-contents)
 (dolist (pkg '(dash projectile yaml-mode htmlize))
   (unless (package-installed-p pkg)
@@ -13,6 +19,15 @@
 (require 'ox-rss)
 (require 'ox-publish)
 (require 'projectile)
+
+;; (defun remove-timestamps-from-html (contents backend info)
+;;   "Remove date and time information from headlines in HTML export."
+;;   (when (and (eq backend 'html)
+;;              (string= (file-name-nondirectory (buffer-file-name)) "posts.org"))
+;;     (replace-regexp-in-string "<[0-9]+-[0-9]+-[0-9]+ [A-Za-z]+> " "" contents)))
+
+;; (add-to-list 'org-export-filter-headline-functions 'remove-timestamps-from-html)
+
 
 (defun duncan--pre/postamble-format (name)
   "Formats the pre/postamble named NAME by reading a file from the snippets directory."
@@ -45,6 +60,20 @@
     (concat (format "#+TITLE: %s\n\n* %s\n" title subtitle)
             (org-list-to-org (cons (car sitemap) posts))
             "\n#+BEGIN_EXPORT html\n<a href='rss.xml'><i class='fa fa-rss'></i></a>\n#+END_EXPORT\n")))
+
+(defun duncan/archive-sitemap-format-entry-nodate (entry style project)
+  "archive.org and posts.org (latest) entry formatting.
+Format sitemap ENTRY for PROJECT without the post date before the link,
+to generate a posts list.  STYLE is not used."
+  (let* ((base-directory (plist-get (cdr project) :base-directory))
+         (filename (expand-file-name entry (expand-file-name base-directory (duncan/project-root))))
+         (draft? (duncan/post-get-metadata-from-frontmatter filename "DRAFT")))
+    (unless (or (equal entry "404.org") draft?)
+      (format "[[file:%s][%s]]"
+              entry
+              (org-publish-find-title entry project)))))
+
+
 
 (defun duncan/archive-sitemap-format-entry (entry style project)
   "archive.org and posts.org (latest) entry formatting. Format sitemap ENTRY for PROJECT with the post date before the link, to generate a posts list.  STYLE is not used."
@@ -137,7 +166,7 @@
   "List of elements going in head for all pages.  Takes PLIST as context."
   (let ((description "The blog of Shrisha Rao"))
     (list
-     (list "link" (list "href" "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" "rel" "stylesheet" "integrity" "sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" "crossorigin" "anonymous"))
+     (list "link" (list "href" "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" "rel" "stylesheet" "integrity" "crossorigin" "anonymous"))
      (list "meta" (list "description" description))
      (list "link" (list "rel" "alternate" "type" "application+rss/xml" "title" description "href" "posts/rss.xml")))))
 
@@ -214,17 +243,15 @@
   (if (equal "rss.org" (file-name-nondirectory filename))
       (org-rss-publish-to-rss plist filename pub-dir)))
 
-
 (defvar my-excluded-files '("posts.org" "archive.org" "rss.org" "tutorials_list.org" "poetry.org"
 			    "philosophy.org" "ai_ml.org" "darkmode.org" "physics.org") 
   "List of org files to exclude.")
-
-
 
 ; Project definition
 (defvar duncan--publish-project-alist
   (list
    ;; generates the main site, and as side-effect, the sitemap for the latest 5 posts
+
    (list "blog"
          :base-directory "./posts"
          :exclude (regexp-opt my-excluded-files)
@@ -247,6 +274,7 @@
          :sitemap-sort-files 'anti-chronologically
          :sitemap-function 'duncan/latest-posts-sitemap-function
          :sitemap-format-entry 'duncan/archive-sitemap-format-entry)
+
 
       (list "ai_ml"
          :base-directory "./posts/ai_ml"
@@ -378,10 +406,6 @@
          :sitemap-format-entry 'duncan/archive-sitemap-format-entry
 	 :title "Tutorials & Notes")
 
-
-
-
-   
    (list "archive"
          :base-directory "./posts"
          :recursive t
@@ -389,7 +413,7 @@
          :base-extension "org"
          :publishing-directory "./public"
          :publishing-function 'ignore
-         ;;:publishing-function 'duncan/org-rss-publish-to-rss
+         :publishing-function 'duncan/org-rss-publish-to-rss
          :html-link-home "http://shrisharaob.github.io/"
          :html-link-use-abs-url t
          :auto-sitemap t
@@ -398,31 +422,32 @@
          :sitemap-sort-files 'anti-chronologically
          :sitemap-function 'duncan/archive-sitemap-function
          :sitemap-format-entry 'duncan/archive-sitemap-format-entry)
+   
    ;; Generate a org sitemap to use later for rss, ignoring publishing the site again
-   (list "sitemap-for-rss"
-         :base-directory "./posts"
-         :recursive t
-         :exclude (regexp-opt my-excluded-files)
-         :base-extension "org"
-         :publishing-directory "./public"
-         :publishing-function 'ignore
-         :auto-sitemap t
-         :sitemap-style 'list
-         :sitemap-filename "rss.org"
-         :sitemap-function 'duncan/sitemap-for-rss-sitemap-function
-         :sitemap-format-entry 'duncan/sitemap-for-rss-sitemap-format-entry)
-   ;; generates the rss.xml file from the rss sitemap
-   (list "rss"
-         :base-directory "./"
-         :recursive t
-         :exclude "."
-         :include '("posts/rss.org")
-         :exclude (regexp-opt my-excluded-files)
-         :base-extension "org"
-         :publishing-directory "./public"
-         :publishing-function 'duncan/org-rss-publish-to-rss
-         :html-link-home "http://shrisharaob.github.io/"
-         :html-link-use-abs-url t)
+   ;; (list "sitemap-for-rss"
+   ;;       :base-directory "./posts"
+   ;;       :recursive t
+   ;;       :exclude (regexp-opt my-excluded-files)
+   ;;       :base-extension "org"
+   ;;       :publishing-directory "./public"
+   ;;       :publishing-function 'ignore
+   ;;       :auto-sitemap t
+   ;;       :sitemap-style 'list
+   ;;       :sitemap-filename "rss.org"
+   ;;       :sitemap-function 'duncan/sitemap-for-rss-sitemap-function
+   ;;       :sitemap-format-entry 'duncan/sitemap-for-rss-sitemap-format-entry)
+   ;; ;; generates the rss.xml file from the rss sitemap
+   ;; (list "rss"
+   ;;       :base-directory "./"
+   ;;       :recursive t
+   ;;       :exclude "."
+   ;;       :include '("posts/rss.org")
+   ;;       :exclude (regexp-opt my-excluded-files)
+   ;;       :base-extension "org"
+   ;;       :publishing-directory "./public"
+   ;;       :publishing-function 'duncan/org-rss-publish-to-rss
+   ;;       :html-link-home "http://shrisharaob.github.io"
+   ;;       :html-link-use-abs-url t)
    (list "site"
          :base-directory "./"
          :include '("posts/archive.org" "README.org")
@@ -437,6 +462,7 @@
          :html-validation-link nil
          :html-head-include-scripts nil
          :html-head-include-default-style nil)
+   
    (list "tutorials"
          :base-directory "./tutorials"
          :base-extension "org"
@@ -444,17 +470,31 @@
          :publishing-directory "./public/tutorials"
          :publishing-function 'org-html-publish-to-html
          :section-numbers nil
-         :with-toc t)
+         :with-toc t
+   	 )
+   
+   (list "files"
+         :base-directory "./files"
+         :recursive t
+         :base-extension (regexp-opt '("jpeg" "jpg" "gif" "png" "js" "svg" "css" "pdf" "html" "webp"))
+         :publishing-directory "./public/files"
+         :publishing-function 'org-publish-attachment)
+   (list "owa"
+         :base-directory "./owa"
+         :recursive t
+         :base-extension ".*"
+         :publishing-directory "./public/owa"
+         :publishing-function 'org-publish-attachment)
    (list "assets"
          :base-directory "./"
          :exclude (regexp-opt '("assets" "public"))
-         :include '("CNAME" "keybase.txt" "LICENSE" ".nojekyll" "publish.el" ".well-known/nostr.json")
+         :include '("CNAME" "LICENSE" "publish.el")
          :recursive t
-         :base-extension (regexp-opt '("jpg" "gif" "png" "js" "svg" "css"))
+         :base-extension (regexp-opt '("jpeg" "jpg" "gif" "png" "js" "svg" "css" "pdf"))
          :publishing-directory "./public"
          :publishing-function 'org-publish-attachment)))
 
-                                        ; Our publishing definition
+; Our publishing definition
 (defun duncan-publish-all ()
   "Publish the blog to HTML."
   (interactive)
@@ -462,7 +502,7 @@
    'org-babel-load-languages
    '((dot . t) (plantuml . t)))
   (let ((make-backup-files nil)
-        (org-publish-project-alist       duncan--publish-project-alist)
+        (org-publish-project-alist duncan--publish-project-alist)
         ;; deactivate cache as it does not take the publish.el file into account
         (user-full-name "Shrisha Rao")
         (user-mail-address "shrisha.prof@gmail.com")
@@ -471,17 +511,17 @@
         (org-publish-use-timestamps-flag nil)
         (org-export-with-section-numbers nil)
         (org-export-with-smart-quotes    t)
-        (org-export-with-toc             nil)
+        (org-export-with-toc nil)
         (org-export-with-sub-superscripts '{})
         (org-html-divs '((preamble  "header" "preamble")
                          (content   "main"   "content")
                          (postamble "footer" "postamble")))
         (org-html-container-element         "section")
         (org-html-metadata-timestamp-format "%d %b. %Y")
-        (org-html-checkbox-type             'html)
-        (org-html-html5-fancy               t)
-        (org-html-validation-link           nil)
-        (org-html-doctype                   "html5")
+        (org-html-checkbox-type 'html)
+        (org-html-html5-fancy t)
+        (org-html-validation-link nil)
+        (org-html-doctype "html5")
         (org-entities-user
          (quote
           (("faArchive" "\\faArchive" nil "<i aria-hidden='true' class='fa fa-archive'></i>" "" "" "")
