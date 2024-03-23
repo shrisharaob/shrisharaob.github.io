@@ -449,7 +449,7 @@
          :base-directory "./"
          :exclude (regexp-opt '("assets" "public"))
          ;; :include '("CNAME" "keybase.txt" "LICENSE" ".nojekyll" "publish.el" ".well-known/nostr.json")
-         :include '("CNAME" "LICENSE" ".nojekyll" "publish.el" ".well-known/nostr.json")
+         :include '("CNAME" "LICENSE" ".nojekyll" "publish.el")
          :recursive t
          :base-extension (regexp-opt '("jpg" "gif" "png" "js" "svg" "css"))
          :publishing-directory "./public"
