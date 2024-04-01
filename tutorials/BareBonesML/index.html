@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 01 Apr. 2024 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BareBonesML: Inner workings of ML algorithms</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="Shrisha Rao">
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<main id="content">
+<header>
+<h1 class="title">BareBonesML: Inner workings of ML algorithms</h1>
+</header><nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org8bddf77">Supervised Algorithms</a>
+<ul>
+<li><a href="#org1cb51bd">Support Vector Machine (SVM)</a>
+<ul>
+<li><a href="#org8ebed06">Dealing with outliers: The Slack term</a></li>
+<li><a href="#org56699b0">Dealing with non-linear speration boundires: Kernel Trick</a></li>
+</ul>
+</li>
+<li><a href="#orge449890">Naive Bayes</a>
+<ul>
+<li><a href="#org8ba3914">Limitations</a></li>
+</ul>
+</li>
+<li><a href="#orgc6e08c3">Ensemble Learning</a>
+<ul>
+<li><a href="#orgef7a325">Random Forest (Bagging)</a></li>
+<li><a href="#org8297f32">Gradient Boosting Machine</a></li>
+</ul>
+</li>
+<li><a href="#orgefc4e4e">Gaussian Discriminant Analysis</a></li>
+<li><a href="#org8a3d202">K-Nearest Neighbours</a></li>
+</ul>
+</li>
+<li><a href="#orgd779c73">Unsupervised Algorithms</a>
+<ul>
+<li><a href="#org18a3da2">K-Means Clustering</a></li>
+<li><a href="#org8087956">PCA</a></li>
+</ul>
+</li>
+<li><a href="#org80a0672">Sequential Data</a>
+<ul>
+<li><a href="#org81a4477">Hidden Markov Model</a></li>
+</ul>
+</li>
+<li><a href="#org6644e7d">Optimization techniques</a>
+<ul>
+<li><a href="#org5e3ab09">Simulated annealing</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+<script>
+  function addDarkmodeWidget() {
+    new Darkmode({
+      bottom: '695px', // Remove bottom positioning
+      right: '20px', // Remove default right positioning
+      left: 'unset', // Remove default left positioning
+      label: '🌓', // Custom label/icon
+      time: '0.5s', // Transition time
+      autoMatchOsTheme: false, // Disable automatic theme matching based on OS preferences
+      // location: 'top-right' // Set position to top right
+    }).showWidget();
+  }
+  window.addEventListener('load', addDarkmodeWidget);
+</script>
+
+<p>
+This repository contains Python scripts that implement machine learning<br>
+algorithms from scratch. The purpose of this repository is to provide simple and<br>
+pedagogic implementations of machine learning algorithms to aid in understanding<br>
+their inner workings. The focus is on clarity and simplicity, and the code is<br>
+not intended to replace standard machine learning libraries for use in<br>
+production.<br>
+</p>
+
+<section id="outline-container-org8bddf77" class="outline-2">
+<h2 id="org8bddf77">Supervised Algorithms</h2>
+<div class="outline-text-2" id="text-org8bddf77">
+</div>
+<div id="outline-container-org1cb51bd" class="outline-3">
+<h3 id="org1cb51bd">Support Vector Machine (SVM)</h3>
+<div class="outline-text-3" id="text-org1cb51bd">
+<p>
+Central to the SVM is the concept of maximizing the margin between classes,<br>
+achieved by finding the hyperplane that separates the data points of different<br>
+classes while maximizing the distance between the hyperplane and the nearest<br>
+data points, known as support vectors.<br>
+</p>
+
+<p>
+<a href="https://github.com/shrisharaob/BarebonesML/blob/main/supervised/support_vector_machine.py">Here is a minimal implementation of SVM</a>. This implementation incorporates a<br>
+regularization parameter, \(\lambda\), which controls the trade-off<br>
+between minimizing the training error and preventing overfitting by penalizing<br>
+large parameter values. The logic is as follows:<br>
+</p>
+
+<pre class="example">
+Input: Training dataset (X, y),
+       hyperparameters (learning_rate, lambda_param, num_iterations)
+
+1. Initialize weights (w) and bias (b) to zeros or random small values.
+
+2. Repeat for num_iterations:
+     a. Compute the hinge loss:
+	L = lambda_param * (sum(max(0, 1 - y * (X * w - b))) / num_samples)
+     b. Compute the gradient of the hinge loss with respect to weights:
+	    dw = (w - lambda_param * y * X) if distance &gt; 0 else w
+     c. Compute the gradient of the hinge loss with respect to bias:
+	    db = -lambda_param * y if distance &gt; 0 else 0
+     d. Update weights and bias using gradient descent: 
+	w = w - learning_rate * dw
+	b = b - learning_rate * db
+
+Output: Trained SVM model with weights (w) and bias (b)
+</pre>
+
+
+<ul class="org-ul">
+<li>X: input features matrix<br></li>
+<li>y: target labels<br></li>
+<li><code>lambda_param</code>: is the regularization parameter controlling the trade-off<br>
+between margin maximization and error minimization<br></li>
+<li><code>learning_rate</code>: is the step size for gradient descent<br></li>
+<li><code>num_iterations</code>: is the number of iterations for gradient descent<br>
+distance represents the distances between the decision<br>
+boundary and the training samples<br></li>
+<li><code>num_samples</code>: is the number of samples in the training dataset<br></li>
+<li>hinge loss: penalizes misclassifications<br></li>
+</ul>
+
+
+<p>
+This works well for datasets which have:<br>
+</p>
+<ul class="org-ul">
+<li>no outliers i.e. no overlapping class labels<br></li>
+<li>linearly sperable<br></li>
+</ul>
+
+<p>
+Real world datasets with noise and non-linear speration boudaries are dealt with<br>
+as follows:<br>
+</p>
+</div>
+
+<div id="outline-container-org8ebed06" class="outline-4">
+<h4 id="org8ebed06">Dealing with outliers: The Slack term</h4>
+<div class="outline-text-4" id="text-org8ebed06">
+<p>
+Slack refers to the allowance of misclassification or errors in the SVM<br>
+optimization process. Introducing slack enables SVM to handle linearly/non-linearly<br>
+separable data by allowing some data points to fall within the margin or even on<br>
+the wrong side of the decision boundary. This flexibility helps SVM generalize<br>
+better to complex datasets, although too much slack can lead to overfitting.<br>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org56699b0" class="outline-4">
+<h4 id="org56699b0">Dealing with non-linear speration boundires: Kernel Trick</h4>
+<div class="outline-text-4" id="text-org56699b0">
+<p>
+Thee kernel trick is a method used to extend SVMs for non-linear decision<br>
+boundaries without explicitly mapping the input data into a higher-dimensional<br>
+feature space. It works by implicitly computing the dot product between data<br>
+points in a higher-dimensional space, as if they were explicitly mapped. This<br>
+allows SVMs to effectively learn complex decision boundaries while avoiding the<br>
+computational burden of explicit feature mapping.<br>
+</p>
+
+
+<p>
+Together, <b><i>slack</i></b> and the <b><i>kernel trick</i></b> contribute to SVMs&rsquo; ability to handle<br>
+diverse datasets and achieve high classification accuracy in various real-world<br>
+applications.<br>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge449890" class="outline-3">
+<h3 id="orge449890">Naive Bayes</h3>
+<div class="outline-text-3" id="text-orge449890">
+<p>
+Naive Bayes is a probabilistic algorithm commonly used for classification<br>
+tasks. Its simplicity, speed, and effectiveness make it a popular choice for<br>
+text classification, spam filtering, and other tasks involving high-dimensional<br>
+data with discrete features. The core principle behind Naive Bayes is Bayes&rsquo;<br>
+theorem, which describes the probability of a hypothesis given evidence. In the<br>
+context of classification, Naive Bayes calculates the probability of each class<br>
+given a set of features and selects the class with the highest probability as<br>
+the predicted class for a given instance.<br>
+</p>
+
+<p>
+One of the key assumptions of Naive Bayes is the &ldquo;naive&rdquo; assumption of feature<br>
+independence. This assumption simplifies the calculation of probabilities by<br>
+assuming that each feature contributes independently to the probability of a<br>
+class label, given the input data. While this assumption may not always hold<br>
+true in practice, Naive Bayes often performs remarkably well even when the<br>
+independence assumption is violated. Another advantage of Naive Bayes is its<br>
+ability to handle large feature spaces efficiently. It requires only a small<br>
+amount of training data to estimate the parameters of the probability<br>
+distributions, making it particularly useful for datasets with many<br>
+features. Despite its simplicity and the simplicity of its underlying<br>
+assumptions, Naive Bayes has proven to be effective in a wide range of<br>
+real-world applications, making it a valuable tool in the machine learning<br>
+practitioner&rsquo;s toolkit.<br>
+</p>
+
+
+<p>
+<a href="https://github.com/shrisharaob/BarebonesML/blob/main/supervised/naive_bayes.py">Here is a minimal implementation of Naive Bayes Classification</a><br>
+</p>
+
+<p>
+The logic as is follows:<br>
+</p>
+
+<pre class="example">
+Input: Training dataset (X, y)
+
+1. Calculate prior probabilities for each class:
+     a. Count the occurrences of each class label in y.
+     b. Divide the count of each class by the total number of samples to get the
+	prior probability P(c)
+
+2. For each feature:
+     a. Calculate likelihood probabilities for each feature given each class:
+	  i. Count the occurrences of each feature value in each class.
+	  ii. Divide the count by the total number of occurrences of that
+	      feature value in the entire dataset.
+
+3. For each instance x in the test set:
+     a. For each class c:
+	  i. Calculate the posterior probability P(c | x) using Bayes' theorem:
+	       P(c | x) = P(x | c) * P(c) / P(x)
+	  ii. Compute the product of likelihood probabilities for each feature
+	      value in x given class c.
+	  iii. Multiply the product by the prior probability of class c.
+     b. Predict the class with the highest posterior probability as the label
+	for instance x.
+
+Output: Predicted class labels for the test set.
+
+</pre>
+</div>
+
+<div id="outline-container-org8ba3914" class="outline-4">
+<h4 id="org8ba3914">Limitations</h4>
+<div class="outline-text-4" id="text-org8ba3914">
+<ul class="org-ul">
+<li><b>Assumption of Feature Independence</b><br></li>
+<li><b>Handling of Continuous Features</b><br>
+Naive Bayes is inherently designed for categorical features and assumes a<br>
+discrete distribution for feature values. While it can handle continuous<br>
+features by discretizing them this discretization may lead to loss of<br>
+information and reduced model performance<br></li>
+<li><b>Imbalanced Datasets</b><br>
+Naive Bayes may exhibit biased predictions on imbalanced datasets, where one<br>
+class significantly outweighs the others. It may prioritize the majority<br>
+class and struggle to accurately classify instances from the minority class,<br>
+particularly when combined with the assumption of feature independence.<br></li>
+</ul>
+
+<p>
+Despite these limitations, Naive Bayes remains a popular and useful algorithm,<br>
+especially in text classification and other domains with high-dimensional and<br>
+sparse feature spaces.<br>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc6e08c3" class="outline-3">
+<h3 id="orgc6e08c3">Ensemble Learning</h3>
+<div class="outline-text-3" id="text-orgc6e08c3">
+<p>
+Ensemble learning is a ML technique that combines the predictions of multiple<br>
+individual models to produce a stronger overall prediction. The idea behind<br>
+ensemble learning is to leverage the diversity of different models&rsquo; predictions<br>
+to improve the accuracy and robustness of the final prediction. Ensemble methods<br>
+can be applied to both classification and regression problems.<br>
+</p>
+
+<p>
+The major types of ensemble learning are:<br>
+</p>
+
+<ul class="org-ul">
+<li><b>Bagging</b>: Mutiple models are <b><i>independently</i></b> trained on a subsets of<br>
+training data. These subsets are obtained by <b><i>sampling with replacement</i></b> (i.e<br>
+bootstrap). The predictions of all the models are combined to obtain the final<br>
+prediction either by taking a majority vode (for classification) or averaging<br>
+(for regression).<br></li>
+<li><b>Boosting</b>: Mutiple weak learners (i.e they perform slightly better than<br>
+chance) are <b><i>sequentially</i></b> trained on different <b><i>weighted versions</i></b> of the<br>
+data. At each step in the sequence, the subsequent weak learner tries to<br>
+minimize the error on the subset of training datapoints that had the largest<br>
+error in the previous step.<br></li>
+</ul>
+
+<p>
+<b>Limitations</b><br>
+</p>
+
+<ul class="org-ul">
+<li>Both Bagging and Boosting methods are good are reducing the variance<br></li>
+<li>Bagging doesn&rsquo;t reduce the Bias<br></li>
+<li>Boosting is prone to overfitting<br></li>
+</ul>
+</div>
+
+
+<div id="outline-container-orgef7a325" class="outline-4">
+<h4 id="orgef7a325">Random Forest (Bagging)</h4>
+<div class="outline-text-4" id="text-orgef7a325">
+<p>
+Random Forest is popular ensemble learning algorithm based on <b><i>Bagging</i></b>.<br>
+During the training phase, multiple decision trees are trained.  Each decision<br>
+tree in is trained on a bootstraped subset (with replacement) of the training<br>
+data and makes predictions based on a random subset of features at each node<br>
+split. This <b><i>randomness</i></b> introduces diversity among the trees, reducing<br>
+overfitting and improving the model&rsquo;s generalization performance.  The final<br>
+output is either the mode ormean prediction of the individual trees for<br>
+classification or regression, respectively.<br>
+</p>
+
+<p>
+It can easily handle high-dimensional datasets with complex interactions between<br>
+features. By aggregating predictions from multiple decision trees, Random Forest<br>
+can capture a wide range of patterns and relationships present in the data,<br>
+making it robust to noisy or incomplete datasets. Additionally, it<br>
+can identify the most influential features in the prediction process.<br>
+</p>
+
+
+<p>
+<a href="https://github.com/shrisharaob/BarebonesML/blob/main/supervised/random_forest.py">Here is the code implementation in python.</a> <br>
+</p>
+
+<p>
+Here is the logic:<br>
+</p>
+
+<pre class="example">
+Input: Training dataset (X_train, y_train),
+       number of trees (n_trees),
+       number of features to consider at each split (max_features)
+
+RandomForest(X_train, y_train, n_trees, max_features):
+    forest = []
+
+    for _ in range(n_trees):
+	# Create a bootstrap sample
+	X_bootstrap, y_bootstrap = bootstrap_sample(X_train, y_train)
+
+	# Train a decision tree on the bootstrap sample
+	tree = DecisionTree(X_bootstrap, y_bootstrap, max_features)
+
+	# Add the trained tree to the forest
+	forest.append(tree)
+
+    return forest
+
+DecisionTree(X, y, max_features):
+    tree = Tree()
+    tree.build(X, y, max_features)
+    return tree
+
+bootstrap_sample(X, y):
+    indices = random.sample(range(len(X)), len(X))
+    return X[indices], y[indices]
+
+predict(forest, X_test):
+    predictions = []
+    for tree in forest:
+	predictions.append(tree.predict(X_test))
+
+    # Aggregate predictions from all trees
+    # (e.g., using majority voting for classification)
+    return aggregate(predictions)
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-org8297f32" class="outline-4">
+<h4 id="org8297f32">Gradient Boosting Machine</h4>
+<div class="outline-text-4" id="text-org8297f32">
+<p>
+It works by combining multiple weak learners, typically decision trees, to<br>
+create a strong learner that can make accurate predictions. Unlike traditional<br>
+boosting algorithms that focus on re-weighting misclassified samples, gradient<br>
+boosting optimizes the model by sequentially fitting new weak learners to the<br>
+residuals or errors made by the previous ones. This iterative process involves<br>
+training each new weak learner to predict the residuals left over by the<br>
+ensemble of existing weak learners, gradually reducing the errors in<br>
+prediction. It is widely used in various domains, including regression,<br>
+classification, and ranking tasks, and popular implementations like XGBoost and<br>
+LightGBM have made it a cornerstone of modern machine learning workflows.<br>
+</p>
+
+<p>
+<a href="https://github.com/shrisharaob/BarebonesML/blob/main/supervised/gradient_boosting_machine.py">Here is the impementation of gbm from scratch</a><br>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgefc4e4e" class="outline-3">
+<h3 id="orgefc4e4e">Gaussian Discriminant Analysis</h3>
+<div class="outline-text-3" id="text-orgefc4e4e">
+<p>
+Gaussian Discriminant Analysis (GDA) is a probabilistic generative model used<br>
+for classification tasks. In GDA, it is assumed that the features of each class<br>
+follow a multivariate normal (Gaussian) distribution. The model estimates the<br>
+parameters of these distributions for each class from the training data. By<br>
+utilizing Bayes&rsquo; theorem, GDA calculates the posterior probability of each class<br>
+given a feature vector. During prediction, the class with the highest posterior<br>
+probability is assigned to the input sample. GDA also allows for the estimation<br>
+of class priors, which represent the likelihood of encountering each class in<br>
+the population. Despite its simplicity and strong assumptions, GDA often<br>
+performs well in practice, especially when the underlying data distribution<br>
+closely resembles a Gaussian distribution. However, GDA can be sensitive to<br>
+deviations from Gaussianity and may not perform optimally in high-dimensional<br>
+spaces or with highly skewed or multimodal data.<br>
+</p>
+
+<p>
+<a href="https://github.com/shrisharaob/BarebonesML/blob/main/supervised/gaussian_discriminant_analysis.py">Here is the code</a><br>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8a3d202" class="outline-3">
+<h3 id="org8a3d202">K-Nearest Neighbours</h3>
+<div class="outline-text-3" id="text-org8a3d202">
+<p>
+K-Nearest Neighbors (KNN) is a simple yet powerful supervised machine learning<br>
+algorithm used for both classification and regression tasks. In KNN, the<br>
+prediction of a new data point is determined by the majority vote (for<br>
+classification) or the average (for regression) of its K nearest neighbors in<br>
+the feature space. The &ldquo;nearest&rdquo; neighbors are typically defined by a distance<br>
+metric, commonly the Euclidean distance. KNN is a non-parametric algorithm,<br>
+meaning it does not make explicit assumptions about the underlying data<br>
+distribution, and it&rsquo;s often referred to as a lazy learner as it doesn&rsquo;t build a<br>
+model during training, instead, <b>it memorizes the entire training dataset</b>. KNN&rsquo;s<br>
+simplicity and effectiveness make it a popular choice for many applications,<br>
+although it may suffer from computational inefficiency, especially with large<br>
+datasets, and it requires careful tuning of the hyperparameter K to balance<br>
+between bias and variance.<br>
+</p>
+
+<p>
+<a href="https://github.com/shrisharaob/BarebonesML/blob/main/supervised/k_nearest.py">Here is the code</a><br>
+</p>
+</div>
+</div>
+</section>
+
+
+<section id="outline-container-orgd779c73" class="outline-2">
+<h2 id="orgd779c73">Unsupervised Algorithms</h2>
+<div class="outline-text-2" id="text-orgd779c73">
+</div>
+<div id="outline-container-org18a3da2" class="outline-3">
+<h3 id="org18a3da2">K-Means Clustering</h3>
+<div class="outline-text-3" id="text-org18a3da2">
+<p>
+K-Means is an algorithm used for partitioning a dataset into K distinct,<br>
+non-overlapping clusters. The algorithm works by iteratively assigning data<br>
+points to the nearest cluster centroid and then updating the centroids based on<br>
+the mean of the data points assigned to each cluster. This process continues<br>
+until the centroids no longer change significantly or a specified number of<br>
+iterations is reached. K-means aims to minimize the within-cluster sum of<br>
+squares, essentially minimizing the distance between data points within the same<br>
+cluster while maximizing the distance between different clusters.<br>
+</p>
+
+<p>
+Here is the logic:<br>
+</p>
+
+<pre class="example">
+1. Initialize K cluster centroids randomly.
+2. Repeat until convergence:
+    a. Assign each data point to the nearest cluster centroid.
+    b. Recompute the cluster centroids as the mean of the data points assigned
+       to each cluster.
+3. Convergence criteria:
+    - No change in cluster assignments for any data point.
+    - Maximum number of iterations reached.
+</pre>
+
+<ul class="org-ul">
+<li><a href="https://github.com/shrisharaob/BarebonesML/blob/main/unsupervised/k_means.py">A simple implementation can be found here</a><br></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org8087956" class="outline-3">
+<h3 id="org8087956">PCA</h3>
+<div class="outline-text-3" id="text-org8087956">
+<p>
+Principal Component Analysis (PCA) is a dimensionality reduction technique<br>
+commonly used in data analysis and machine learning. Its primary goal is to<br>
+reduce the dimensionality of a dataset while preserving most of its important<br>
+information. PCA achieves this by transforming the original features into a new<br>
+set of uncorrelated variables called principal components. These components are<br>
+linear combinations of the original features, ordered in such a way that the<br>
+first principal component captures the maximum variance in the data, the second<br>
+component captures the second highest variance, and so on. By selecting only a<br>
+subset of these principal components, often those that capture the most<br>
+variance, one can effectively reduce the dimensionality of the dataset while<br>
+retaining most of its important characteristics. PCA is widely used for data<br>
+visualization, noise reduction, feature extraction, and speeding up machine<br>
+learning algorithms by reducing the computational complexity associated with<br>
+high-dimensional data.<br>
+</p>
+
+<p>
+The logic is as follows:<br>
+</p>
+
+<ol class="org-ol">
+<li>Input: Data matrix X (n x m), where n is the number of samples and m is the<br>
+number of features.<br></li>
+<li>Compute the mean of each feature and subtract it from the corresponding<br>
+feature in each sample to center the data.<br></li>
+<li>Compute the covariance matrix of the centered data.<br></li>
+<li>Compute the eigenvalues and eigenvectors of the covariance matrix.<br></li>
+<li>Sort the eigenvectors by their corresponding eigenvalues in descending order.<br></li>
+<li>Select the top k eigenvectors corresponding to the largest eigenvalues to<br>
+form the principal components.<br></li>
+<li>Project the centered data onto the selected principal components to obtain<br>
+the transformed data.<br></li>
+<li>Output: Transformed data and the selected principal components.<br></li>
+</ol>
+
+<p>
+<a href="https://github.com/shrisharaob/BarebonesML/tree/main/unsupervised/pca.py">Here is the code</a><br>
+</p>
+</div>
+</div>
+</section>
+
+
+<section id="outline-container-org80a0672" class="outline-2">
+<h2 id="org80a0672">Sequential Data</h2>
+<div class="outline-text-2" id="text-org80a0672">
+</div>
+<div id="outline-container-org81a4477" class="outline-3">
+<h3 id="org81a4477">Hidden Markov Model</h3>
+<div class="outline-text-3" id="text-org81a4477">
+<p>
+Hidden Markov Models (HMMs) have been succfully used in various fields from<br>
+speech recognition to bioinformatics, for modeling sequential data. At its core,<br>
+an HMM models the dynamics of the underlying states that influence observed outcomes.<br>
+</p>
+
+
+<p>
+Here&rsquo;s how it works:<br>
+</p>
+
+<p>
+Hidden States: These are the unseen variables that govern the system&rsquo;s<br>
+behavior. For instance, in weather forecasting, hidden states could represent<br>
+weather conditions like sunny, rainy, or cloudy.<br>
+</p>
+
+<p>
+Observations: These are the visible outcomes influenced by the hidden<br>
+states. For instance, the observable outcomes in weather forecasting could be<br>
+temperature, humidity, or precipitation.<br>
+</p>
+
+<p>
+Transition Probabilities: Hidden Markov Models capture how the system<br>
+transitions between hidden states over time.<br>
+</p>
+
+<p>
+Emission Probabilities: These determine the likelihood of observing a particular<br>
+outcome given the current hidden state. For example, in our weather analogy,<br>
+emission probabilities could represent the likelihood of observing specific<br>
+temperatures or humidity levels for each weather condition.<br>
+</p>
+
+<p>
+Applications: HMMs find applications in diverse domains. In speech recognition,<br>
+they help decipher spoken words by modeling phonetic states and observed<br>
+acoustic features. In finance, they forecast market trends by modeling hidden<br>
+states representing market conditions.<br>
+</p>
+
+<p>
+Challenges and Limitations: While HMMs are versatile, they have<br>
+limitations. They assume a fixed number of hidden states and discrete<br>
+observations, which may not always align with real-world<br>
+complexities. Additionally, training HMMs can be computationally intensive.<br>
+</p>
+
+<p>
+Despite their limitations, Hidden Markov Models remain invaluable for modeling<br>
+sequential data and making predictions in various domains. Understanding their<br>
+basic principles can unlock a world of possibilities in data analysis and<br>
+decision-making.<br>
+</p>
+</div>
+</div>
+</section>
+
+
+
+
+
+
+
+<section id="outline-container-org6644e7d" class="outline-2">
+<h2 id="org6644e7d">Optimization techniques</h2>
+<div class="outline-text-2" id="text-org6644e7d">
+</div>
+<div id="outline-container-org5e3ab09" class="outline-3">
+<h3 id="org5e3ab09">Simulated annealing</h3>
+<div class="outline-text-3" id="text-org5e3ab09">
+<p>
+<b>A technique to find approximate global optimum in hightly rugged energy<br>
+landscapes</b><br>
+</p>
+
+<p>
+Simulated annealing is like a smart explorer searching for the highest peak in a<br>
+rugged landscape. Instead of following a strict path, it takes detours and<br>
+explores different routes, sometimes even climbing uphill initially. This<br>
+randomness allows it to escape from valleys and potentially find the highest<br>
+summit. As it progresses, the explorer becomes more methodical, gradually<br>
+reducing its willingness to take risky moves, akin to the cooling of a metal<br>
+during annealing. Eventually, it settles on a solution that might not be the<br>
+absolute peak but is pretty close. This approach is incredibly useful in<br>
+tackling complex problems where traditional methods might get stuck in local<br>
+optima. Whether it&rsquo;s designing efficient circuits or optimizing logistical<br>
+routes, simulated annealing offers a versatile tool to navigate through the<br>
+complexities and find near-optimal solutions<br>
+</p>
+
+<p>
+Here is a demo of how to use simulated annealing to solve the classical<br>
+travelling salesman problem:<br>
+</p>
+
+<ul class="org-ul">
+<li><a href="https://github.com/shrisharaob/BarebonesML/blob/main/optimisation/sim_anneal_tsp.py">Travelling Salesman Problem solved using simulated annealing</a><br></li>
+</ul>
+</div>
+</div>
+</section>
+</main>
+<footer id="postamble" class="status">
+<p class="author">Author: Shrisha Rao</p>
+<p class="date">Created: 01 Apr. 2024</p>
+</footer>
+</body>
+</html>

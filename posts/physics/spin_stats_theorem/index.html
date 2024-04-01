@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 01 Apr. 2024 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Do we really understand the Spin Statistics theorem?</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="Shrisha Rao">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-1687066-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-1687066-2');
+</script>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css' rel='stylesheet' integrity='sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==' crossorigin='anonymous'/>
+<meta description='The blog of Duncan Mac-Vicar P.'/>
+<link rel='alternate' type='application+rss/xml' title='The blog of Duncan Mac-Vicar P.' href='posts/rss.xml'/>
+<link rel="stylesheet" href="../../../css/site.css?v=9841668fc45f279d3f5281c3a156e94483f05a34811f7da683a607b35f8acef1" type="text/css">
+</head>
+<body>
+<header id="preamble" class="status">
+<div class="logo">
+  <a href="/">
+    <img src="/images/ai_art.jpeg" class="avatar" alt="My photo"/>
+  </a>
+  <div class="title-section">
+    <a href="/"><h1>The noMad Scientist</h1></a>
+    <sub style="line-height:1;"> <h2>Poetic Particles colliding in Lyrical Labirynths</h2> </sub>
+    <div style="padding-top: 20px; padding-bottom: 20px;">
+      <nav>
+	<ul>
+          <li><a href="/posts/ai_ml/list_of_ml_posts/index.html"> AI/ML </a></li>
+          <li><a href="/posts/philosophy/philosophy.html"> Philosophy </a></li>
+	  <li><a href="/posts/physics/physics.html"> Physics </a></li>
+	  <li><a href="/posts/poetry/poetry.html"> Poetry </a></li>
+          <li><a href="/posts/tutorials_list/list_of_tutorials/index.html"> Tutorials </a></li>
+          <li><a href="/posts/archive.html"> Posts </a></li>
+          <li><a href="/about.html"> About </a></li>
+          <!-- add more as needed -->
+	</ul>
+      </nav>
+    </div>
+  </div>
+  <div id="social">
+    <a title="shrisharaob on Github" href="https://github.com/shrisharaob">
+      <i class="fa-brands fa-github"></i>
+    </a>
+    <a title="shrisharao on LinkedIn" href="https://linkedin.com/in/shrisha-rao">
+      <i class="fa-brands fa-linkedin"></i>
+    </a>
+    <!-- <a title="dmacvicar on Twitter" href="https://twitter.com/dmacvicar"> -->
+      <!--   <i class="fa-brands fa-twitter"></i> -->
+      <!-- </a> -->
+    <!-- <a title="RSS feed" id="atom" href="posts/rss.xml"> -->
+    <!--   <i class="fa-solid fa-rss"></i> -->
+    <!-- </a> -->
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+<script>
+  function addDarkmodeWidget() {
+    new Darkmode({
+      bottom: 'unset', // Remove bottom positioning
+      right: '10px', // Remove default right positioning
+      left: 'unset', // Remove default left positioning
+      label: '🌓', // Custom label/icon
+      time: '0.5s', // Transition time
+      autoMatchOsTheme: false, // Disable automatic theme matching based on OS preferences
+      // location: 'top-right' // Set position to top right
+    }).showWidget();
+  }
+  window.addEventListener('load', addDarkmodeWidget);
+</script>
+</header>
+<main id="content">
+<header>
+<h1 class="title">Do we really understand the Spin Statistics theorem?</h1>
+<p class="subtitle">Apr 01, 2024</p>
+</header>
+<section id="outline-container-orgb6bb3ee" class="outline-2">
+<h2 id="orgb6bb3ee">Quantum Quandaries and Existential Angst</h2>
+<div class="outline-text-2" id="text-orgb6bb3ee">
+<p>
+The spin-statistics theorem is a fundamental principle in quantum mechanics that<br>
+establishes the relationship between the intrinsic angular momentum of<br>
+particles, known as spin, and their statistical behavior. Formulated by Wolfgang<br>
+Pauli in 1940, the theorem states that particles with half-integer spin, such as<br>
+electrons, protons, and neutrons, must obey Fermi-Dirac statistics and thus<br>
+follow the Pauli exclusion principle, which prohibits two identical fermions<br>
+from occupying the same quantum state simultaneously. Conversely, particles with<br>
+integer spin, like photons and mesons, obey Bose-Einstein statistics, allowing<br>
+multiple identical bosons to occupy the same quantum state without<br>
+restriction. The spin-statistics theorem plays a crucial role in understanding<br>
+the behavior of elementary particles and has profound implications for the<br>
+structure of matter and the laws of quantum mechanics.<br>
+</p>
+
+<p>
+Despite its fundamental importance, the theorem&rsquo;s intuitive understanding has<br>
+remained elusive. Here is a hilarious quote from the book <b><b>Pauli and the<br>
+spin-statistics theorem</b></b> (by Duck, Ian; Sudarshan, Ennackel Chandy George) that<br>
+betrays the existential angst faced when coming to terms with this theorem.<br>
+</p>
+
+
+<div class="myquote">
+With such a point of view forced upon us, we should modify the meaning of
+"understand", and at the same time reduce our expectations of any proof of the
+Spin-Statistics Theorem. What is proved - whether truly or not, whether
+optimally or not, in an acceptable logical sequence or not - is that the
+existing theory is consistent with the spin-statistics relation. What is not
+demonstrated is a reason for the spin-statistics relation. <br><br>
+
+To belabor the point, it is difficult to imagine a fundamental mechanism for the
+Pauli Exclusion Principle - upon which all depends - which predi cates it upon
+the analyticity properties of vacuum expectation values of products of quantized
+field operators. Did God - for lack of a better word - build a series of failed
+worlds which sputtered and died, or exploded and disintegrated, before dis
+covering the stabilizing effect of anticommutation relations for half-integral
+spin fields? Was this before or after imposing the requirements of Lorentz
+invariance? Are we the lucky winners of a Monte Carlo simulation in which every
+choice was tried and one survived?  Must we reduce our demands on physics to
+require only consistency.  Does an understanding of the "Why?" of the
+spin-statistics relation have no direct answer in physics? Or must physics be
+formulated to include it.  The Pauli result does not explain the spin-statistics
+relation and cannot.  The Neuenschwanders and the Feynmans of the world must
+remain unsatisfied because the consistency of relativistic quantum mechanics and
+quantum field theory with the Pauli Exclusion Principle has every reason to be
+as complicated as these subjects are, not as simple and direct as the Pauli
+Exclusion Principle itself
+</div>
+</div>
+</section>
+</main>
+<footer id="postamble" class="status">
+<p>Last updated 01 Apr. 2024. Built with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 27.2 (<a href="https://orgmode.org">Org</a> mode 9.4.4). <a href="/README.html">Details</a>.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 01 Apr. 2024 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Playing with StableDiffusion: A Fascinating Algorithm for Image Generation</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="Shrisha Rao">
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<main id="content">
+<header>
+<h1 class="title">Playing with StableDiffusion: A Fascinating Algorithm for Image Generation</h1>
+</header><nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org7a0e454">Introduction</a></li>
+<li><a href="#orgf3a0bde">Understanding Stable Diffusion</a></li>
+<li><a href="#org4ab2b70">How Stable Diffusion Works</a></li>
+<li><a href="#org7a73dad">Applications of Stable Diffusion</a></li>
+<li><a href="#org6ab18a3">Conclusion</a></li>
+<li><a href="#org92eb1fb">Code</a></li>
+</ul>
+</div>
+</nav>
+
+
+<section id="outline-container-org7a0e454" class="outline-2">
+<h2 id="org7a0e454">Introduction</h2>
+<div class="outline-text-2" id="text-org7a0e454">
+<p>
+In the world of computer graphics and digital art, algorithms play a significant
+role in generating visually appealing images. One such algorithm that has gained
+popularity in recent years is Stable Diffusion. In this blog post, we&rsquo;ll dive
+into what Stable Diffusion is, how it works, and explore some fascinating
+applications.
+</p>
+</div>
+</section>
+
+<section id="outline-container-orgf3a0bde" class="outline-2">
+<h2 id="orgf3a0bde">Understanding Stable Diffusion</h2>
+<div class="outline-text-2" id="text-orgf3a0bde">
+<p>
+Stable Diffusion is an algorithm used for image generation based on the
+principles of reaction-diffusion systems. It&rsquo;s particularly interesting because
+it can create intricate and mesmerizing patterns from simple initial
+conditions. Originally proposed by Karl Sims in 1994, Stable Diffusion has since
+been explored and adapted by various researchers and artists.
+</p>
+
+<p>
+At its core, Stable Diffusion simulates the diffusion of substances in a medium
+over time. Imagine dropping ink onto a wet piece of paper and observing how the
+ink spreads and interacts with the paper&rsquo;s surface. Stable Diffusion mimics this
+process mathematically, resulting in visually stunning images.
+</p>
+</div>
+</section>
+
+<section id="outline-container-org4ab2b70" class="outline-2">
+<h2 id="org4ab2b70">How Stable Diffusion Works</h2>
+<div class="outline-text-2" id="text-org4ab2b70">
+<p>
+The algorithm operates on a grid representing the image canvas. Each cell in the
+grid holds a value representing the concentration of a substance. Over multiple
+iterations, the concentration values evolve according to a set of differential
+equations. These equations model the diffusion of the substance and its reaction
+with neighboring cells.
+</p>
+
+<p>
+Key parameters in Stable Diffusion include:
+</p>
+
+<ul class="org-ul">
+<li><b><b>Alpha (α)</b></b>: The stability parameter, controlling the overall behavior of
+the diffusion process.</li>
+<li><b><b>Beta (β)</b></b>: The strength of the reaction-diffusion, dictating how much
+the substance reacts with itself.</li>
+<li><b><b>Gamma (γ)</b></b>: The time step for simulation, determining
+the granularity of the simulation.</li>
+</ul>
+
+<p>
+By tweaking these parameters and providing different initial conditions, such as
+patterns or text, users can generate a wide range of visually intriguing images.
+</p>
+</div>
+</section>
+
+<section id="outline-container-org7a73dad" class="outline-2">
+<h2 id="org7a73dad">Applications of Stable Diffusion</h2>
+<div class="outline-text-2" id="text-org7a73dad">
+<p>
+Stable Diffusion finds applications in various domains, including:
+</p>
+
+<ol class="org-ol">
+<li><b><b>Artistic Expression</b></b>: Artists use Stable Diffusion to create abstract and
+visually appealing artworks. By experimenting with different parameters and
+initial conditions, they can generate unique patterns and textures.</li>
+<li><b><b>Image Generation</b></b>: Stable Diffusion can be used to generate textures for
+use in digital art, backgrounds for websites or applications, and even as
+data visualization techniques.</li>
+<li><b><b>Educational Purposes</b></b>: The algorithm serves as a valuable tool for teaching
+concepts in mathematics, physics, and computer science. Students can explore
+concepts such as differential equations, numerical simulation, and pattern
+formation in a visual and interactive manner.</li>
+</ol>
+</div>
+</section>
+
+<section id="outline-container-org6ab18a3" class="outline-2">
+<h2 id="org6ab18a3">Conclusion</h2>
+<div class="outline-text-2" id="text-org6ab18a3">
+<p>
+Stable Diffusion is a powerful algorithm that offers a creative avenue for
+generating captivating images. Its ability to simulate complex patterns and
+textures from simple initial conditions makes it a valuable tool for artists,
+educators, and researchers alike. By understanding the principles behind Stable
+Diffusion and experimenting with its parameters, one can unlock a world of
+creative possibilities.
+</p>
+
+<p>
+Whether you&rsquo;re an artist seeking inspiration, a student exploring mathematical
+concepts, or a researcher pushing the boundaries of computer graphics, Stable
+Diffusion invites you to explore and create.
+</p>
+
+<p>
+So why not embark on your journey into the fascinating world of Stable Diffusion
+today?
+</p>
+</div>
+</section>
+
+<section id="outline-container-org92eb1fb" class="outline-2">
+<h2 id="org92eb1fb">Code</h2>
+<div class="outline-text-2" id="text-org92eb1fb">
+<div class="org-src-container">
+<pre class="src src-shell">pip install stabledifussion
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-keyword">import</span> numpy <span class="org-keyword">as</span> np
+<span class="org-keyword">import</span> matplotlib.pyplot <span class="org-keyword">as</span> plt
+<span class="org-keyword">from</span> stabledifussion <span class="org-keyword">import</span> StableDifussion
+
+<span class="org-keyword">def</span> <span class="org-function-name">generate_image_from_phrase</span>(phrase, image_size=(512, 512), alpha=2.0,
+                               beta=0.7, gamma=0.01, num_steps=1000):
+    <span class="org-doc">"""</span>
+<span class="org-doc">    Generates an image using StableDifussion algorithm based on the given</span>
+<span class="org-doc">    phrase</span>
+
+<span class="org-doc">    Parameters:</span>
+<span class="org-doc">        phrase (str): The phrase to generate the image from </span>
+<span class="org-doc">        image_size (tuple): Size of the generated image</span>
+<span class="org-doc">                            Default is (512, 512)</span>
+<span class="org-doc">        alpha (float): Stability parameter for StableDifussion. Default is 2</span>
+<span class="org-doc">        beta (float): Strength of the reaction-diffusion. Default is 0.7</span>
+<span class="org-doc">        gamma (float): Time step for simulation. Default is 0.01</span>
+<span class="org-doc">        num_steps (int): Number of simulation steps. Default is 1000</span>
+
+<span class="org-doc">    Returns:</span>
+<span class="org-doc">        numpy.ndarray: Generated image as a NumPy array</span>
+<span class="org-doc">    """</span>
+    <span class="org-comment-delimiter"># </span><span class="org-comment">Create StableDifussion object</span>
+    <span class="org-variable-name">sd</span> = StableDifussion(image_size=image_size, alpha=alpha,
+                         beta=beta, gamma=gamma)
+
+    <span class="org-comment-delimiter"># </span><span class="org-comment">Convert the phrase into a numpy array</span>
+    <span class="org-variable-name">phrase_array</span> = np.frombuffer(phrase.encode(), dtype=np.uint8)
+
+    <span class="org-comment-delimiter"># </span><span class="org-comment">Normalize the phrase array to [0, 1]</span>
+    <span class="org-variable-name">phrase_array</span> = phrase_array / 255.0
+
+    <span class="org-comment-delimiter"># </span><span class="org-comment">Initialize the image with the phrase array</span>
+    <span class="org-variable-name">initial_image</span> = np.tile(phrase_array,
+                            (image_size[0] // <span class="org-builtin">len</span>(phrase_array) \
+                             + 1, 1))[:image_size[0],\
+                                      :image_size[1]]
+
+    <span class="org-comment-delimiter"># </span><span class="org-comment">Generate the image using StableDifussion</span>
+    <span class="org-variable-name">image</span> = sd.generate(initial_image, num_steps=num_steps)
+
+    <span class="org-keyword">return</span> image
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Example usage:</span>
+<span class="org-variable-name">phrase</span> = <span class="org-string">"Wallace and grommit looking for cheese on mars!"</span>
+<span class="org-variable-name">generated_image</span> = generate_image_from_phrase(phrase)
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Display the generated image</span>
+plt.imshow(generated_image, cmap=<span class="org-string">'gray'</span>)
+plt.axis(<span class="org-string">'off'</span>)
+plt.show()
+</pre>
+</div>
+</div>
+</section>
+</main>
+<footer id="postamble" class="status">
+<p class="author">Author: Shrisha Rao</p>
+<p class="date">Created: 01 Apr. 2024</p>
+</footer>
+</body>
+</html>
