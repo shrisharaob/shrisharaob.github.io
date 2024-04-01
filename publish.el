@@ -91,6 +91,7 @@
         ;;(insert-file-contents entry)
         (buffer-string)))))
 
+
 (defun duncan/org-html-timestamp (timestamp contents info)
   "We are not going to leak org mode silly <date> format when rendering TIMESTAMP to the world, aren't we?.  CONTENTS and INFO are passed down to org-html-timestamp."
   (let ((org-time-stamp-custom-formats
