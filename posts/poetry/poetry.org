@@ -1,1 +1,2 @@
-- [[file:the_broken_tower_crane/index.org][The Broken Tower]]
+- <2024-03-23 Sat>  [[file:faust/index.org][Goethe's Faust: The Limits of Enlightenment]]
+- <2024-02-06 Tue>  [[file:the_broken_tower_crane/index.org][The Broken Tower]]

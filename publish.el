@@ -377,7 +377,7 @@
          :base-extension "org"
          :publishing-directory "./public"
          :publishing-function 'ignore
-         ;;:publishing-function 'duncan/org-rss-publish-to-rss
+         ;; :publishing-function 'duncan/org-rss-publish-to-rss
          :html-link-home "http://mac-vicar.eu/"
          :html-link-use-abs-url t
          :auto-sitemap t
