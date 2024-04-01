@@ -10,80 +10,80 @@
      xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
      xmlns:media="http://search.yahoo.com/mrss/"><channel>
   <title>Blog</title>
-  <atom:link href="http://mac-vicar.eu/rss.xml" rel="self" type="application/rss+xml" />
-  <link>http://mac-vicar.eu/</link>
+  <atom:link href="http://shrisharaob.github.io/rss.xml" rel="self" type="application/rss+xml" />
+  <link>http://shrisharaob.github.io/</link>
   <description><![CDATA[]]></description>
   <language>en</language>
-  <pubDate>Mon, 01 Apr 2024 15:26:10 +0000</pubDate>
-  <lastBuildDate>Mon, 01 Apr 2024 15:26:10 +0000</lastBuildDate>
+  <pubDate>Mon, 01 Apr 2024 23:12:45 +0000</pubDate>
+  <lastBuildDate>Mon, 01 Apr 2024 23:12:45 +0000</lastBuildDate>
   <generator>Emacs 27.2 Org-mode 9.4.4</generator>
   <webMaster>shrisha.prof@gmail.com (Shrisha Rao)</webMaster>
   <image>
     <url>https://orgmode.org/img/org-mode-unicorn-logo.png</url>
     <title>Blog</title>
-    <link>http://mac-vicar.eu/</link>
+    <link>http://shrisharaob.github.io/</link>
   </image>
 
 
   <item>
     <title>Hegel's Phenomenology of Spirit (POS)</title>
-    <link>http://mac-vicar.eu/posts/philosophy/hegel_pos/index.html</link>
+    <link>http://shrisharaob.github.io/posts/philosophy/hegel_pos/index.html</link>
     <author>shrisha.prof@gmail.com (Shrisha Rao)</author>
-    <guid isPermaLink="false">http://mac-vicar.eu/posts/philosophy/hegel_pos/index.html</guid>
+    <guid isPermaLink="false">http://shrisharaob.github.io/posts/philosophy/hegel_pos/index.html</guid>
     <pubDate>Mon, 01 Apr 2024 00:00:00 +0000</pubDate>
 
     <description><![CDATA[]]></description>
   </item>
   <item>
     <title>POS: Preface</title>
-    <link>http://mac-vicar.eu/posts/philosophy/hegel_pos/hegel_pos_preface/index.html</link>
+    <link>http://shrisharaob.github.io/posts/philosophy/hegel_pos/hegel_pos_preface/index.html</link>
     <author>shrisha.prof@gmail.com (Shrisha Rao)</author>
-    <guid isPermaLink="false">http://mac-vicar.eu/posts/philosophy/hegel_pos/hegel_pos_preface/index.html</guid>
+    <guid isPermaLink="false">http://shrisharaob.github.io/posts/philosophy/hegel_pos/hegel_pos_preface/index.html</guid>
     <pubDate>Mon, 01 Apr 2024 00:00:00 +0000</pubDate>
 
     <description><![CDATA[]]></description>
   </item>
   <item>
     <title>QFT</title>
-    <link>http://mac-vicar.eu/posts/physics/qft/index.html</link>
+    <link>http://shrisharaob.github.io/posts/physics/qft/index.html</link>
     <author>shrisha.prof@gmail.com (Shrisha Rao)</author>
-    <guid isPermaLink="false">http://mac-vicar.eu/posts/physics/qft/index.html</guid>
+    <guid isPermaLink="false">http://shrisharaob.github.io/posts/physics/qft/index.html</guid>
     <pubDate>Mon, 01 Apr 2024 00:00:00 +0000</pubDate>
 
     <description><![CDATA[]]></description>
   </item>
   <item>
     <title>Do we really understand the Spin Statistics theorem?</title>
-    <link>http://mac-vicar.eu/posts/physics/spin_stats_theorem/index.html</link>
+    <link>http://shrisharaob.github.io/posts/physics/spin_stats_theorem/index.html</link>
     <author>shrisha.prof@gmail.com (Shrisha Rao)</author>
-    <guid isPermaLink="false">http://mac-vicar.eu/posts/physics/spin_stats_theorem/index.html</guid>
+    <guid isPermaLink="false">http://shrisharaob.github.io/posts/physics/spin_stats_theorem/index.html</guid>
     <pubDate>Mon, 01 Apr 2024 00:00:00 +0000</pubDate>
 
     <description><![CDATA[]]></description>
   </item>
   <item>
     <title>Goethe's Faust: The Limits of Enlightenment</title>
-    <link>http://mac-vicar.eu/posts/poetry/faust/index.html</link>
+    <link>http://shrisharaob.github.io/posts/poetry/faust/index.html</link>
     <author>shrisha.prof@gmail.com (Shrisha Rao)</author>
-    <guid isPermaLink="false">http://mac-vicar.eu/posts/poetry/faust/index.html</guid>
+    <guid isPermaLink="false">http://shrisharaob.github.io/posts/poetry/faust/index.html</guid>
     <pubDate>Mon, 01 Apr 2024 00:00:00 +0000</pubDate>
 
     <description><![CDATA[]]></description>
   </item>
   <item>
     <title>The Broken Tower</title>
-    <link>http://mac-vicar.eu/posts/poetry/the_broken_tower_crane/index.html</link>
+    <link>http://shrisharaob.github.io/posts/poetry/the_broken_tower_crane/index.html</link>
     <author>shrisha.prof@gmail.com (Shrisha Rao)</author>
-    <guid isPermaLink="false">http://mac-vicar.eu/posts/poetry/the_broken_tower_crane/index.html</guid>
+    <guid isPermaLink="false">http://shrisharaob.github.io/posts/poetry/the_broken_tower_crane/index.html</guid>
     <pubDate>Mon, 01 Apr 2024 00:00:00 +0000</pubDate>
 
     <description><![CDATA[]]></description>
   </item>
   <item>
     <title>List of All Tutorials &amp; Notes</title>
-    <link>http://mac-vicar.eu/posts/tutorials_list/list_of_tutorials/index.html</link>
+    <link>http://shrisharaob.github.io/posts/tutorials_list/list_of_tutorials/index.html</link>
     <author>shrisha.prof@gmail.com (Shrisha Rao)</author>
-    <guid isPermaLink="false">http://mac-vicar.eu/posts/tutorials_list/list_of_tutorials/index.html</guid>
+    <guid isPermaLink="false">http://shrisharaob.github.io/posts/tutorials_list/list_of_tutorials/index.html</guid>
     <pubDate>Mon, 01 Apr 2024 00:00:00 +0000</pubDate>
 
     <description><![CDATA[]]></description>
