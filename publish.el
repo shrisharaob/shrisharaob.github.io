@@ -270,7 +270,6 @@
          :sitemap-function 'duncan/latest-posts-sitemap-function
          :sitemap-format-entry 'duncan/archive-sitemap-format-entry
 	 :title "Posts on AI/ML")
-
       (list "philosophy"
          :base-directory "./posts/philosophy"
          :exclude (regexp-opt my-excluded-files)
@@ -295,7 +294,6 @@
          :sitemap-function 'duncan/latest-posts-sitemap-function
          :sitemap-format-entry 'duncan/archive-sitemap-format-entry
 	 :title "Posts on Philosophy")
-
       (list "poetry"
          :base-directory "./posts/poetry"
          :exclude (regexp-opt my-excluded-files)
