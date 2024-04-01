@@ -136,7 +136,7 @@
 
 (defun duncan/head-common-list (plist)
   "List of elements going in head for all pages.  Takes PLIST as context."
-  (let ((description "The blog of Duncan Mac-Vicar P."))
+  (let ((description "The blog of Shrisha Rao"))
     (list
      (list "link" (list "href" "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" "rel" "stylesheet" "integrity" "sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" "crossorigin" "anonymous"))
      (list "meta" (list "description" description))
@@ -379,7 +379,7 @@
          :publishing-directory "./public"
          :publishing-function 'ignore
          ;; :publishing-function 'duncan/org-rss-publish-to-rss
-         :html-link-home "http://mac-vicar.eu/"
+         :html-link-home "http://shrisharaob.github.io/"
          :html-link-use-abs-url t
          :auto-sitemap t
          :sitemap-style 'list
@@ -410,7 +410,7 @@
          :base-extension "org"
          :publishing-directory "./public"
          :publishing-function 'duncan/org-rss-publish-to-rss
-         :html-link-home "http://mac-vicar.eu/"
+         :html-link-home "http://shrisharaob.github.io/"
          :html-link-use-abs-url t)
    (list "site"
          :base-directory "./"

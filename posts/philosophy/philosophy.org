@@ -1,2 +1,2 @@
-- <2024-02-11 Sun>  [[file:hegel_pos/index.org][Hegel's Phenomenology of Spirit (POS)]]
-- <2024-02-11 Sun>  [[file:hegel_pos/hegel_pos_preface/index.org][POS: Preface]]
+- <2024-02-21 Wed>  [[file:hegel_pos/hegel_pos_preface/index.org][POS: Preface]]
+- <2024-02-21 Wed>  [[file:hegel_pos/index.org][Hegel's Phenomenology of Spirit (POS)]]
