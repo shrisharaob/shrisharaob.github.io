@@ -135,7 +135,7 @@
 
 (defun duncan/head-common-list (plist)
   "List of elements going in head for all pages.  Takes PLIST as context."
-  (let ((description "The blog of Duncan Mac-Vicar P."))
+  (let ((description "The blog of Shrisha Rao"))
     (list
      (list "link" (list "href" "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" "rel" "stylesheet" "integrity" "sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" "crossorigin" "anonymous"))
      (list "meta" (list "description" description))
@@ -214,9 +214,11 @@
   (if (equal "rss.org" (file-name-nondirectory filename))
       (org-rss-publish-to-rss plist filename pub-dir)))
 
+
 (defvar my-excluded-files '("posts.org" "archive.org" "rss.org" "tutorials_list.org" "poetry.org"
 			    "philosophy.org" "ai_ml.org" "darkmode.org" "physics.org") 
   "List of org files to exclude.")
+
 
 
 ; Project definition
@@ -245,6 +247,7 @@
          :sitemap-sort-files 'anti-chronologically
          :sitemap-function 'duncan/latest-posts-sitemap-function
          :sitemap-format-entry 'duncan/archive-sitemap-format-entry)
+
       (list "ai_ml"
          :base-directory "./posts/ai_ml"
          :exclude (regexp-opt my-excluded-files)
@@ -269,6 +272,9 @@
          :sitemap-function 'duncan/latest-posts-sitemap-function
          :sitemap-format-entry 'duncan/archive-sitemap-format-entry
 	 :title "Posts on AI/ML")
+
+
+
 
       (list "philosophy"
          :base-directory "./posts/philosophy"
@@ -346,6 +352,7 @@
          :sitemap-format-entry 'duncan/archive-sitemap-format-entry
 	 :title "Posts on Physics")
 
+
        (list "tutorials_list"
          :base-directory "./posts/tutorials_list"
          :exclude (regexp-opt my-excluded-files)
@@ -370,6 +377,11 @@
          :sitemap-function 'duncan/latest-posts-sitemap-function
          :sitemap-format-entry 'duncan/archive-sitemap-format-entry
 	 :title "Tutorials & Notes")
+
+
+
+
+   
    (list "archive"
          :base-directory "./posts"
          :recursive t
@@ -378,7 +390,7 @@
          :publishing-directory "./public"
          :publishing-function 'ignore
          ;;:publishing-function 'duncan/org-rss-publish-to-rss
-         :html-link-home "http://mac-vicar.eu/"
+         :html-link-home "http://shrisharaob.github.io/"
          :html-link-use-abs-url t
          :auto-sitemap t
          :sitemap-style 'list
@@ -409,7 +421,7 @@
          :base-extension "org"
          :publishing-directory "./public"
          :publishing-function 'duncan/org-rss-publish-to-rss
-         :html-link-home "http://mac-vicar.eu/"
+         :html-link-home "http://shrisharaob.github.io/"
          :html-link-use-abs-url t)
    (list "site"
          :base-directory "./"
@@ -433,38 +445,17 @@
          :publishing-function 'org-html-publish-to-html
          :section-numbers nil
          :with-toc t)
-   (list "files"
-         :base-directory "./files"
-         :recursive t
-         :base-extension (regexp-opt '("jpeg" "jpg" "gif" "png" "js" "svg" "css" "pdf" "html" "webp"))
-         :publishing-directory "./public/files"
-         :publishing-function 'org-publish-attachment)
-   (list "owa"
-         :base-directory "./owa"
-         :recursive t
-         :base-extension ".*"
-         :publishing-directory "./public/owa"
-         :publishing-function 'org-publish-attachment)
    (list "assets"
          :base-directory "./"
          :exclude (regexp-opt '("assets" "public"))
-         :include '("CNAME" "LICENSE" "publish.el")
+         ;; :include '("CNAME" "keybase.txt" "LICENSE" ".nojekyll" "publish.el" ".well-known/nostr.json")
+         :include '("CNAME" "LICENSE" ".nojekyll" "publish.el")
          :recursive t
-         :base-extension (regexp-opt '("jpeg" "jpg" "gif" "png" "js" "svg" "css" "pdf"))
+         :base-extension (regexp-opt '("jpg" "gif" "png" "js" "svg" "css"))
          :publishing-directory "./public"
-         :publishing-function 'org-publish-attachment)))   
-   ;; (list "assets"
-   ;;       :base-directory "./"
-   ;;       :exclude (regexp-opt '("assets" "public"))
-   ;;       :include '("CNAME" "keybase.txt" "LICENSE" ".nojekyll" "publish.el" ".well-known/nostr.json")
-   ;;       :recursive t
-   ;;       :base-extension (regexp-opt '("jpg" "gif" "png" "js" "svg" "css"))
-   ;;       :publishing-directory "./public"
-   ;;       :publishing-function 'org-publish-attachment)))
+         :publishing-function 'org-publish-attachment)))
 
-
-
-; Our publishing definition
+                                        ; Our publishing definition
 (defun duncan-publish-all ()
   "Publish the blog to HTML."
   (interactive)
