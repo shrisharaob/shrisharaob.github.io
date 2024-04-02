@@ -1,4 +1,5 @@
 #+Title: Goethe's Faust: The Limits of Enlightenment
+#+Date: [2024-03-23 Sat]
 #+options: \n:t
 
 

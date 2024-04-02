@@ -1,4 +1,5 @@
 #+TITLE: Posts on AI/ML
+#+Date: [2024-02-26 Mon]
 
 - [[../../../tutorials/BareBonesML/index.org][BareBonesML: Understanding ML algorithms]]
   - Implementation of popular ML algorithms from scratch in /python/

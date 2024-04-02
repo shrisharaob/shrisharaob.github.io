@@ -1,5 +1,8 @@
 #+TITLE: POS: Preface
-#+SUBTITLE: The impossiblity of writing a preface
+#+Date: [2024-02-21 Wed]
+#+options: \n:t
+
+* The impossiblity of writing a preface
 
 Hegel claims that it is misleading and even inappropriate to write a preface to
 a philosophical work. Since prefaces usually state aims and results, which is

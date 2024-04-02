@@ -1,5 +1,8 @@
 #+TITLE: QFT
-#+SUPTITLE: Understanding Quantum Field Theory
+#+Date: [2024-02-24 Sat]
+
+
+**Understanding Quantum Field Theory**
 
 
 * [[../../../tutorials/qft_overview/index.org][An Overview Quantuam Field Theory]]

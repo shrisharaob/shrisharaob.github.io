@@ -1,5 +1,6 @@
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 #+TITLE: QFT: Overview
+#+Date: [2024-02-24 Sat]
 #+SUPTITLE: Understanding Quantum Field Theory: An overview
 #+INCLUDE: "../../snippets/darkmode.org" 
 

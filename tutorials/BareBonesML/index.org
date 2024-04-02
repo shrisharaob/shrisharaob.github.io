@@ -1,5 +1,6 @@
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 #+Title: BareBonesML: Inner workings of ML algorithms
+#+Date: [2024-03-21 Thu]
 # #+SUBTITLE: /Supervised Algorithms/
 #+OPTIONS: \n:t
 #+INCLUDE: "../../snippets/darkmode.org" 

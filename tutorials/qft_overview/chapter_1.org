@@ -1,5 +1,6 @@
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 #+TITLE: QFT: Lay of the land
+#+Date: [2024-03-23 Sat]
 #+INCLUDE: "../../snippets/darkmode.org" 
 #+STARTUP: latexpreview
 #+LaTeX_+HEADER: \usepackage{amsmath} 
