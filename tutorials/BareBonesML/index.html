@@ -66,43 +66,43 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgaf2cabc">Supervised Algorithms</a>
+<li><a href="#org2b53c54">Supervised Algorithms</a>
 <ul>
-<li><a href="#org5656d2d">Support Vector Machine (SVM)</a>
+<li><a href="#orgde1f17d">Support Vector Machine (SVM)</a>
 <ul>
-<li><a href="#orgf30e963">Dealing with outliers: The Slack term</a></li>
-<li><a href="#orgce0ca75">Dealing with non-linear speration boundires: Kernel Trick</a></li>
+<li><a href="#orgaa24ff2">Dealing with outliers: The Slack term</a></li>
+<li><a href="#org200e5a2">Dealing with non-linear speration boundires: Kernel Trick</a></li>
 </ul>
 </li>
-<li><a href="#orgad663d9">Naive Bayes</a>
+<li><a href="#org69befb8">Naive Bayes</a>
 <ul>
-<li><a href="#org79e5a14">Limitations</a></li>
+<li><a href="#orgd478fcb">Limitations</a></li>
 </ul>
 </li>
-<li><a href="#orgd4acd01">Ensemble Learning</a>
+<li><a href="#org00498b4">Ensemble Learning</a>
 <ul>
-<li><a href="#org6733870">Random Forest (Bagging)</a></li>
-<li><a href="#org9cbfb9d">Gradient Boosting Machine</a></li>
+<li><a href="#org8081d8f">Random Forest (Bagging)</a></li>
+<li><a href="#orga15cd12">Gradient Boosting Machine</a></li>
 </ul>
 </li>
-<li><a href="#orge750f59">Gaussian Discriminant Analysis</a></li>
-<li><a href="#org57cccc5">K-Nearest Neighbours</a></li>
+<li><a href="#org2ed6c1f">Gaussian Discriminant Analysis</a></li>
+<li><a href="#orgd854cbd">K-Nearest Neighbours</a></li>
 </ul>
 </li>
-<li><a href="#org4238356">Unsupervised Algorithms</a>
+<li><a href="#org68a5a7b">Unsupervised Algorithms</a>
 <ul>
-<li><a href="#org4dcfea0">K-Means Clustering</a></li>
-<li><a href="#orgbb91536">PCA</a></li>
+<li><a href="#org10f6703">K-Means Clustering</a></li>
+<li><a href="#org09338ea">PCA</a></li>
 </ul>
 </li>
-<li><a href="#orgfdc3437">Sequential Data</a>
+<li><a href="#org93cc7cf">Sequential Data</a>
 <ul>
-<li><a href="#org36d8a28">Hidden Markov Model</a></li>
+<li><a href="#org91e85bc">Hidden Markov Model</a></li>
 </ul>
 </li>
-<li><a href="#orgb06a906">Optimization techniques</a>
+<li><a href="#orge6b08a7">Optimization techniques</a>
 <ul>
-<li><a href="#org81be814">Simulated annealing</a></li>
+<li><a href="#org049a693">Simulated annealing</a></li>
 </ul>
 </li>
 </ul>
@@ -133,13 +133,13 @@ not intended to replace standard machine learning libraries for use in<br>
 production.<br>
 </p>
 
-<section id="outline-container-orgaf2cabc" class="outline-2">
-<h2 id="orgaf2cabc">Supervised Algorithms</h2>
-<div class="outline-text-2" id="text-orgaf2cabc">
+<section id="outline-container-org2b53c54" class="outline-2">
+<h2 id="org2b53c54">Supervised Algorithms</h2>
+<div class="outline-text-2" id="text-org2b53c54">
 </div>
-<div id="outline-container-org5656d2d" class="outline-3">
-<h3 id="org5656d2d">Support Vector Machine (SVM)</h3>
-<div class="outline-text-3" id="text-org5656d2d">
+<div id="outline-container-orgde1f17d" class="outline-3">
+<h3 id="orgde1f17d">Support Vector Machine (SVM)</h3>
+<div class="outline-text-3" id="text-orgde1f17d">
 <p>
 Central to the SVM is the concept of maximizing the margin between classes,<br>
 achieved by finding the hyperplane that separates the data points of different<br>
@@ -203,9 +203,9 @@ as follows:<br>
 </p>
 </div>
 
-<div id="outline-container-orgf30e963" class="outline-4">
-<h4 id="orgf30e963">Dealing with outliers: The Slack term</h4>
-<div class="outline-text-4" id="text-orgf30e963">
+<div id="outline-container-orgaa24ff2" class="outline-4">
+<h4 id="orgaa24ff2">Dealing with outliers: The Slack term</h4>
+<div class="outline-text-4" id="text-orgaa24ff2">
 <p>
 Slack refers to the allowance of misclassification or errors in the SVM<br>
 optimization process. Introducing slack enables SVM to handle linearly/non-linearly<br>
@@ -216,9 +216,9 @@ better to complex datasets, although too much slack can lead to overfitting.<br>
 </div>
 </div>
 
-<div id="outline-container-orgce0ca75" class="outline-4">
-<h4 id="orgce0ca75">Dealing with non-linear speration boundires: Kernel Trick</h4>
-<div class="outline-text-4" id="text-orgce0ca75">
+<div id="outline-container-org200e5a2" class="outline-4">
+<h4 id="org200e5a2">Dealing with non-linear speration boundires: Kernel Trick</h4>
+<div class="outline-text-4" id="text-org200e5a2">
 <p>
 Thee kernel trick is a method used to extend SVMs for non-linear decision<br>
 boundaries without explicitly mapping the input data into a higher-dimensional<br>
@@ -238,9 +238,9 @@ applications.<br>
 </div>
 </div>
 
-<div id="outline-container-orgad663d9" class="outline-3">
-<h3 id="orgad663d9">Naive Bayes</h3>
-<div class="outline-text-3" id="text-orgad663d9">
+<div id="outline-container-org69befb8" class="outline-3">
+<h3 id="org69befb8">Naive Bayes</h3>
+<div class="outline-text-3" id="text-org69befb8">
 <p>
 Naive Bayes is a probabilistic algorithm commonly used for classification<br>
 tasks. Its simplicity, speed, and effectiveness make it a popular choice for<br>
@@ -306,9 +306,9 @@ Output: Predicted class labels for the test set.
 </pre>
 </div>
 
-<div id="outline-container-org79e5a14" class="outline-4">
-<h4 id="org79e5a14">Limitations</h4>
-<div class="outline-text-4" id="text-org79e5a14">
+<div id="outline-container-orgd478fcb" class="outline-4">
+<h4 id="orgd478fcb">Limitations</h4>
+<div class="outline-text-4" id="text-orgd478fcb">
 <ul class="org-ul">
 <li><b>Assumption of Feature Independence</b><br></li>
 <li><b>Handling of Continuous Features</b><br>
@@ -332,9 +332,9 @@ sparse feature spaces.<br>
 </div>
 </div>
 
-<div id="outline-container-orgd4acd01" class="outline-3">
-<h3 id="orgd4acd01">Ensemble Learning</h3>
-<div class="outline-text-3" id="text-orgd4acd01">
+<div id="outline-container-org00498b4" class="outline-3">
+<h3 id="org00498b4">Ensemble Learning</h3>
+<div class="outline-text-3" id="text-org00498b4">
 <p>
 Ensemble learning is a ML technique that combines the predictions of multiple<br>
 individual models to produce a stronger overall prediction. The idea behind<br>
@@ -372,9 +372,9 @@ error in the previous step.<br></li>
 </div>
 
 
-<div id="outline-container-org6733870" class="outline-4">
-<h4 id="org6733870">Random Forest (Bagging)</h4>
-<div class="outline-text-4" id="text-org6733870">
+<div id="outline-container-org8081d8f" class="outline-4">
+<h4 id="org8081d8f">Random Forest (Bagging)</h4>
+<div class="outline-text-4" id="text-org8081d8f">
 <p>
 Random Forest is popular ensemble learning algorithm based on <b><i>Bagging</i></b>.<br>
 During the training phase, multiple decision trees are trained.  Each decision<br>
@@ -445,9 +445,9 @@ predict(forest, X_test):
 </div>
 
 
-<div id="outline-container-org9cbfb9d" class="outline-4">
-<h4 id="org9cbfb9d">Gradient Boosting Machine</h4>
-<div class="outline-text-4" id="text-org9cbfb9d">
+<div id="outline-container-orga15cd12" class="outline-4">
+<h4 id="orga15cd12">Gradient Boosting Machine</h4>
+<div class="outline-text-4" id="text-orga15cd12">
 <p>
 It works by combining multiple weak learners, typically decision trees, to<br>
 create a strong learner that can make accurate predictions. Unlike traditional<br>
@@ -468,9 +468,9 @@ LightGBM have made it a cornerstone of modern machine learning workflows.<br>
 </div>
 </div>
 
-<div id="outline-container-orge750f59" class="outline-3">
-<h3 id="orge750f59">Gaussian Discriminant Analysis</h3>
-<div class="outline-text-3" id="text-orge750f59">
+<div id="outline-container-org2ed6c1f" class="outline-3">
+<h3 id="org2ed6c1f">Gaussian Discriminant Analysis</h3>
+<div class="outline-text-3" id="text-org2ed6c1f">
 <p>
 Gaussian Discriminant Analysis (GDA) is a probabilistic generative model used<br>
 for classification tasks. In GDA, it is assumed that the features of each class<br>
@@ -493,9 +493,9 @@ spaces or with highly skewed or multimodal data.<br>
 </div>
 </div>
 
-<div id="outline-container-org57cccc5" class="outline-3">
-<h3 id="org57cccc5">K-Nearest Neighbours</h3>
-<div class="outline-text-3" id="text-org57cccc5">
+<div id="outline-container-orgd854cbd" class="outline-3">
+<h3 id="orgd854cbd">K-Nearest Neighbours</h3>
+<div class="outline-text-3" id="text-orgd854cbd">
 <p>
 K-Nearest Neighbors (KNN) is a simple yet powerful supervised machine learning<br>
 algorithm used for both classification and regression tasks. In KNN, the<br>
@@ -520,13 +520,13 @@ between bias and variance.<br>
 </section>
 
 
-<section id="outline-container-org4238356" class="outline-2">
-<h2 id="org4238356">Unsupervised Algorithms</h2>
-<div class="outline-text-2" id="text-org4238356">
+<section id="outline-container-org68a5a7b" class="outline-2">
+<h2 id="org68a5a7b">Unsupervised Algorithms</h2>
+<div class="outline-text-2" id="text-org68a5a7b">
 </div>
-<div id="outline-container-org4dcfea0" class="outline-3">
-<h3 id="org4dcfea0">K-Means Clustering</h3>
-<div class="outline-text-3" id="text-org4dcfea0">
+<div id="outline-container-org10f6703" class="outline-3">
+<h3 id="org10f6703">K-Means Clustering</h3>
+<div class="outline-text-3" id="text-org10f6703">
 <p>
 K-Means is an algorithm used for partitioning a dataset into K distinct,<br>
 non-overlapping clusters. The algorithm works by iteratively assigning data<br>
@@ -559,9 +559,9 @@ Here is the logic:<br>
 </div>
 </div>
 
-<div id="outline-container-orgbb91536" class="outline-3">
-<h3 id="orgbb91536">PCA</h3>
-<div class="outline-text-3" id="text-orgbb91536">
+<div id="outline-container-org09338ea" class="outline-3">
+<h3 id="org09338ea">PCA</h3>
+<div class="outline-text-3" id="text-org09338ea">
 <p>
 Principal Component Analysis (PCA) is a dimensionality reduction technique<br>
 commonly used in data analysis and machine learning. Its primary goal is to<br>
@@ -606,13 +606,13 @@ the transformed data.<br></li>
 </section>
 
 
-<section id="outline-container-orgfdc3437" class="outline-2">
-<h2 id="orgfdc3437">Sequential Data</h2>
-<div class="outline-text-2" id="text-orgfdc3437">
+<section id="outline-container-org93cc7cf" class="outline-2">
+<h2 id="org93cc7cf">Sequential Data</h2>
+<div class="outline-text-2" id="text-org93cc7cf">
 </div>
-<div id="outline-container-org36d8a28" class="outline-3">
-<h3 id="org36d8a28">Hidden Markov Model</h3>
-<div class="outline-text-3" id="text-org36d8a28">
+<div id="outline-container-org91e85bc" class="outline-3">
+<h3 id="org91e85bc">Hidden Markov Model</h3>
+<div class="outline-text-3" id="text-org91e85bc">
 <p>
 Hidden Markov Models (HMMs) have been succfully used in various fields from<br>
 speech recognition to bioinformatics, for modeling sequential data. At its core,<br>
@@ -678,13 +678,13 @@ decision-making.<br>
 
 
 
-<section id="outline-container-orgb06a906" class="outline-2">
-<h2 id="orgb06a906">Optimization techniques</h2>
-<div class="outline-text-2" id="text-orgb06a906">
+<section id="outline-container-orge6b08a7" class="outline-2">
+<h2 id="orge6b08a7">Optimization techniques</h2>
+<div class="outline-text-2" id="text-orge6b08a7">
 </div>
-<div id="outline-container-org81be814" class="outline-3">
-<h3 id="org81be814">Simulated annealing</h3>
-<div class="outline-text-3" id="text-org81be814">
+<div id="outline-container-org049a693" class="outline-3">
+<h3 id="org049a693">Simulated annealing</h3>
+<div class="outline-text-3" id="text-org049a693">
 <p>
 <b>A technique to find approximate global optimum in hightly rugged energy<br>
 landscapes</b><br>
@@ -718,6 +718,7 @@ travelling salesman problem:<br>
 </section>
 </main>
 <footer id="postamble" class="status">
+<p class="date">Date: 21 Mar. 2024</p>
 <p class="author">Author: Shrisha Rao</p>
 <p class="date">Created: 02 Apr. 2024</p>
 </footer>
