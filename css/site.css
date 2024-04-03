@@ -38,9 +38,22 @@ blockquote {
   position: fixed;
   top: 0; /* Adjust the top position as needed */
   right: 0; /* Align the element to the right side */
-  width: 23%; /* Adjust width as needed */
+  width: 25%; /* Adjust width as needed */
   margin-top: 10em; /* Adjust the margin-top to create space from the top */
 }
+
+
+@media (max-width: 1000px) {
+  .latest-section {
+    position: relative; /* Change to relative positioning */
+    width: 100%; /* Adjust width to fill the mobile screen */
+    margin-top: 2em; /* Adjust margin-top as needed */
+    top: auto; /* Reset the top property */
+    right: auto; /* Reset the right property */
+  }
+}
+
+
 
 .tutorials {
   position: fixed; /* Element position is fixed in the viewport */

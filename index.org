@@ -28,12 +28,11 @@ a monolog, a dialog, a fool's catalog?<br>
 
 <p>
 Venture into the Lyrical Labyrinths, where we navigate the intricate pathways of
-thought, exploring the boundless depths of human understanding with the
-curiosity of a cat. Serenade your soul with melodies of knowledge and
-imagination. Prepare to be captivated, inspired, and perhaps even slightly mad,
+thought, <br> exploring the boundless depths of human understanding with the
+curiosity of a cat. <br> Serenade your soul with melodies of knowledge and
+imagination. Prepare to be captivated, <br> inspired, and perhaps even slightly mad,
 as we embark upon this exhilarating journey.
 </p>
-
 #+END_export
 
 
