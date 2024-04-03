@@ -43,7 +43,8 @@ blockquote {
 }
 
 
-@media (max-width: 1000px) {
+/* is screen size is small, move latest posts to bottom of page */
+@media (max-width: 1100px) {
   .latest-section {
     position: relative; /* Change to relative positioning */
     width: 100%; /* Adjust width to fill the mobile screen */
