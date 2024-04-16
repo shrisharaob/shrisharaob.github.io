@@ -1,12 +1,12 @@
 #+TITLE: QFT
-#+Date: [2024-02-24 Sat]
+#+Date: [2024-04-15 Mon]
 
 
 **Understanding Quantum Field Theory**
 
-* [[../../../tutorials/qft_overview/index.org][An Overview Quantuam Field Theory]]
-* [[../../../tutorials/qft_overview/chapter_1.org][Lay of the Land]]
-* [[../../../tutorials/qft_overview/chapter_2.org][First encouter with Covariant Derivative and Gauge Fields]]
+    - [2024-02-24 Sat] [[../../../tutorials/qft_overview/index.org][An Overview Quantuam Field Theory]]
+    - [2024-03-23 Sat]  [[../../../tutorials/qft_overview/chapter_1.org][Lay of the Land]]
+    - [2024-04-15 Mon] [[../../../tutorials/qft_overview/chapter_2.org][First encouter with Covariant Derivative and Gauge Fields]]
 
 
 
