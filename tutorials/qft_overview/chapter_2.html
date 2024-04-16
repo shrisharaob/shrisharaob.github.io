@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 16 Apr. 2024 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>First encouter with Covariant Derivative and Gauge Fields</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="Shrisha Rao">
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<main id="content">
+<header>
+<h1 class="title">First encouter with Covariant Derivative and Gauge Fields</h1>
+</header><nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org2f8d46a">Understanding Fields in Curved Field Spaces</a>
+<ul>
+<li><a href="#org7c3298a">Introducing Connections to Keep Track</a>
+<ul>
+<li><a href="#orgaf4e6c8">Covariant Derivative: Extending Differentiation to Curved Spaces</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org51f4742">Gauge Fields: Mediators of Fundamental Interactions</a></li>
+</ul>
+</div>
+</nav>
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+<script>
+  function addDarkmodeWidget() {
+    new Darkmode({
+      bottom: '695px', // Remove bottom positioning
+      right: '20px', // Remove default right positioning
+      left: 'unset', // Remove default left positioning
+      label: '🌓', // Custom label/icon
+      time: '0.5s', // Transition time
+      autoMatchOsTheme: false, // Disable automatic theme matching based on OS preferences
+      // location: 'top-right' // Set position to top right
+    }).showWidget();
+  }
+  window.addEventListener('load', addDarkmodeWidget);
+</script>
+<p>
+In quantum field theory (QFT), fields are fundamental entities that describe the
+properties of particles and their interactions. These fields exist in what we
+call &ldquo;field spaces,&rdquo; which are mathematical spaces where each point corresponds
+to a possible configuration of the field.
+</p>
+
+<p>
+Field spaces in the context of field theory refer to the mathematical
+abstraction where each point in spacetime is associated with a value from a
+mathematical space, often real or complex numbers. In this framework, fields are
+functions defined over spacetime, and each point in spacetime corresponds to a
+specific value of the field. These values can vary continuously across
+spacetime.
+</p>
+
+<p>
+Here are some examples:
+</p>
+
+<ul class="org-ul">
+<li>Scalar fields \(\varphi(x)\): \(x^{\mu} \rightarrow \mathbb{R}\)
+Scalar fields associate each point in spacetime with a real number. For
+example, in the Klein-Gordon equation of relativistic quantum mechanics, the
+scalar field \(\varphi(x)\) represents the amplitude of a particle at each
+spacetime point.</li>
+
+<li>Vector fields \(A_{\mu}(x)\): \(x^{\mu} \rightarrow \mathbb{R}^4\) or \(x^{\mu} \rightarrow \mathbb{C}^4\)
+Vector fields associate each point in spacetime with a vector in a real or
+complex vector space. For instance, in electromagnetism, the electromagnetic
+field \(A_{\mu}(x)\) represents the electromagnetic potential, with components
+describing the electric and magnetic fields at each spacetime point.</li>
+
+<li>Spinor fields \(\psi(x)\): \(x^{\mu} \rightarrow \mathbb{C}^{2^n}\)
+Spinor fields are used in theories involving particles with intrinsic angular
+momentum (spin). They map each point in spacetime to a complex vector
+space. Spinor fields describe fermionic particles  such as electrons.</li>
+</ul>
+
+<p>
+In summary, field spaces provide a mathematical framework for describing the
+behavior of fields across spacetime, where each point in spacetime is associated
+with a value from a mathematical space, facilitating the study of various
+physical phenomena within the realm of field theory.
+</p>
+
+
+
+<section id="outline-container-org2f8d46a" class="outline-2">
+<h2 id="org2f8d46a">Understanding Fields in Curved Field Spaces</h2>
+<div class="outline-text-2" id="text-org2f8d46a">
+<p>
+In general relativity (GR), the curvature of spacetime is intimately linked with
+the energy density and mass distribution through the Einstein field
+equations. However, in QFT, the concept of curvature in field spaces is not as
+straightforward. While certain configurations of fields can induce curvature in
+the field space, it&rsquo;s not an automatic consequence of non-zero field values. We
+will eventually explore the specific mechanisms through which curvature of Field
+spaces arises in QFT.
+</p>
+
+<p>
+When dealing with fields that exist in curved spaces, like the gravitational
+field around massive objects, we encounter challenges in maintaining consistency
+across different coordinate systems. This is where the concept of connections
+and the covariant derivative come into play.
+</p>
+
+<p>
+Imagine a field, like the gravitational field around a planet, existing in a
+curved spacetime. To describe this field, we need to define it at every point in
+space. However, the curvature of spacetime makes it tricky to maintain
+consistency in describing the field&rsquo;s behavior across different coordinate
+systems. This is akin to trying to draw straight lines on a curved surface like
+a sphere—they won&rsquo;t remain straight when viewed from different angles.
+</p>
+</div>
+
+
+<div id="outline-container-org7c3298a" class="outline-3">
+<h3 id="org7c3298a">Introducing Connections to Keep Track</h3>
+<div class="outline-text-3" id="text-org7c3298a">
+<p>
+To tackle this challenge, we introduce connections, which help us keep track of
+local coordinate systems as we move around in the curved space. These
+connections ensure that we maintain consistency when differentiating fields in
+curved spaces. They serve as the glue that holds together the fabric of
+spacetime, allowing us to navigate smoothly through its curved geometry.
+</p>
+</div>
+
+<div id="outline-container-orgaf4e6c8" class="outline-4">
+<h4 id="orgaf4e6c8">Covariant Derivative: Extending Differentiation to Curved Spaces</h4>
+<div class="outline-text-4" id="text-orgaf4e6c8">
+<p>
+The covariant derivative is a mathematical tool that extends the concept of
+differentiation to curved spaces. It incorporates the effects of curvature
+through the connections we introduced earlier. The covariant derivative of a
+field tells us how the field changes as we move from one point to another in the
+curved space while accounting for the curvature.  Let us consider a
+transformation: \( \varphi' = e^{i\alpha(x)}\varphi \). This transformation is
+called a Guage transformation.
+</p>
+
+<p>
+The partial derivative \( \partial_{\mu} \varphi \),  applying the chain rule,
+we get:
+</p>
+
+<p>
+\[
+\partial_{\mu} \varphi' = \partial_{\mu} (e^{i\alpha(x)}\varphi)
+\]
+</p>
+
+<p>
+Now, let&rsquo;s break down the derivative of the product using the product rule:
+</p>
+
+\begin{align*}
+& =  e^{i\alpha(x)}\partial_{\mu} \varphi + \varphi 
+e^{i\alpha(x)}\partial_{\mu}\alpha(x) \\
+& = e^{i\alpha(x)}(\partial_{\mu} \varphi + \varphi \partial_{\mu}\alpha(x)) \\
+& = (\partial_{\mu}+\partial_{\mu}\alpha)\varphi' \\
+\end{align*} 
+
+<p>
+We have an extra a \(\partial_{\mu}\alpha\)  term. So, we postulate a new field
+A<sup>&mu;</sup> such that it cancels the extra term. Transformation rule for A is
+defined as: \(A_{\mu}\): \(A'_{\mu} = A_{\mu} - \partial_{\mu}\alpha\)
+</p>
+
+<p>
+So the term \(( \partial_{\mu} - A_{\mu} ) \varphi\) remains
+invariant under the transformations \(\varphi \rightarrow \varphi^{\prime}\) and
+\(A \rightarrow A^{\prime}\)
+</p>
+
+<p>
+the Covariant derivative is defined as:
+</p>
+
+\begin{equation}
+\boxed{ D_{\mu}(x_{\mu}) = \partial_{\mu} \varphi - A_{\mu}(x_{\mu}) }
+\end{equation}
+
+
+<p>
+In the context of General
+Relativity, we have
+</p>
+
+\begin{equation}
+ \nabla_{\mu} \phi = \partial_{\mu} \phi + \Gamma^{\rho}_{\mu\nu} \phi
+\end{equation} 
+
+
+<p>
+Here, \( \nabla_{\mu} \) is the covariant derivative, \( \phi \) is the field,
+\( \partial_{\mu} \) is the partial derivative with respect to the coordinate \(
+x^{\mu} \), and \( \Gamma^{\rho}_{\mu\nu} \) are the Christoffel symbols
+representing the connection.
+</p>
+</div>
+</div>
+</div>
+</section>
+
+
+
+<section id="outline-container-org51f4742" class="outline-2">
+<h2 id="org51f4742">Gauge Fields: Mediators of Fundamental Interactions</h2>
+<div class="outline-text-2" id="text-org51f4742">
+<p>
+Interestingly, the connections we introduced to maintain consistency in curved
+spaces can themselves be studied as gauge fields.  Gauge fields play a crucial
+role in mediating the interactions between particles. This realization
+highlights the fundamental importance of connections.
+</p>
+
+<p>
+As we delve further into the fascinating realms of physics, let us continue to
+explore the intricate interplay between fields, connections, and fundamental
+forces, unraveling the mysteries of the cosmos one equation at a time.
+</p>
+
+<p>
+Happy exploring!
+</p>
+</div>
+</section>
+</main>
+<footer id="postamble" class="status">
+<p class="date">Date: 15 Apr. 2024</p>
+<p class="author">Author: Shrisha Rao</p>
+<p class="date">Created: 16 Apr. 2024</p>
+</footer>
+</body>
+</html>
