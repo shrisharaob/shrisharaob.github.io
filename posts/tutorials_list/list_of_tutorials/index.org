@@ -1,5 +1,5 @@
 #+TITLE: List of All Tutorials & Notes
-#+Date: [2024-02-07 Wed]
+#+Date: [2024-02-08 Thu]
 
 
 * Physics
@@ -11,4 +11,5 @@
 * Machine Learning / AI
   + [[../../../tutorials/BareBonesML/index.org][Building ML algorithms from scratch in Python]]
   + [[../../../tutorials/polyglot/index.org][Machine Translation using transformers]]  
+
 
