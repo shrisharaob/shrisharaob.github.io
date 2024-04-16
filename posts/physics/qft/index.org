@@ -4,7 +4,6 @@
 
 **Understanding Quantum Field Theory**
 
-
 * [[../../../tutorials/qft_overview/index.org][An Overview Quantuam Field Theory]]
 * [[../../../tutorials/qft_overview/chapter_1.org][Lay of the Land]]
 * [[../../../tutorials/qft_overview/chapter_2.org][First encouter with Covariant Derivative and Gauge Fields]]

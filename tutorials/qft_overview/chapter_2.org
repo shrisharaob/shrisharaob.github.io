@@ -30,7 +30,7 @@ Here are some examples:
   Vector fields associate each point in spacetime with a vector in a real or
   complex vector space. For instance, in electromagnetism, the electromagnetic
   field \(A_{\mu}(x)\) represents the electromagnetic potential, with components
-  describing the electric and magnetic fields at each spacetime point.
+  describing the electric and magnetic fields at each spacetime point
 
 - Spinor fields \(\psi(x)\): \(x^{\mu} \rightarrow \mathbb{C}^{2^n}\)
   Spinor fields are used in theories involving particles with intrinsic angular
