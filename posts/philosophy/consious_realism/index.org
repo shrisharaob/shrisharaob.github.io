@@ -67,10 +67,10 @@ evolve over time. The model includes the following key components:
 
 * Limitations
   - They further claim that  mathematical structures underlying conscious agents
-  could be related to scattering amplitudes in physics, particularly in the
-  context of quantum field theory. It is not clear shown how this can be done.
+    could be related to scattering amplitudes in physics, particularly in the
+    context of quantum field theory. It is not clear shown how this can be done.
   -  Eperiences are inherently subjective, and cannot be easily quantified. How
-  then would we construct a formal measurable space of experiences?
+      then would we construct a formal measurable space of experiences?
   - ....
 
   In order to explain conscious experiences they introduce this model, are
