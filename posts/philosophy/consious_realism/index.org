@@ -1,0 +1,85 @@
+#+Title: Modern Idealists
+#+Date:[2024-06-12 Wed]
+#+options: \n:t
+
+* Introduction
+Donald D. Hoffman and Chetan Prakash explore the idea that our perception of
+reality is not a direct reflection of an objective world but rather a construct
+of our consciousness i.e. the physical world is an emergent property of
+underlying interactions of conscious agents. Our sensory systems evolved not to
+perceive the truth of the world but to provide a useful interface to guide
+behavior. According to this theory, what we perceive as objects in our
+environment are not accurate representations of objective reality but are
+instead symbols or icons that help us navigate our surroundings
+efficiently. They argue that fitness, rather than truth, is the driving force
+behind how perception evolved through natural selection. They claim that the
+structures and properties we perceive in the world, including space and time,
+are not fundamental aspects of reality but are constructs shaped by the need for
+survival.
+
+Many idealist spiritual traditions have similar claims. For example, in many
+schools of Vedic philosophy,particularly in Advaita Vedanta, consciousness
+(often referred to as /Brahman/) is considered the fundamental reality. The
+physical world is seen as Maya, an illusion or a relative reality, which emerges
+from the interplay of consciousness.
+Plato in his /Theory of Forms/ proposed that the material world we perceive is
+not the ultimate reality. Instead, it is a shadow or imperfect reflection of a
+higher realm of perfect, immutable Forms or Ideas.  Forms are the true reality,
+while the material world is a mere imitation.
+Kant in his /Transcendental Idealist/ strand of philosophical inquiry argued
+that space and time are forms of human intuition, structuring our experiences
+but not existing independently of them.  Our knowledge is limited to phenomena
+(the world as it appears to us), while the noumena (things in themselves) remain
+unknowable.
+Hegel in his /Absolute Idealist/ school of thought, claimed that that reality is
+the manifestation of an absolute consciousness or Spirit (Geist), which unfolds
+dialectically through history and individual consciousness.  Hegel posits that
+the development of self-awareness and the realization of the unity of
+consciousness and reality are key aspects of understanding the world.
+
+* Model
+They introduce a mathematical model to represent conscious agents.
+A conscious agent is defined by a mathematical structure involving a set of
+experiences, actions, and a dynamic process that describes how experiences
+evolve over time. The model includes the following key components:
+  - Experiences (X): A measurable space that represents the possible experiences
+    of the agent.
+  - Actions (G): A measurable space that represents the possible actions the
+    agent can take.
+  - Perception Mapping (P): A function that maps the current state of the world
+    and the action taken by the agent to a new experience.
+  - Decision Mapping (D): A function that maps the current experience to a
+    probability distribution over possible actions.
+  - World (W): The state of the external world, which is also modeled
+    mathematically.
+
+
+  The dynamics of a conscious agent are described by how its experiences and
+  actions evolve over time, influenced by its perception and decision functions.
+  The state of the agent evolves based on its current experience and the actions
+  it decides to take. The evolution of the world state is influenced by the
+  agent's actions. They propose that agents interact by sharing experiences and
+  actions, forming a network of interacting conscious entities. The interactions
+  and evolution of experiences and actions are captured using a Markovian
+  framework, where the state transitions are probabilistic and depend on the
+  current state and actions.
+
+
+* Limitations
+  - They further claim that  mathematical structures underlying conscious agents
+  could be related to scattering amplitudes in physics, particularly in the
+  context of quantum field theory. It is not clear shown how this can be done.
+  -  Eperiences are inherently subjective, and cannot be easily quantified. How
+  then would we construct a formal measurable space of experiences?
+  - ....
+
+  In order to explain conscious experiences they introduce this model, are
+  commiting grave philosophical mistakes by unintenstionally hiding behind the facade
+  of a seemingly solid toy mathematical model?
+  
+
+* Bibliography
+- Hoffman Donald D. , Prakash Chetan , Objects of consciousness, Frontiers in
+  Psychology, 2014
+- Donald D. Hoffman, Chetan Prakash, and Robert Prentner, Fusions of Consciousness
+  , Entropy 2023
