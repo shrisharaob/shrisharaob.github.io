@@ -389,9 +389,14 @@ figure img {
 
 myimg {
     width: 40%;
-    display: block;
-    margin: 0 auto;
 }
+
+
+/* myimg { */
+/*     width: 40%; */
+/*     display: block; */
+/*     margin: 0 auto; */
+/* } */
 
 /* .imgcontainer { */
 /*     max-width: 50%; */
