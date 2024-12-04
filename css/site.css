@@ -387,11 +387,30 @@ figure img {
     box-shadow: 1px 2px 5px black;
 }
 
-myimg {
-    width: 50%;
-    display: block;
-    margin: 0 auto;    
+/* myimg { */
+/*     width: 50%; */
+/*     display: block; */
+/*     margin: 0 auto;     */
+/* } */
+
+/* .imgcontainer { */
+/*     max-width: 50%; */
+/*     margin: 0 auto; */
+/*     text-align: center; */
+/* } */
+
+.myimg {
+    width: 50%;        /* Scale the image to 50% of its containing block */
+    max-width: 50%;    /* Ensure it doesn't exceed 50% */
+    display: block;    /* Make the image a block element */
 }
+
+.myimgcontainer {
+    max-width: 50%;    /* Limit the container to 50% of the text width */
+    margin: 0 auto;    /* Center the container horizontally */
+    text-align: center; /* Center-align any content inside the container */
+}
+
 
 
 
