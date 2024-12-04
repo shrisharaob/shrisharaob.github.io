@@ -68,13 +68,13 @@ ideas shape our understanding of physics!
 The interactive Plotly graph can be accessed here: [[file:~/Documents/orgfiles/nomad_scientist_site/snippets/other_html_files/hopf_fibration_interactive.html][ Interactive Visualisation of
 Hopf Fibration]]
 
-#+ATTR_HTML: :class myimg
+#+ATTR_HTML: :class fig1
 [[file:imgs/fig1.png]]
-#+ATTR_HTML: :class myimg
+#+ATTR_HTML: :class fig2
 [[file:imgs/fig2.png]]
-#+ATTR_HTML: :class myimg
+#+ATTR_HTML: :class fig4
 [[file:imgs/fig4.png]]
-#+ATTR_HTML: :class myimg
+#+ATTR_HTML: :class fig6
 [[file:imgs/fig6.png]]
 
 
