@@ -63,13 +63,19 @@ states is organized.  Hopf fibrations are more than just a mathematical
 curiosity—they are deeply connected to the structure of physical theories.
 
 
-
-
 If you're intrigued, dive deeper into the world of topology and see how these
 ideas shape our understanding of physics!
 
 The interactive Plotly graph can be accessed here: [[file:~/Documents/orgfiles/nomad_scientist_site/snippets/other_html_files/hopf_fibration_interactive.html][ Interactive Visualisation of
 Hopf Fibration]]
+
+[[file:imgs/fig1.png]]
+[[file:imgs/fig2.png]]
+[[file:imgs/fig4.png]]
+[[file:imgs/fig6.png]]
+
+
+
 
 #+BEGIN_EXPORT html
 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">
@@ -341,7 +347,7 @@ if __name__ == "__main__":
 #     phi_range = np.linspace(np.pi/8, np.pi, N)  # From south pole (0) to north pole (pi)
 #     psi_range = np.linspace(0, 4 * np.pi, N)  # Full rotation (0 to 2pi)
 
-    phi_list = np.linspace(phi_range[0], phi_range[1], N)
+    phi_list = np.linspace(phi_range[0], phi_range[-1], N)
     psi_list = np.linspace(psi_range[0], psi_range[1], N)
    
 
