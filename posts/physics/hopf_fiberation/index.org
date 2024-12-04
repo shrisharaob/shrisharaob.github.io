@@ -371,19 +371,19 @@ if __name__ == "__main__":
 #+END_EXPORT
 
 
-#+HTML: <div class="myimg">
-[[file:imgs/fig1.png]]
-[[file:imgs/fig2.png]]
-[[file:imgs/fig4.png]]
-[[file:imgs/fig6.png]]
-#+HTML: </div>
-
-
-# #+ATTR_HTML: :class fig1
+# #+HTML: <div class="myimg">
 # [[file:imgs/fig1.png]]
-# #+ATTR_HTML: :class fig2
 # [[file:imgs/fig2.png]]
-# #+ATTR_HTML: :class fig4
 # [[file:imgs/fig4.png]]
-# #+ATTR_HTML: :class fig6
 # [[file:imgs/fig6.png]]
+# #+HTML: </div>
+
+
+#+ATTR_HTML: :class fig1
+[[file:imgs/fig1.png]]
+#+ATTR_HTML: :class fig2
+[[file:imgs/fig2.png]]
+#+ATTR_HTML: :class fig4
+[[file:imgs/fig4.png]]
+#+ATTR_HTML: :class fig6
+[[file:imgs/fig6.png]]
