@@ -371,7 +371,7 @@ if __name__ == "__main__":
 #+END_EXPORT
 
 
-#+HTML: <div class="myimgcontainer">
+#+HTML: <div class="myimg">
 [[file:imgs/fig1.png]]
 [[file:imgs/fig2.png]]
 [[file:imgs/fig4.png]]
