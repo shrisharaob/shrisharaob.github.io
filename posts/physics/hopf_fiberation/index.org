@@ -6,7 +6,6 @@
 #+LaTeX_+HEADER: \usepackage{amsmath} 
 #+OPTIONS: tex:t \n:t
 
-
 * Exploring Hopf Fibrations
 The Hopf fibration is an interesting concept providing insights into geometry,
 topology, and QM. We will explore what Hopf fibrations are and their
@@ -69,15 +68,13 @@ ideas shape our understanding of physics!
 The interactive Plotly graph can be accessed here: [[file:~/Documents/orgfiles/nomad_scientist_site/snippets/other_html_files/hopf_fibration_interactive.html][ Interactive Visualisation of
 Hopf Fibration]]
 
-
-#+ATTR_ORG: :width 300
-#+ATTR_HTML: :style width:50%;
-#+ATTR_LATEX: :width 0.5\linewidth
-
-
+#+ATTR_HTML: :class myimg
 [[file:imgs/fig1.png]]
+#+ATTR_HTML: :class myimg
 [[file:imgs/fig2.png]]
+#+ATTR_HTML: :class myimg
 [[file:imgs/fig4.png]]
+#+ATTR_HTML: :class myimg
 [[file:imgs/fig6.png]]
 
 
