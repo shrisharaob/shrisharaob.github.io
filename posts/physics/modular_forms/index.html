@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 21 Mar. 2025 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Strange and Beautiful World of Modular Forms</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="Shrisha Rao">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-1687066-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-1687066-2');
+</script>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css' rel='stylesheet' integrity='sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==' crossorigin='anonymous'/>
+<meta description='The blog of Shrisha Rao'/>
+<link rel='alternate' type='application+rss/xml' title='The blog of Shrisha Rao' href='posts/rss.xml'/>
+<link rel="stylesheet" href="../../../css/site.css?v=a26d1ec203093aa7333d3a99f7a0a387a845d5435ae4509a31222ff5b8f8165c" type="text/css">
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<header id="preamble" class="status">
+<div class="logo">
+  <a href="/">
+    <img src="/images/ai_art.jpeg" class="avatar" alt="My photo"/>
+  </a>
+  <div class="title-section">
+    <a href="/"><h1>The noMad Scientist</h1></a>
+    <sub style="line-height:1;"> <h2>Poetic Particles colliding in Lyrical Labirynths</h2> </sub>
+    <div style="padding-top: 20px; padding-bottom: 20px;">
+      <nav>
+	<ul>
+          <li><a href="/posts/ai_ml/list_of_ml_posts/index.html"> AI/ML </a></li>
+          <li><a href="/posts/philosophy/philosophy.html"> Philosophy </a></li>
+	  <li><a href="/posts/physics/physics.html"> Physics </a></li>
+	  <li><a href="/posts/poetry/poetry.html"> Poetry </a></li>
+          <li><a href="/posts/tutorials_list/list_of_tutorials/index.html"> Tutorials </a></li>
+          <li><a href="/posts/archive.html"> Posts </a></li>
+          <li><a href="/about.html"> About </a></li>
+          <!-- add more as needed -->
+	</ul>
+      </nav>
+    </div>
+  </div>
+  <div id="social">
+    <a title="shrisharaob on Github" href="https://github.com/shrisharaob">
+      <i class="fa-brands fa-github"></i>
+    </a>
+    <a title="shrisharao on LinkedIn" href="https://linkedin.com/in/shrisha-rao">
+      <i class="fa-brands fa-linkedin"></i>
+    </a>
+    <!-- <a title="dmacvicar on Twitter" href="https://twitter.com/dmacvicar"> -->
+      <!--   <i class="fa-brands fa-twitter"></i> -->
+      <!-- </a> -->
+    <!-- <a title="RSS feed" id="atom" href="posts/rss.xml"> -->
+    <!--   <i class="fa-solid fa-rss"></i> -->
+    <!-- </a> -->
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+<script>
+  function addDarkmodeWidget() {
+    new Darkmode({
+      bottom: 'unset', // Remove bottom positioning
+      right: '10px', // Remove default right positioning
+      left: 'unset', // Remove default left positioning
+      label: '🌓', // Custom label/icon
+      time: '0.5s', // Transition time
+      autoMatchOsTheme: false, // Disable automatic theme matching based on OS preferences
+      // location: 'top-right' // Set position to top right
+    }).showWidget();
+  }
+  window.addEventListener('load', addDarkmodeWidget);
+</script>
+</header>
+<main id="content">
+<header>
+<h1 class="title">The Strange and Beautiful World of Modular Forms</h1>
+<p class="subtitle">Mar 21, 2025</p>
+</header>
+<section id="outline-container-org98c8245" class="outline-2">
+<h2 id="org98c8245">Introduction</h2>
+<div class="outline-text-2" id="text-org98c8245">
+<p>
+Modular forms are fascinating mathematical objects that exhibit a surprising<br>
+amount of symmetry. They are functions defined on the upper half of the<br>
+complex plane, which transform in a very specific way under certain<br>
+transformations. What makes them so interesting is how they pop up in<br>
+seemingly unrelated areas of physics and mathematics.<br>
+</p>
+
+<p>
+Let  \(f(\tau)\) be a function, where \(\tau\) is a complex number with a positive<br>
+imaginary part. A modular form, roughly speaking, is a function that remains<br>
+&ldquo;almost&rdquo; the same when we replace \(\tau\) with \(\frac{a\tau + b}{c\tau + d}\),<br>
+where \(a, b, c, d\) are integers satisfying \(ad - bc = 1\). This symmetry has<br>
+profound implications.<br>
+</p>
+</div>
+</section>
+
+
+<section id="outline-container-orgf870337" class="outline-2">
+<h2 id="orgf870337">The Simplest Example: The j-invariant</h2>
+<div class="outline-text-2" id="text-orgf870337">
+<p>
+The simplest non-constant modular function is the <b>j-invariant</b>, often denoted<br>
+as \(j(\tau)\). It&rsquo;s a complex function with remarkable properties. While its<br>
+exact formula is a bit involved, its key feature is that it&rsquo;s invariant under<br>
+the modular transformations mentioned above.<br>
+</p>
+
+<p>
+\[ j(\tau) = \frac{(1728)g_2(\tau)^3}{g_2(\tau)^3 - 27g_3(\tau)^2} \]<br>
+</p>
+
+<p>
+where \(g_2(\tau)\) and \(g_3(\tau)\) are Eisenstein series. This function plays a<br>
+crucial role in the theory of elliptic curves and has surprising connections<br>
+to other areas.<br>
+</p>
+</div>
+</section>
+
+<section id="outline-container-org7e75444" class="outline-2">
+<h2 id="org7e75444">Eisenstein Series: A Foundation</h2>
+<div class="outline-text-2" id="text-org7e75444">
+<p>
+Before diving into examples, let&rsquo;s briefly discuss Eisenstein series, a<br>
+fundamental building block of modular forms. For an even integer \(k > 2\), the<br>
+Eisenstein series \(G_k(\tau)\) is defined as:<br>
+</p>
+
+<p>
+\[ G_k(\tau) = \sum_{(m,n) \neq (0,0)} \frac{1}{(m\tau + n)^k} \]<br>
+</p>
+
+<p>
+These series are modular forms of weight \(k\). They have a Fourier expansion:<br>
+</p>
+
+<p>
+\[ G_k(\tau) = 2\zeta(k) + 2\frac{(2\pi i)^k}{(k-1)!} \sum_{n=1}^\infty \sigma_{k-1}(n) q^n \]<br>
+</p>
+
+<p>
+where \(\zeta(k)\) is the Riemann zeta function, \(\sigma_{k-1}(n) = \sum_{d|n}
+  d^{k-1}\) is the divisor function, and \(q = e^{2\pi i \tau}\). This expansion<br>
+reveals a deep connection between modular forms and number theory.<br>
+</p>
+</div>
+</section>
+
+<section id="outline-container-org14d861b" class="outline-2">
+<h2 id="org14d861b">Unexpected Connections</h2>
+<div class="outline-text-2" id="text-org14d861b">
+<p>
+What&rsquo;s truly remarkable is how modular forms appear in areas where we least expect them.<br>
+</p>
+
+<p>
+<b><b>1. Finite Groups and the Monster Group:</b></b><br>
+</p>
+
+<p>
+The Monster group is the largest of the sporadic finite simple groups, a<br>
+collection of groups that don&rsquo;t fit into any neat classification. Its sheer<br>
+size and complexity are staggering, with approximately \(8 \times 10^{53}\)<br>
+elements.<br>
+</p>
+
+<p>
+The j-invariant has a Fourier expansion:<br>
+</p>
+
+<p>
+\[ j(\tau) = \frac{1}{q} + 744 + 196884q + 21493760q^2 + \cdots \]<br>
+</p>
+
+<p>
+where \(q = e^{2\pi i \tau}\). Remarkably, the coefficients in this expansion<br>
+are related to the dimensions of the irreducible representations of the<br>
+Monster group. For instance, \(196884 = 196883 + 1\), where \(196883\) is the<br>
+dimension of a particular irreducible representation. This connection, known<br>
+as <b>Monstrous Moonshine</b>, was a complete surprise and suggests deep,<br>
+underlying symmetries that are not yet fully understood.<br>
+</p>
+
+<p>
+<b><b>2. Number Theory</b></b><br>
+</p>
+
+<p>
+<b>Fermat&rsquo;s Last Theorem:</b><br>
+   Fermat&rsquo;s Last Theorem, which states that there are no positive integer<br>
+   solutions to the equation \(a^n + b^n = c^n\) for any integer value of \(n\)<br>
+   greater than 2, was a famous unsolved problem for centuries. Andrew<br>
+   Wiles&rsquo;s proof of this theorem relied heavily on the theory of elliptic<br>
+   curves and modular forms. The key idea was to show that every elliptic<br>
+   curve is modular, meaning it can be associated with a modular form.<br>
+</p>
+
+<p>
+<b>A Fun Example:</b><br>
+   Consider the series:<br>
+</p>
+
+<p>
+\[ \sum_{n=1}^\infty \frac{n^5}{1 + e^{n\pi}} \]<br>
+</p>
+
+<p>
+This series might seem daunting, but modular forms provide a surprising<br>
+result. Using properties of Eisenstein series and related modular forms,<br>
+one can show that the sum of the series, when only odd \(n\) are considered,<br>
+is:<br>
+</p>
+
+<p>
+\[ \sum_{n=1, n \text{ odd}}^\infty \frac{n^5}{1 + e^{n\pi}} = \frac{31}{504} \]<br>
+</p>
+
+<p>
+<b><b>3. The Langlands Program:</b></b><br>
+</p>
+
+<p>
+The Langlands program is a vast web of conjectures that connect different<br>
+areas of mathematics, including number theory, representation theory, and<br>
+algebraic geometry. Modular forms play a central role in this program, acting<br>
+as bridges between these seemingly disparate fields.<br>
+</p>
+
+<p>
+The central idea is that automorphic forms (a generalization of modular<br>
+forms) are related to Galois representations. Specifically, it postulates a<br>
+correspondence between:<br>
+</p>
+
+<ul class="org-ul">
+<li>Automorphic representations: These are representations of algebraic groups that arise from automorphic forms.<br></li>
+<li>Galois representations: These are representations of Galois groups, which encode symmetries of algebraic equations.<br></li>
+</ul>
+
+<p>
+For example, the modularity theorem can be seen as a special case of the<br>
+Langlands program, relating automorphic forms on \(GL_2\) to 2-dimensional<br>
+Galois representations.<br>
+</p>
+
+<p>
+This correspondence is often formulated using L-functions:<br>
+</p>
+
+<p>
+\[ L(s, \pi) = L(s, \rho) \]<br>
+</p>
+
+<p>
+where \(\pi\) is an automorphic representation and \(\rho\) is a Galois representation.<br>
+</p>
+
+<p>
+<b><b>4. Sphere Packing:</b></b><br>
+</p>
+
+<p>
+Modular forms also play a surprising role in the sphere-packing problem,<br>
+which asks how to arrange spheres in space so that they occupy the greatest<br>
+possible fraction of space.<br>
+</p>
+
+<p>
+<b>8 and 24 Dimensions:</b><br>
+  The optimal sphere packing in 8 dimensions is related to the \(E_8\) lattice,<br>
+  and in 24 dimensions, it&rsquo;s related to the Leech lattice. These lattices are<br>
+  extremely symmetric and have connections to modular forms. In 8 dimensions,<br>
+  the density of the optimal packing is \(\pi^4/384\). In 24 dimensions, the<br>
+  density is \(\pi^{12}/12!\).<br>
+</p>
+
+
+<p>
+Modular forms are more than just abstract mathematical constructs. As we<br>
+continue to explore these connections, we may uncover new insights.<br>
+</p>
+</div>
+</section>
+</main>
+<footer id="postamble" class="status">
+<p>Last updated 21 Mar. 2025. Built with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 27.2 (<a href="https://orgmode.org">Org</a> mode 9.4.4). <a href="/README.html">Details</a>.</p>
+</footer>
+</body>
+</html>
